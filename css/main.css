@@ -6089,7 +6089,7 @@ p.bold { font-weight: 600; }
 
 .btn--action:hover { color: #393b8f; background-color: #fff; }
 
-.field { -webkit-transition: 0.15s ease-in-out; -o-transition: 0.15s ease-in-out; transition: 0.15s ease-in-out; border: none; padding: 1.1rem 1.3rem; background: #FFFFFF; -webkit-box-shadow: 0px 7.41406px 18.5352px rgba(0, 0, 0, 0.05); box-shadow: 0px 7.41406px 18.5352px rgba(0, 0, 0, 0.05); -webkit-border-radius: 23.1689px; border-radius: 23.1689px; outline: none; -o-text-overflow: ellipsis; text-overflow: ellipsis; font-family: "Montserrat", sans-serif; width: 100%; text-transform: capitalize; color: #000000; font-size: 1.1rem; -webkit-appearance: none; font-weight: 600; }
+.field { -webkit-transition: 0.15s ease-in-out; -o-transition: 0.15s ease-in-out; transition: 0.15s ease-in-out; border: none; padding: 1.1rem 1.3rem; background: #FFFFFF; -webkit-box-shadow: 0px 7.41406px 18.5352px rgba(0, 0, 0, 0.05); box-shadow: 0px 7.41406px 18.5352px rgba(0, 0, 0, 0.05); -webkit-border-radius: 23.1689px; border-radius: 23.1689px; outline: none; -o-text-overflow: ellipsis; text-overflow: ellipsis; font-family: "Montserrat", sans-serif; width: 100%; color: #000000; font-size: 1.1rem; -webkit-appearance: none; font-weight: 600; }
 
 .field:disabled { pointer-events: none; opacity: 1; }
 
@@ -6341,7 +6341,9 @@ p.bold { font-weight: 600; }
 
 .popup-carsadd { border: 1px solid #393B8F; max-width: 31rem; width: 100%; }
 
-.popup-carsadd .field { margin: 1.5rem 0; -webkit-border-radius: 0; border-radius: 0; -webkit-box-shadow: none; box-shadow: none; padding: .5rem; border: 1px solid #393B8F; }
+.popup-carsadd .field { font-weight: 400; margin: 1.5rem 0; font-size: .8rem; -webkit-border-radius: 0; border-radius: 0; -webkit-box-shadow: none; box-shadow: none; padding: .5rem; border: 1px solid #393B8F; }
+
+.popup-carsadd .field + .field { margin-top: 0; }
 
 .popup-carsadd .btn-row { width: 100%; }
 

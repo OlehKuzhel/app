@@ -284,19 +284,21 @@ $('body').on('click', '.btn--archive', function(event) {
         });
 
     });
-
-$('.add_new').on('click', function(){
-    event.preventDefault();
-    // количество авто
-    $numbCars = $("name=autocol").val()
-    $.ajax({
-        url: "http://44.j2landing.com/admin/containers/create",
-        type: "GET",
-        success: function (data) {
-            console.log(data);
-            $('.categorys tbody').prepend(data);
-        }
+$('.form-add').submit(function(event) {
+        var _form = $(this);
+        var th = _form.serialize();
+        var form_url = _form.attr('action');
+        $.ajax({
+            type: "POST",
+            url: form_url,
+            data: th,
+            success: function(data) {
+                    _form.trigger("reset");
+                    // $('.table tbody').prepend(data);
+                    console.log('adssadsad')
+            }
+        });
+        event.preventDefault();
     });
-});
 
 });

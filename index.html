@@ -748,12 +748,15 @@
          <div class="popup-side">
             <div class="popup-content">
                <p class="paragraph paragraph--answer">
-                  Сколько авто в контейнере?
+                  Добавление контейнера
                </p>
-               <input type="number" name="autocol" class="field" value="1">
-               <div class="btn-row">
-                  <a href="#" class="btn btn--popup add_new">Добавить</a>
-               </div>
+               <form action="http://44.j2landing.com/admin/containers/create" class="form-add">
+                  <input type="text" required name="container_number_popup" class="field" placeholder="Введите номер контейнера">
+                  <input type="number" required name="auto_len" class="field" placeholder="Введите количество авто">
+                  <div class="btn-row">
+                     <button type="submit" class="btn btn--popup ">Добавить</button>
+                  </div>
+               </form>
             </div>
          </div>
       </div>
