@@ -59,21 +59,21 @@ $(document).ready(function($) {
         touch: false,
         baseClass: "modal",
         hideScrollbar: true,
+        // btnTpl: {
+        //     smallBtn: '',
+
+        // },
         btnTpl: {
-            smallBtn: '',
+            smallBtn: '<button type="button" data-fancybox-close class="fancybox-button fancybox-close-small" >' +
+                '<svg viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">' +
+  '<path d="M17.57-.107l3.536 3.535L3.43 21.106l-3.536-3.535z"/>' +
+  '<g>' +
+   '<path d="M3.491-.013L-.013 3.49l17.521 17.521 3.505-3.504z"/>' +
+  '</g>' +
+'</svg>' +
+                "</button>",
 
         },
-//         btnTpl: {
-//             smallBtn: '<button type="button" data-fancybox-close class="fancybox-button fancybox-close-small" title="{{CLOSE}}">' +
-//                 '<svg viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">' +
-//   '<path d="M17.57-.107l3.536 3.535L3.43 21.106l-3.536-3.535z"/>' +
-//   '<g>' +
-//    '<path d="M3.491-.013L-.013 3.49l17.521 17.521 3.505-3.504z"/>' +
-//   '</g>' +
-// '</svg>' +
-//                 "</button>",
-
-//         },
     }
     $('body').on('click', '.fancybtn', function(event) {
         popup = $(this).data('popup')
@@ -86,16 +86,33 @@ $(document).ready(function($) {
         return false
     });
 
+    if ($('body').hasClass('not-login')) {
+        // popup = '#login'
+        //     // popup = '#thanks'
+        //     $.fancybox.open({
+        //         src: popup,
+        //         type: 'inline',
+        //         opts: opnsFancy,
+        //     });
+    }
+
+    $('.link--showpass').click(function(){
+        $passField = $(this).parent().find('input')
+            var type = $passField.attr('type') == "text" ? "password" : 'text';
+            $(this).toggleClass('active');
+            $passField.prop('type', type);
+        });
+
      
   
-    $('.dropdown').on('click', function(event) {
-        event.preventDefault();
-        /* Act on the event */
-        $('.header-menu__btn').not($(this).parent()).removeClass('active')
-        $(this).parent().toggleClass('active')
-        // $(this).parent().siblings().find('.header-dropdown, .header-menu__admin').hide()
-        // $(this).parent().find('.header-dropdown').toggle()
-    });
+    // $('.dropdown').on('click', function(event) {
+    //     event.preventDefault();
+    //     /* Act on the event */
+    //     $('.header-menu__btn').not($(this).parent()).removeClass('active')
+    //     $(this).parent().toggleClass('active')
+    //     // $(this).parent().siblings().find('.header-dropdown, .header-menu__admin').hide()
+    //     // $(this).parent().find('.header-dropdown').toggle()
+    // });
 
     $('.dropdown-admin').on('click', function(event) {
         event.preventDefault();
@@ -140,6 +157,7 @@ $(document).ready(function($) {
       // showOtherMonths: false,
   })
 
+
 $('body').on('click', '.link--open', function(event) {
     event.preventDefault();
     $(this).toggleClass('active');
@@ -147,17 +165,15 @@ $('body').on('click', '.link--open', function(event) {
     $tr = $(this).parents('tr')
     $tr.nextUntil('.view').children('td').toggle();
     if ($(this).hasClass('active')) {
-        $tr.nextUntil('.view').find('select').styler();
+        // $tr.nextUntil('.view').find('select').styler('destroy');
+        // $tr.nextUntil('.view').find('select').styler();
     } else {
-        $tr.nextUntil('.view').find('select').styler('destroy');
+        // $tr.nextUntil('.view').find('select').styler('destroy');
     }
     
 });
 
-if (!$('.table').hasClass('table-main')) {
-    $('select').styler()
-}
-
+// $('select').styler()
 $('body').on('click', '.editing', function(event) {
     event.preventDefault();
     $('tr').removeClass('edit')
@@ -165,21 +181,21 @@ $('body').on('click', '.editing', function(event) {
     $trEdit.addClass('edit')
     $trEdit.find('.field--edit:not(:disabled, .readonly)').eq(0).focus()
 });
-// $(document).click(function(e) {
-//         console.log('dasasd')
-//         if ($('tr').hasClass('edit')) {
-//             var $trCheck = $("body tr.edit, .modal");
-//             if ($trCheck.has(e.target).length === 0) {
-//                 popup = '#wrong'
-//                 $.fancybox.open({
-//                     src: popup,
-//                     type: 'inline',
-//                     opts: opnsFancy,
-//                 });
-//             }
-//         }
+$('table').click(function(e) {
+        console.log('dasasd')
+        if ($('tr').hasClass('edit')) {
+            var $trCheck = $("body tr.edit, .modal");
+            if ($trCheck.has(e.target).length === 0) {
+                popup = '#wrong'
+                $.fancybox.open({
+                    src: popup,
+                    type: 'inline',
+                    opts: opnsFancy,
+                });
+            }
+        }
         
-//     });
+    });
 
 $(window).bind("beforeunload", function() { 
     // if ($('tr').hasClass('edit')) {
@@ -191,8 +207,9 @@ $(window).bind("beforeunload", function() {
 $('body').on('focus', '.field--edit', function(event) {
     event.preventDefault();
     // $('tr').removeClass('edit')
-    // $trAll = $(this).parents('tbody').find('tr').not($(this).parents('tr'))
-    // $trAll.addClass('close')
+    $trAll = $(this).parents('tbody').find('tr').not($(this).parents('tr'))
+    // $trAll.find('.field').attr('readonly','readonly')
+    $trAll.addClass('close')
     $trField = $(this).parents('tr')
 
     // if ($trField.hasClass('edit')) {
@@ -228,8 +245,9 @@ $('body').on('focus', '.field--edit', function(event) {
 $('body').on('click', '.disable', function(event) {
     event.preventDefault();
     $.fancybox.close()
-    $trEdit = $(this).parents('tr')
-    $trEdit.removeClass('edit')
+    $('tr').removeClass('close')
+    $trEdit = $('tr.edit')
+    $trEdit.removeClass('edit red green')
     $trEdit.find('.field--edit:focus').blur()
 });
 
@@ -239,6 +257,7 @@ $('body').on('click', '.btn--pick', function(event) {
     $trBg = $(this).parents('tr')
     $trBg.removeClass('red gray green')
     $trBg.addClass($bgP)
+    // $trBg.attr('data-savebg', $bgP)
     $('.btn--pick').removeClass('active')
     $(this).addClass('active')
 });
@@ -247,18 +266,28 @@ $('body').on('click', '.btn--pick', function(event) {
     
     $('body').on('click', '.save', function(event) {
         event.preventDefault();
-        $trSave = $(this).parents('tr')
+        var _this = $(this);
+        var url = $(this).parents('tr').find('form').data('url');
+        $trSave = $('tr.edit')
+        // $trBg.attr('data-savebg', $bgP)
         $data = $trSave.find('.field--edit').serialize()
 
         $.ajax({
             type: "POST",
-            url: 'send.php', // впишешь путь
+            url: url, // впишешь путь
             data: $data,
             success: function(data) {
-                console.log('ok');
+                // console.log('ok');
+                $('tr').removeClass('close')
                 $trSave.removeClass('edit')
                 $.fancybox.close()
+                if(_this.parents('tr').find('form').data('table_name')=="users_table")
+                {
+                    var _this_table = $(_this).parents('table');
+                    $(_this).parents('tr').remove();
 
+                    $(_this_table).find('tbody').prepend(data);
+                }
             }
         });
 
@@ -270,11 +299,12 @@ $('body').on('click', '.btn--pick', function(event) {
 
 $('body').on('click', '.btn--archive', function(event) {
         event.preventDefault();
+        var url= $(this).data('url');
         $trSave = $(this).parents('tr')
         $data = $trSave.find('.field').serialize()
         $.ajax({
-            type: "POST",
-            url: 'send.php', // впишешь путь
+            type: "GET",
+            url: url, // впишешь путь
             data: $data,
             success: function(data) {
                 $trSave.remove()
@@ -284,6 +314,49 @@ $('body').on('click', '.btn--archive', function(event) {
         });
 
     });
+
+$('body').on('click', '.custom-select-wrapper', function(event) {
+    $('.custom-select-wrapper').not(this).find('.custom-select').removeClass('open')
+    $(this).find('.custom-select').toggleClass('open');
+});
+$('body').on('click', '.custom-option', function(event) {
+    if (!$(this).hasClass('selected')) {
+          $(this).parent().find('.selected').removeClass('selected')
+          $(this).addClass('selected')
+          $(this).closest('.custom-select').find('.custom-select__trigger input').val($(this).text()).attr('data-valuefield',$(this).data('value'))
+    }
+});
+$(window).on('click',  function(event) {
+    $select = $('.custom-select')
+    if ($select.has(event.target).length === 0) {
+        $select.removeClass('open');
+    }
+});
+
+$('.select-input').each(function(index, el) {
+    if ($(el).val().length > 0) {
+        $thisVal = $(el).data('valuefield')
+        // console.log($thisVal)
+        $select = $(el).parents('.custom-select-wrapper').find('.custom-options')
+        $selected = $select.find('[data-value='+$thisVal+']')
+        $selected.addClass('selected')
+        $selectedText = $selected.text()
+        $(el).parent().find('.custom-select__trigger span').text($selectedText)
+    }
+    
+});
+
+// if ($('.select-input').val().length) {
+//     $thisVal = $('.select-input').val()
+//     $select = $('.select-input').parent().find('.custom-select-wrapper')
+//     console.log($thisVal)
+//     // $selected = $select.find('[data-value='+$thisVal+']')
+//     // $selected.addClass('selected')
+//     // $selectedText = $selected.text()
+//     // $('.custom-select__trigger span').text($selectedText)
+// }
+
+
 $('.form-add').submit(function(event) {
         var _form = $(this);
         var th = _form.serialize();
@@ -294,11 +367,108 @@ $('.form-add').submit(function(event) {
             data: th,
             success: function(data) {
                     _form.trigger("reset");
-                    // $('.table tbody').prepend(data);
-                    console.log('adssadsad')
+                    // $('select').styler('destroy');
+                    $('.table tbody').prepend(data);
+                    $( ".date" ).datepicker("refresh");
+                    // $('select').styler();
+                    $.fancybox.close();
             }
         });
         event.preventDefault();
     });
+
+$('.content-top__container').submit(function(event) {
+        var _form = $(this);
+        var th = _form.serialize();
+        var form_url = _form.attr('action');
+        if (_form.hasClass('filtered')) {
+            // убрать фильтр по номеру контейнера
+            $.ajax({
+                type: "POST",
+                url: 'пропишешь путь для удаления',
+                data: th,
+                success: function(data) {
+                        _form.removeClass('filtered')
+                        // не знаю что тебе в data приходит, пропишешь свое
+                        $('.table tbody').empty()
+                        $('.table tbody').prepend(data);
+                        // console.log(data)
+                }
+            });
+        } else {
+
+            //поиск по номеру контейнера
+
+            $.ajax({
+            type: "POST",
+            url: 'http://44.j2landing.com/admin/containers/find_container',
+            data: th,
+            success: function(data) {
+                if (data == 'значение если нет номера впишешь') {
+                    $.fancybox.open({
+                        src: '#noid',
+                        type: 'inline',
+                        opts: opnsFancy,
+                    });
+                } else {
+                    _form.addClass('filtered')
+                    // не знаю что тебе в data приходит, пропишешь свое
+                    $('.table tbody').empty()
+                    $('.table tbody').prepend(data);
+                }
+            }
+        });
+        }
+        
+        event.preventDefault();
+    });
+// поиск по вину
+$('.content-top__vin').submit(function(event) {
+        var _form = $(this);
+        var th = _form.serialize();
+        var form_url = _form.attr('action');
+        if (_form.hasClass('filtered')) {
+            // убрать фильтр по вину
+            $.ajax({
+                type: "POST",
+                url: 'пропишешь путь для удаления',
+                data: th,
+                success: function(data) {
+                        _form.removeClass('filtered')
+                        // не знаю что тебе в data приходит, пропишешь свое
+                        $('.table tbody').empty()
+                        $('.table tbody').prepend(data);
+                        // console.log(data)
+                }
+            });
+        } else {
+
+            //поиск по вину
+
+            $.ajax({
+            type: "POST",
+            url: 'http://44.j2landing.com/admin/containers/find_vin',
+            data: th,
+            success: function(data) {
+                if (data == 'значение если нет номера впишешь') {
+                    $.fancybox.open({
+                        src: '#noid',
+                        type: 'inline',
+                        opts: opnsFancy,
+                    });
+                } else {
+                    _form.addClass('filtered')
+                    // не знаю что тебе в data приходит, пропишешь свое
+                    $('.table tbody').empty()
+                    $('.table tbody').prepend(data);
+                }
+                    
+            }
+        });
+        }
+        
+        event.preventDefault();
+    });
+
 
 });
