@@ -430,7 +430,7 @@ $('.content-top__container').submit(function(event) {
             url: 'containers/find_container',
             data: th,
             success: function(data) {
-                if (data == 'значение если нет номера впишешь') {
+                if (data == '0') {
                     $.fancybox.open({
                         src: '#noid',
                         type: 'inline',
@@ -478,7 +478,7 @@ $('.content-top__vin').submit(function(event) {
             url: 'containers/find_vin',
             data: th,
             success: function(data) {
-                if (data == 'значение если нет номера впишешь') {
+                if (data == '0') {
                     $.fancybox.open({
                         src: '#noid',
                         type: 'inline',
