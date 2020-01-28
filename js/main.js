@@ -182,7 +182,6 @@ $('body').on('click', '.editing', function(event) {
     $trEdit.find('.field--edit:not(:disabled, .readonly)').eq(0).focus()
 });
 $('table').click(function(e) {
-        console.log('dasasd')
         if ($('tr').hasClass('edit')) {
             var $trCheck = $("body tr.edit, .modal");
             if ($trCheck.has(e.target).length === 0) {
@@ -247,7 +246,8 @@ $('body').on('click', '.disable', function(event) {
     $.fancybox.close()
     $('tr').removeClass('close')
     $trEdit = $('tr.edit')
-    $trEdit.removeClass('edit red green')
+    $('.btn--pick').removeClass('active')
+    $trEdit.removeClass('edit red green forestgreen')
     $trEdit.find('.field--edit:focus').blur()
 });
 
@@ -255,7 +255,7 @@ $('body').on('click', '.btn--pick', function(event) {
     event.preventDefault();
     $bgP = $(this).data('bg')
     $trBg = $(this).parents('tr')
-    $trBg.removeClass('red gray green')
+    $trBg.removeClass('red gray green forestgreen')
     $trBg.addClass($bgP)
     // $trBg.attr('data-savebg', $bgP)
     $('.btn--pick').removeClass('active')
@@ -270,8 +270,15 @@ $('body').on('click', '.btn--pick', function(event) {
         var url = $(this).parents('tr').find('form').data('url');
         $trSave = $('tr.edit')
         // $trBg.attr('data-savebg', $bgP)
-        $data = $trSave.find('.field--edit').serialize()
-
+        $datanSelect = $trSave.find('.field--edit:not(.select-input)').serialize()
+        $dataSelect = $trSave.find('.field--edit.select-input')
+        $selectArr = []
+        $dataSelect.each(function(index, el) {
+            value = $(el).attr('name')+'='+$(el).attr('data-valuefield')+'&'
+            $selectArr.push(value)
+        });
+        $data =  $selectArr.join('') + $datanSelect
+        // console.log($data)
         $.ajax({
             type: "POST",
             url: url, // впишешь путь
@@ -309,6 +316,24 @@ $('body').on('click', '.btn--archive', function(event) {
             success: function(data) {
                 $trSave.remove()
                 console.log('заархивировано')
+
+            }
+        });
+
+    });
+
+ $('body').on('click', '.btn--backarсhive', function(event) {
+        event.preventDefault();
+        var url= $(this).data('url');
+        $trSave = $(this).parents('tr')
+        $data = $trSave.find('.field').serialize()
+        $.ajax({
+            type: "GET",
+            url: url, // впишешь путь
+            data: $data,
+            success: function(data) {
+                $trSave.remove()
+                console.log('разархивировано')
 
             }
         });
