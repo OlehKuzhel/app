@@ -6331,6 +6331,10 @@ p.bold { font-weight: 600; }
 
 .section-content .content-table .table-sec tbody tr.edit td { background: rgba(250, 195, 55, 0.3); }
 
+.section-content .content-table .table-add__select { padding: .5rem 0; }
+
+.section-content .content-table .table-add__select:nth-child(even) { background: #F4F4F4; }
+
 .section-content .content-table .table-add tr td { padding: 0; }
 
 .section-content .content-table .table-add tr td:nth-child(1) { padding: .5rem 0; vertical-align: top; }
@@ -6342,6 +6346,8 @@ p.bold { font-weight: 600; }
 .section-content .content-table .table-add tr td:last-child .link--disable { top: 34%; }
 
 .section-content .content-table .table-add tbody tr:nth-child(even) td { background: #fff; }
+
+.section-content .content-table .table-add tbody tr.edit td .table-add__select:nth-child(even) { background: transparent; }
 
 .section-content .content-table .table-add tbody tr.edit td { background: rgba(250, 195, 55, 0.3); }
 
