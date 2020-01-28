@@ -6397,6 +6397,10 @@ p.bold { font-weight: 600; }
 
 .section-content .content-table table tr td { position: relative; background: #FFFFFF; padding: .5rem 0; border: 1px solid #E7E7E7; font-size: .8rem; line-height: 1rem; color: #000; }
 
+.section-content .content-table table tr td.two-check:after { position: absolute; top: .5rem; right: .5rem; content: ''; width: 1.2rem; height: 1.2rem; background: url(../img/checktwo.svg) no-repeat center center; -webkit-background-size: contain; background-size: contain; }
+
+.section-content .content-table table tr td.one-check:after { position: absolute; top: .5rem; right: .5rem; content: ''; width: 1rem; height: 1rem; background: url(../img/checkone.svg) no-repeat center center; -webkit-background-size: contain; background-size: contain; }
+
 .section-content .content-table table tr td .bg-pick { display: none; position: absolute; top: 50%; z-index: 2; left: 100%; margin-left: 1.5rem; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); }
 
 .section-content .content-table table tr td .bg-pick .btn { margin-bottom: .5rem; }
