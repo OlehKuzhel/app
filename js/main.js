@@ -506,4 +506,18 @@ $('.content-top__vin').submit(function(event) {
         $(this).toggleClass('active').parents('.filter').toggleClass('open')
     });
 
+
+    $('.btn--work').on('click', function(event) {
+        event.preventDefault();
+        $thisTd = $(this).parents('tr').find('td').eq(0)
+        $thisTd.removeClass('two-check')
+        $thisTd.toggleClass('one-check')
+    });
+    $('.btn--rass').on('click', function(event) {
+        event.preventDefault();
+        $thisTd = $(this).parents('tr').find('td').eq(0)
+        $thisTd.removeClass('one-check')
+        $thisTd.toggleClass('two-check')
+    });
+
 });

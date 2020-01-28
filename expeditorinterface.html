@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang=ru>
+   <head>
+      <meta charset=UTF-8>
+      <title>VS Brothers - UA</title>
+      <meta content=ru http-equiv=content-language>
+      <meta content="VS Brothers - UA" name=description>
+      <meta content="VS Brothers - UA" name=keywords>
+      <meta content="VS Brothers - UA" property=og:title>
+      <meta content=website property=og:type>
+      <meta content=img/title.jpg property=og:image>
+      <meta content="VS Brothers - UA" property=og:description>
+      <meta content="width=device-width,user-scalable=no"name=viewport id=viewport>
+      <link href=favicon.ico rel="shortcut icon"type=image/x-icon>
+      <link href="css/main.css" rel="stylesheet">
+      <link href="css/media.css" rel="stylesheet">
+   </head>
+   <body>
+      <!-- добавишь класс not-login если не вошел -->
+      <header class="section section-header">
+         <div class="wrapper">
+            <div class="header">
+               <a href="/" class="link link--logo"><img src="img/logo.png" alt=""></a>
+               <div class="header-menu">
+                  <div class="header-menu__btn">
+                     <a href="#" class="link link--menu dropdown">
+                        <span>ОТКРЫТЬ</span>
+                        <svg viewBox="0 0 6 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M2.867 4.803L.46.633h4.816l-2.408 4.17z" fill="#fff"/>
+                        </svg>
+                     </a>
+                     <ul class="header-dropdown">
+                        <li>
+                           <a href="#" class="link link--dropdown">Контент менеджер</a>
+                        </li>
+                        <li>
+                           <a href="#" class="link link--dropdown">Бухгалтер</a>
+                        </li>
+                        <li>
+                           <a href="#" class="link link--dropdown">Экспедитор</a>
+                        </li>
+                        <li>
+                           <a href="#" class="link link--dropdown">Транзацкии</a>
+                        </li>
+                        <li>
+                           <a href="#" class="link link--dropdown">Диллер</a>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="header-menu__btn ">
+                     <a href="#" class="link link--menu dropdown">
+                        <span>АРХИВ</span>
+                        <svg viewBox="0 0 6 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M2.867 4.803L.46.633h4.816l-2.408 4.17z" fill="#fff"/>
+                        </svg>
+                     </a>
+                     <ul class="header-dropdown">
+                        <li>
+                           <a href="#" class="link link--dropdown">Контент менеджер</a>
+                        </li>
+                        <li>
+                           <a href="#" class="link link--dropdown">Бухгалтер</a>
+                        </li>
+                        <li>
+                           <a href="#" class="link link--dropdown">Экспедитор</a>
+                        </li>
+                        <li>
+                           <a href="#" class="link link--dropdown">Транзацкии</a>
+                        </li>
+                        <li>
+                           <a href="#" class="link link--dropdown">Диллер</a>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="header-menu__btn">
+                     <a href="#" class="link link--menu dropdown-admin">
+                        <span>ЛИЧНЫЙ КАБИНЕТ</span>
+                        <svg viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M6.693 7.9c1.752 0 3.172-1.725 3.172-3.853S9.398.194 6.693.194C3.987.194 3.52 1.92 3.52 4.047S4.94 7.9 6.693 7.9zM12.677 13.626c-.059-3.706-.543-4.762-4.247-5.43 0 0-.522.664-1.737.664-1.216 0-1.737-.665-1.737-.665C1.292 8.856.778 9.897.71 13.506c-.006.295-.008.31-.01.276l.001.39s.882 1.777 5.99 1.777c5.11 0 5.991-1.778 5.991-1.778v-.288a2.359 2.359 0 01-.006-.257z" fill="#fff"/>
+                        </svg>
+                     </a>
+                     <div class="header-menu__admin">
+                        <p class="paragraph paragraph--aemail">
+                           mailfortalkmailfortalk@gmail.com
+                        </p>
+                        <button class="btn btn--exit fancybtn" data-popup="#check" >
+                        ВЫЙТИ
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+      <section class="section section-content">
+         <div class="wrapper">
+            <div class="content-top">
+               <div class="content-top__field">
+                  <form class="form form-filter content-top__container" method="post">
+                     <input type="hidden" value="cxTIqPBSwSIoG6WpJP889qAknH5skCjfp0a6Slwd" name="_token">
+                     <input type="text" required class="field" placeholder="Container" name="container" value="">
+                     <button class="btn btn--filter" type="submit">
+                        <svg class="search-svg" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M11.905 10.599L9.164 7.765a4.589 4.589 0 001.09-2.97c0-2.548-2.086-4.621-4.65-4.621-2.564 0-4.65 2.073-4.65 4.62 0 2.549 2.086 4.622 4.65 4.622.963 0 1.88-.289 2.664-.836l2.763 2.854a.605.605 0 00.857.017.6.6 0 00.017-.852zm-6.301-9.22c1.895 0 3.437 1.532 3.437 3.416 0 1.883-1.542 3.415-3.437 3.415-1.896 0-3.438-1.532-3.438-3.415 0-1.884 1.542-3.416 3.438-3.416z" fill="#929292"/>
+                        </svg>
+                        <svg class="close-svg" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M7.357 1.818L5.175 4l2.182 2.182a.83.83 0 01-1.175 1.175L4 5.175 1.818 7.357a.828.828 0 01-1.175 0 .83.83 0 010-1.175L2.825 4 .643 1.818A.83.83 0 011.818.643L4 2.825 6.182.643a.83.83 0 011.175 1.175z" fill="#D60E13"/>
+                        </svg>
+                     </button>
+                  </form>
+                  <form class="form form-filter content-top__vin" method="post">
+                     <input type="text" required class="field" placeholder="VIN number" name="vin" value="">
+                     <input type="hidden" value="cxTIqPBSwSIoG6WpJP889qAknH5skCjfp0a6Slwd" name="_token">
+                     <button class="btn btn--filter" type="submit">
+                        <svg class="search-svg" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M11.905 10.599L9.164 7.765a4.589 4.589 0 001.09-2.97c0-2.548-2.086-4.621-4.65-4.621-2.564 0-4.65 2.073-4.65 4.62 0 2.549 2.086 4.622 4.65 4.622.963 0 1.88-.289 2.664-.836l2.763 2.854a.605.605 0 00.857.017.6.6 0 00.017-.852zm-6.301-9.22c1.895 0 3.437 1.532 3.437 3.416 0 1.883-1.542 3.415-3.437 3.415-1.896 0-3.438-1.532-3.438-3.415 0-1.884 1.542-3.416 3.438-3.416z" fill="#929292"/>
+                        </svg>
+                        <svg class="close-svg" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M7.357 1.818L5.175 4l2.182 2.182a.83.83 0 01-1.175 1.175L4 5.175 1.818 7.357a.828.828 0 01-1.175 0 .83.83 0 010-1.175L2.825 4 .643 1.818A.83.83 0 011.818.643L4 2.825 6.182.643a.83.83 0 011.175 1.175z" fill="#D60E13"/>
+                        </svg>
+                     </button>
+                  </form>
+               </div>
+               <a href="#" class="link link--add fancybtn" data-popup="#carsadd">
+                  <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M10.929 4.929H7.286a.214.214 0 01-.215-.215V1.071a1.071 1.071 0 00-2.142 0v3.643a.214.214 0 01-.215.215H1.071a1.071 1.071 0 000 2.142h3.643c.119 0 .215.096.215.215v3.643a1.071 1.071 0 002.142 0V7.286c0-.119.096-.215.215-.215h3.643a1.071 1.071 0 000-2.142z" fill="#393B8F"/>
+                  </svg>
+                  <span>
+                  Добавить
+                  </span>
+               </a>
+            </div>
+            <div class="content-table">
+               <div class="table table-main">
+                  <table cellspacing="0" cellpadding="0">
+                     <thead>
+                        <tr>
+                           <th class="table-container">
+                              <p>Container #</p>
+                           </th>
+                           <th class="table-date">
+                              <p>Дата<br> прибытия</p>
+                           </th>
+                           <th class="table-vin">
+                              <p>VIN number</p>
+                           </th>
+                           <th class="table-expeditor">
+                              <p>Name of
+                                 expeditor 
+                              </p>
+                              <div class="custom-select-wrapper"></div>
+                           </th>
+                           <th class="table-rel">
+                              <p>Релиз
+                                 заказан
+                              </p>
+                              <div class="custom-select-wrapper"></div>
+                           </th>
+                           <th class="table-back">
+                              <p>Релиз
+                                 получен
+                              </p>
+                              <div class="custom-select-wrapper"></div>
+                           </th>
+                           <th class="table-kiev">
+                              <p>Документы
+                                 доставки
+                                 в Киеве
+                              </p>
+                              <div class="custom-select-wrapper"></div>
+                           </th>
+                           <th class="table-pdd">
+                              <p>Документы
+                                 доставки
+                                 в Одессе
+                              </p>
+                              <div class="custom-select-wrapper"></div>
+                           </th>
+                           <th class="table-give">
+                              <p>Передача
+                                 машины
+                                 владельцу
+                              </p>
+                              <div class="custom-select-wrapper"></div>
+                           </th>
+                           <th class="table-go">
+                              <p>Машина
+                                 выдана
+                                 владельцу
+                              </p>
+                              <div class="custom-select-wrapper"></div>
+                           </th>
+                           <th class="table-brok">
+                              <p>Expedirovanie + Brokerskie</p>
+                           </th>
+                           <th class="table-summa">
+                              <p>Остаток
+                                 баланса
+                              </p>
+                           </th>
+                           <th class="table-combuh">
+                              <p>Комментарий
+                                 бухгалтера
+                              </p>
+                           </th>
+                           <th class="table-comadmin">
+                              <p>Комментарий
+                                 админа
+                              </p>
+                           </th>
+                           <th class="table-btn">
+                              <a href="#" class="link link--empty">
+                                 <svg viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.357 1.818L5.175 4l2.182 2.182a.83.83 0 01-1.175 1.175L4 5.175 1.818 7.357a.828.828 0 01-1.175 0 .83.83 0 010-1.175L2.825 4 .643 1.818A.83.83 0 011.818.643L4 2.825 6.182.643a.83.83 0 011.175 1.175z" fill="#D60E13"/>
+                                 </svg>
+                              </a>
+                           </th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr class="view" data-savebg="green" data-container_id="16">
+                           <td>
+                              <a href="#" class="link link--open">
+                                 <svg viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.95251 2.93646H5.00031H3.23506H1.28286C0.803238 2.93646 0.410645 3.35943 0.410645 3.86322C0.410645 4.36701 0.803238 4.78998 1.28286 4.78998H3.23506H5.00031H6.95251C7.43213 4.78998 7.82472 4.36701 7.82472 3.86322C7.82472 3.35943 7.43213 2.93646 6.95251 2.93646Z" fill="#393B8F"/>
+                                    <path d="M3.19092 1.02839L3.19092 2.98058L3.19092 4.74584L3.19092 6.69804C3.19092 7.17766 3.61389 7.57025 4.11768 7.57025C4.62146 7.57025 5.04443 7.17766 5.04443 6.69804L5.04443 4.74584L5.04443 2.98058L5.04443 1.02839C5.04443 0.548767 4.62146 0.156173 4.11768 0.156173C3.61389 0.156173 3.19092 0.548767 3.19092 1.02839Z" fill="#393B8F"/>
+                                 </svg>
+                              </a>
+                              <form method="POST" action="http://44.j2landing.com/admin/containers-update-subsection/16" accept-charset="UTF-8" data-url="http://44.j2landing.com/admin/containers-update-subsection/16" class="" enctype="multipart/form-data"><input name="_token" type="hidden" value="zwjzMfYBlu3I9Etb3CuODKZar9AVIKX8SoN5fMZ5">
+                                 <input type="text" class="field field--edit bl tc" value="WAUCFAFR8DA337661" name="container_number">
+                              </form>
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date bl tc" value="26.06.2019" placeholder="Дата">
+                           </td>
+                           <td>
+                              <input type="text" name="vin_num" disabled="disabled" class="field field--edit tc" value="1 шт.">
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper">
+                                 <div class="custom-select">
+                                    <div class="custom-select__trigger ">
+                                       <input type="text" readonly="" data-valuefield="51" class="field field--edit select-input" name="user_id" placeholder="Выберите экспедитора" value="Экспедитор" form="container_form16">
+                                       <div class="arrow"></div>
+                                    </div>
+                                    <div class="custom-options">
+                                       <span class="custom-option" data-value="56">Вася Пупкин</span>
+                                       <span class="custom-option" data-value="41">mailfortalk@gmail.com</span>
+                                       <span class="custom-option" data-value="45">forwarder</span>
+                                       <span class="custom-option" data-value="49">test</span>
+                                       <span class="custom-option" data-value="51">Экспедитор</span>
+                                       <span class="custom-option" data-value="52">Василий Петрович</span>
+                                       <span class="custom-option" data-value="55">Андрей</span>
+                                       <span class="custom-option" data-value="59">geerger</span>
+                                       <span class="custom-option" data-value="60">egrgeer</span>
+                                       <span class="custom-option" data-value="61">ffwefwe</span>
+                                       <span class="custom-option" data-value="68">forwarder_created_by_manager</span>
+                                       <span class="custom-option" data-value="72">test43</span>
+                                       <span class="custom-option" data-value="74">Test</span>
+                                       <span class="custom-option" data-value="75">test booker created by booker</span>
+                                       <span class="custom-option" data-value="76">tes booker 3</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                           </td>
+                           <td>
+                           </td>
+                           <td>
+                              <input type="text" disabled="disabled" class="field field--edit  tc" value="0/1">
+                           </td>
+                           <td>
+                              <input type="text" disabled="disabled" class="field field--edit tc" value="0/1">
+                           </td>
+                           <td>
+                              <input type="text" disabled="disabled" class="field field--edit tc" value="0/1">
+                           </td>
+                           <td>
+                              <input type="text" disabled="disabled" class="field field--edit tc" value="0/1">
+                           </td>
+                           <td>
+                           </td>
+                           <td>
+                              <input type="text" disabled="disabled" class="field field--edit tc" value="2400">
+                           </td>
+                           <td>
+                              <textarea name="booker_comment" class="field field--edit field--text">Оформили клиенту</textarea>
+                           </td>
+                           <td>
+                              <textarea placeholder="Введите" name="admin_comment" class="field field--edit field--text"></textarea>
+                           </td>
+                           <td>
+                              <a href="#" class="btn btn--work work">
+                                 <svg viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0)">
+                                       <path d="M4.444 7.549a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478l1.364 1.364c.103.103.27.103.373 0l3.695-3.694a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
+                                    </g>
+                                    <defs>
+                                       <clipPath id="clip0">
+                                          <path fill="#fff" d="M.37 0h9v9h-9z"/>
+                                       </clipPath>
+                                    </defs>
+                                 </svg>
+                              </a>
+                              <a href="#" class="btn btn--rass rass">
+                                 <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.444 6.404a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478L5.518 4c.103.103.27.103.373 0L9.586.306a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
+                                    <path d="M3.612 10.612h0a1.545 1.545 0 002.185 0l4.62-4.62a1.545 1.545 0 00-2.185-2.185s0 0 0 0L4.705 7.336 3.507 6.138s0 0 0 0a1.545 1.545 0 00-2.185 0s0 0 0 0l2.29 4.474zm0 0l-2.29-2.29 2.29 2.29z" fill="#4E9734" stroke="#fff"/>
+                                 </svg>
+                              </a>
+                              <a href="#" class="btn btn--edit editing">
+                                 <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.983 2.107l2.073 2.07L3.807 9.42 1.735 7.349l5.248-5.242zm3.647-.5L9.705.684a.919.919 0 00-1.296 0l-.886.884L9.597 3.64l1.033-1.032a.705.705 0 000-1zM.65 10.26a.236.236 0 00.285.28l2.31-.56-2.072-2.07-.524 2.35z" fill="#676767"/>
+                                 </svg>
+                              </a>
+                              <a href="#" class="btn btn--save save">
+                                 <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.76 2.217h4.48a.243.243 0 00.243-.243V0H3.517v1.974c0 .134.108.243.243.243z" fill="#4E9734"/>
+                                    <path d="M11.813 3.018L9.285.478v1.496c0 .575-.468 1.043-1.043 1.043H3.76a1.044 1.044 0 01-1.042-1.043V0H1.102C.494 0 .001.493.001 1.1v9.8c0 .607.493 1.1 1.101 1.1H10.9c.608 0 1.1-.493 1.1-1.1V3.471a.642.642 0 00-.187-.454zm-1.679 6.457a.643.643 0 01-.643.643h-6.98a.643.643 0 01-.643-.643v-3.35c0-.355.287-.643.642-.643h6.981c.356 0 .643.288.643.643v3.35z" fill="#4E9734"/>
+                                    <path d="M8.758 6.514H3.242a.4.4 0 100 .8h5.516a.4.4 0 100-.8zM7.958 8.114H4.042a.4.4 0 100 .8h3.916a.4.4 0 000-.8z" fill="#4E9734"/>
+                                 </svg>
+                              </a>
+                           </td>
+                        </tr>
+                        <tr class="fold" data-vin_id="16-36">
+                           <td>
+                              <form method="POST" action="http://44.j2landing.com/admin/containers/36" accept-charset="UTF-8" data-url="http://44.j2landing.com/admin/containers/36" class=""  enctype="multipart/form-data"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="zwjzMfYBlu3I9Etb3CuODKZar9AVIKX8SoN5fMZ5">
+                                 <input type="input" class="field field--edit bl" value="WAUCFAFR8DA337661" name="container_number" disabled>
+                              </form>
+                           </td>
+                           <td>
+                              <input type="text" form="vin_form36"  class="field field--edit date tc" value="26.06.2019" placeholder="Дата">
+                           </td>
+                           <td>
+                              <input name="vin_number" form="vin_form36" class="field field--edit bl tc" value="">
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper">
+                                 <div class="custom-select">
+                                    <div class="custom-select__trigger">
+                                       <input type="text" readonly="" class="field field--edit select-input" name="user_id" placeholder="Выберите экспедитора" data-valuefield="51" value="Экспедитор" form="container_form16">
+                                       <div class="arrow"></div>
+                                    </div>
+                                    <div class="custom-options">
+                                       <span class="custom-option" data-value="41">mailfortalk@gmail.com</span>
+                                       <span class="custom-option" data-value="45">forwarder</span>
+                                       <span class="custom-option" data-value="49">test</span>
+                                       <span class="custom-option" data-value="51">Экспедитор</span>
+                                       <span class="custom-option" data-value="52">Василий Петрович</span>
+                                       <span class="custom-option" data-value="55">Андрей</span>
+                                       <span class="custom-option" data-value="56">Вася Пупкин</span>
+                                       <span class="custom-option" data-value="59">geerger</span>
+                                       <span class="custom-option" data-value="60">egrgeer</span>
+                                       <span class="custom-option" data-value="61">ffwefwe</span>
+                                       <span class="custom-option" data-value="68">forwarder_created_by_manager</span>
+                                       <span class="custom-option" data-value="72">test43</span>
+                                       <span class="custom-option" data-value="74">Test</span>
+                                       <span class="custom-option" data-value="75">test booker created by booker</span>
+                                       <span class="custom-option" data-value="76">tes booker 3</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper" >
+                                 <div class="custom-select">
+                                    <div class="custom-select__trigger">
+                                       <input type="text" readonly="" class="field field--edit select-input" name="release_ordered"  data-valuefield="0" value="Нет" form="container_form16">
+                                       <div class="arrow"></div>
+                                    </div>
+                                    <div class="custom-options">
+                                       <span class="custom-option" data-value="1">Да</span>
+                                       <span class="custom-option selected" data-value="0">Нет</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <input type="text" name="release_ordered_date" form="vin_form36" class="field field--edit date" value="" placeholder="Дата">
+                           </td>
+                           <td>
+                              <input type="text" name="release_received" form="vin_form36" value="" placeholder="Дата" class="field field--edit date tc">
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper" >
+                                 <div class="custom-select">
+                                    <div class="custom-select__trigger">
+                                       <input type="text" readonly="" class="field field--edit select-input" name="documents_kiev"  data-valuefield="0" value="Нет" form="container_form16">
+                                       <div class="arrow"></div>
+                                    </div>
+                                    <div class="custom-options">
+                                       <span class="custom-option" data-value="1">Да</span>
+                                       <span class="custom-option selected" data-value="0">Нет</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper" >
+                                 <div class="custom-select">
+                                    <div class="custom-select__trigger">
+                                       <input type="text" readonly="" class="field field--edit select-input" name="documents_odessa"  data-valuefield="" placeholder="Количество" value="" form="container_form16">
+                                       <div class="arrow"></div>
+                                    </div>
+                                    <div class="custom-options">
+                                       <span class="custom-option" data-value="1 шт." >1 шт.</span>
+                                       <span class="custom-option" data-value="2 шт." >2 шт.</span>
+                                       <span class="custom-option" data-value="3 шт." >3 шт.</span>
+                                       <span class="custom-option" data-value="4 шт." >4 шт.</span>
+                                       <span class="custom-option" data-value="5 шт." >5 шт.</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <input type="text" name="documents_odessa_date" placeholder="Дата" form="vin_form36" class="field field--edit date" value="">
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper" >
+                                 <div class="custom-select">
+                                    <div class="custom-select__trigger">
+                                       <input type="text" readonly="" class="field field--edit select-input" name="sent_for_owner"  data-valuefield="0" value="Нет" form="container_form16">
+                                       <div class="arrow"></div>
+                                    </div>
+                                    <div class="custom-options">
+                                       <span class="custom-option" data-value="1">Да</span>
+                                       <span class="custom-option selected" data-value="0">Нет</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper" >
+                                 <div class="custom-select">
+                                    <div class="custom-select__trigger">
+                                       <input type="text" readonly="" class="field field--edit select-input" name="owner_got"  data-valuefield="0" value="Нет" form="container_form16">
+                                       <div class="arrow"></div>
+                                    </div>
+                                    <div class="custom-options">
+                                       <span class="custom-option" data-value="1">Да</span>
+                                       <span class="custom-option selected" data-value="0">Нет</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                              <input type="text" name="rate2" class="field field--edit tc" value="30" form="vin_form36">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit tc" value="$800">
+                           </td>
+                           <td>
+                              <textarea name="booker_comment" rows="5" class="field field--edit field--text" form="vin_form36" disabled="disabled"></textarea>
+                           </td>
+                           <td>
+                              <textarea placeholder="Введите" name="admin_comment" rows="5" class="field field--edit field--text" form="vin_form36"></textarea>
+                           </td>
+                           <td>
+                              <a href="#" class="btn btn--work work">
+                                 <svg viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0)">
+                                       <path d="M4.444 7.549a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478l1.364 1.364c.103.103.27.103.373 0l3.695-3.694a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
+                                    </g>
+                                    <defs>
+                                       <clipPath id="clip0">
+                                          <path fill="#fff" d="M.37 0h9v9h-9z"/>
+                                       </clipPath>
+                                    </defs>
+                                 </svg>
+                              </a>
+                              <a href="#" class="btn btn--rass rass">
+                                 <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.444 6.404a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478L5.518 4c.103.103.27.103.373 0L9.586.306a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
+                                    <path d="M3.612 10.612h0a1.545 1.545 0 002.185 0l4.62-4.62a1.545 1.545 0 00-2.185-2.185s0 0 0 0L4.705 7.336 3.507 6.138s0 0 0 0a1.545 1.545 0 00-2.185 0s0 0 0 0l2.29 4.474zm0 0l-2.29-2.29 2.29 2.29z" fill="#4E9734" stroke="#fff"/>
+                                 </svg>
+                              </a>
+                              <a href="#" class="btn btn--edit editing">
+                                 <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.983 2.107l2.073 2.07L3.807 9.42 1.735 7.349l5.248-5.242zm3.647-.5L9.705.684a.919.919 0 00-1.296 0l-.886.884L9.597 3.64l1.033-1.032a.705.705 0 000-1zM.65 10.26a.236.236 0 00.285.28l2.31-.56-2.072-2.07-.524 2.35z" fill="#676767"/>
+                                 </svg>
+                              </a>
+                              <a href="#" class="btn btn--save save">
+                                 <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.76 2.217h4.48a.243.243 0 00.243-.243V0H3.517v1.974c0 .134.108.243.243.243z" fill="#4E9734"/>
+                                    <path d="M11.813 3.018L9.285.478v1.496c0 .575-.468 1.043-1.043 1.043H3.76a1.044 1.044 0 01-1.042-1.043V0H1.102C.494 0 .001.493.001 1.1v9.8c0 .607.493 1.1 1.101 1.1H10.9c.608 0 1.1-.493 1.1-1.1V3.471a.642.642 0 00-.187-.454zm-1.679 6.457a.643.643 0 01-.643.643h-6.98a.643.643 0 01-.643-.643v-3.35c0-.355.287-.643.642-.643h6.981c.356 0 .643.288.643.643v3.35z" fill="#4E9734"/>
+                                    <path d="M8.758 6.514H3.242a.4.4 0 100 .8h5.516a.4.4 0 100-.8zM7.958 8.114H4.042a.4.4 0 100 .8h3.916a.4.4 0 000-.8z" fill="#4E9734"/>
+                                 </svg>
+                              </a>
+                           </td>
+                        </tr>
+                        <tr class="view gray" data-savebg="green" data-container_id="16">
+                           <td>
+                              <a href="#" class="link link--open">
+                                 <svg viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.95251 2.93646H5.00031H3.23506H1.28286C0.803238 2.93646 0.410645 3.35943 0.410645 3.86322C0.410645 4.36701 0.803238 4.78998 1.28286 4.78998H3.23506H5.00031H6.95251C7.43213 4.78998 7.82472 4.36701 7.82472 3.86322C7.82472 3.35943 7.43213 2.93646 6.95251 2.93646Z" fill="#393B8F"/>
+                                    <path d="M3.19092 1.02839L3.19092 2.98058L3.19092 4.74584L3.19092 6.69804C3.19092 7.17766 3.61389 7.57025 4.11768 7.57025C4.62146 7.57025 5.04443 7.17766 5.04443 6.69804L5.04443 4.74584L5.04443 2.98058L5.04443 1.02839C5.04443 0.548767 4.62146 0.156173 4.11768 0.156173C3.61389 0.156173 3.19092 0.548767 3.19092 1.02839Z" fill="#393B8F"/>
+                                 </svg>
+                              </a>
+                              <form method="POST" action="http://44.j2landing.com/admin/containers-update-subsection/16" accept-charset="UTF-8" data-url="http://44.j2landing.com/admin/containers-update-subsection/16" class="" enctype="multipart/form-data"><input name="_token" type="hidden" value="zwjzMfYBlu3I9Etb3CuODKZar9AVIKX8SoN5fMZ5">
+                                 <input type="text" class="field field--edit bl tc" value="WAUCFAFR8DA337661" name="container_number">
+                              </form>
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date bl tc" value="26.06.2019" placeholder="Дата">
+                           </td>
+                           <td>
+                              <input type="text" name="vin_num" disabled="disabled" class="field field--edit tc" value="1 шт.">
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper">
+                                 <div class="custom-select">
+                                    <div class="custom-select__trigger ">
+                                       <input type="text" readonly="" data-valuefield="51" class="field field--edit select-input" name="user_id" placeholder="Выберите экспедитора" value="Экспедитор" form="container_form16">
+                                       <div class="arrow"></div>
+                                    </div>
+                                    <div class="custom-options">
+                                       <span class="custom-option" data-value="56">Вася Пупкин</span>
+                                       <span class="custom-option" data-value="41">mailfortalk@gmail.com</span>
+                                       <span class="custom-option" data-value="45">forwarder</span>
+                                       <span class="custom-option" data-value="49">test</span>
+                                       <span class="custom-option" data-value="51">Экспедитор</span>
+                                       <span class="custom-option" data-value="52">Василий Петрович</span>
+                                       <span class="custom-option" data-value="55">Андрей</span>
+                                       <span class="custom-option" data-value="59">geerger</span>
+                                       <span class="custom-option" data-value="60">egrgeer</span>
+                                       <span class="custom-option" data-value="61">ffwefwe</span>
+                                       <span class="custom-option" data-value="68">forwarder_created_by_manager</span>
+                                       <span class="custom-option" data-value="72">test43</span>
+                                       <span class="custom-option" data-value="74">Test</span>
+                                       <span class="custom-option" data-value="75">test booker created by booker</span>
+                                       <span class="custom-option" data-value="76">tes booker 3</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                           </td>
+                           <td>
+                           </td>
+                           <td>
+                              <input type="text" disabled="disabled" class="field field--edit  tc" value="0/1">
+                           </td>
+                           <td>
+                              <input type="text" disabled="disabled" class="field field--edit tc" value="0/1">
+                           </td>
+                           <td>
+                              <input type="text" disabled="disabled" class="field field--edit tc" value="0/1">
+                           </td>
+                           <td>
+                              <input type="text" disabled="disabled" class="field field--edit tc" value="0/1">
+                           </td>
+                           <td>
+                           </td>
+                           <td>
+                              <input type="text" disabled="disabled" class="field field--edit tc" value="2400">
+                           </td>
+                           <td>
+                              <textarea name="booker_comment" class="field field--edit field--text">Оформили клиенту</textarea>
+                           </td>
+                           <td>
+                              <textarea placeholder="Введите" name="admin_comment" class="field field--edit field--text"></textarea>
+                           </td>
+                           <td>
+                              <a href="#" class="btn btn--work work">
+                                 <svg viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0)">
+                                       <path d="M4.444 7.549a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478l1.364 1.364c.103.103.27.103.373 0l3.695-3.694a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
+                                    </g>
+                                    <defs>
+                                       <clipPath id="clip0">
+                                          <path fill="#fff" d="M.37 0h9v9h-9z"/>
+                                       </clipPath>
+                                    </defs>
+                                 </svg>
+                              </a>
+                              <a href="#" class="btn btn--rass rass">
+                                 <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.444 6.404a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478L5.518 4c.103.103.27.103.373 0L9.586.306a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
+                                    <path d="M3.612 10.612h0a1.545 1.545 0 002.185 0l4.62-4.62a1.545 1.545 0 00-2.185-2.185s0 0 0 0L4.705 7.336 3.507 6.138s0 0 0 0a1.545 1.545 0 00-2.185 0s0 0 0 0l2.29 4.474zm0 0l-2.29-2.29 2.29 2.29z" fill="#4E9734" stroke="#fff"/>
+                                 </svg>
+                              </a>
+                              <a href="#" class="btn btn--edit editing">
+                                 <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.983 2.107l2.073 2.07L3.807 9.42 1.735 7.349l5.248-5.242zm3.647-.5L9.705.684a.919.919 0 00-1.296 0l-.886.884L9.597 3.64l1.033-1.032a.705.705 0 000-1zM.65 10.26a.236.236 0 00.285.28l2.31-.56-2.072-2.07-.524 2.35z" fill="#676767"/>
+                                 </svg>
+                              </a>
+                              <a href="#" class="btn btn--save save">
+                                 <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.76 2.217h4.48a.243.243 0 00.243-.243V0H3.517v1.974c0 .134.108.243.243.243z" fill="#4E9734"/>
+                                    <path d="M11.813 3.018L9.285.478v1.496c0 .575-.468 1.043-1.043 1.043H3.76a1.044 1.044 0 01-1.042-1.043V0H1.102C.494 0 .001.493.001 1.1v9.8c0 .607.493 1.1 1.101 1.1H10.9c.608 0 1.1-.493 1.1-1.1V3.471a.642.642 0 00-.187-.454zm-1.679 6.457a.643.643 0 01-.643.643h-6.98a.643.643 0 01-.643-.643v-3.35c0-.355.287-.643.642-.643h6.981c.356 0 .643.288.643.643v3.35z" fill="#4E9734"/>
+                                    <path d="M8.758 6.514H3.242a.4.4 0 100 .8h5.516a.4.4 0 100-.8zM7.958 8.114H4.042a.4.4 0 100 .8h3.916a.4.4 0 000-.8z" fill="#4E9734"/>
+                                 </svg>
+                              </a>
+                           </td>
+                        </tr>
+                        <tr class="fold" data-vin_id="16-36">
+                           <td>
+                              <form method="POST" action="http://44.j2landing.com/admin/containers/36" accept-charset="UTF-8" data-url="http://44.j2landing.com/admin/containers/36" class=""  enctype="multipart/form-data"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="zwjzMfYBlu3I9Etb3CuODKZar9AVIKX8SoN5fMZ5">
+                                 <input type="input" class="field field--edit bl" value="WAUCFAFR8DA337661" name="container_number" disabled>
+                              </form>
+                           </td>
+                           <td>
+                              <input type="text" form="vin_form36"  class="field field--edit date tc" value="26.06.2019" placeholder="Дата">
+                           </td>
+                           <td>
+                              <input name="vin_number" form="vin_form36" class="field field--edit bl tc" value="">
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper">
+                                 <div class="custom-select">
+                                    <div class="custom-select__trigger">
+                                       <input type="text" readonly="" class="field field--edit select-input" name="user_id" placeholder="Выберите экспедитора" data-valuefield="51" value="Экспедитор" form="container_form16">
+                                       <div class="arrow"></div>
+                                    </div>
+                                    <div class="custom-options">
+                                       <span class="custom-option" data-value="41">mailfortalk@gmail.com</span>
+                                       <span class="custom-option" data-value="45">forwarder</span>
+                                       <span class="custom-option" data-value="49">test</span>
+                                       <span class="custom-option" data-value="51">Экспедитор</span>
+                                       <span class="custom-option" data-value="52">Василий Петрович</span>
+                                       <span class="custom-option" data-value="55">Андрей</span>
+                                       <span class="custom-option" data-value="56">Вася Пупкин</span>
+                                       <span class="custom-option" data-value="59">geerger</span>
+                                       <span class="custom-option" data-value="60">egrgeer</span>
+                                       <span class="custom-option" data-value="61">ffwefwe</span>
+                                       <span class="custom-option" data-value="68">forwarder_created_by_manager</span>
+                                       <span class="custom-option" data-value="72">test43</span>
+                                       <span class="custom-option" data-value="74">Test</span>
+                                       <span class="custom-option" data-value="75">test booker created by booker</span>
+                                       <span class="custom-option" data-value="76">tes booker 3</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper" >
+                                 <div class="custom-select">
+                                    <div class="custom-select__trigger">
+                                       <input type="text" readonly="" class="field field--edit select-input" name="release_ordered"  data-valuefield="0" value="Нет" form="container_form16">
+                                       <div class="arrow"></div>
+                                    </div>
+                                    <div class="custom-options">
+                                       <span class="custom-option" data-value="1">Да</span>
+                                       <span class="custom-option selected" data-value="0">Нет</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <input type="text" name="release_ordered_date" form="vin_form36" class="field field--edit date" value="" placeholder="Дата">
+                           </td>
+                           <td>
+                              <input type="text" name="release_received" form="vin_form36" value="" placeholder="Дата" class="field field--edit date tc">
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper" >
+                                 <div class="custom-select">
+                                    <div class="custom-select__trigger">
+                                       <input type="text" readonly="" class="field field--edit select-input" name="documents_kiev"  data-valuefield="0" value="Нет" form="container_form16">
+                                       <div class="arrow"></div>
+                                    </div>
+                                    <div class="custom-options">
+                                       <span class="custom-option" data-value="1">Да</span>
+                                       <span class="custom-option selected" data-value="0">Нет</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper" >
+                                 <div class="custom-select">
+                                    <div class="custom-select__trigger">
+                                       <input type="text" readonly="" class="field field--edit select-input" name="documents_odessa"  data-valuefield="" placeholder="Количество" value="" form="container_form16">
+                                       <div class="arrow"></div>
+                                    </div>
+                                    <div class="custom-options">
+                                       <span class="custom-option" data-value="1 шт." >1 шт.</span>
+                                       <span class="custom-option" data-value="2 шт." >2 шт.</span>
+                                       <span class="custom-option" data-value="3 шт." >3 шт.</span>
+                                       <span class="custom-option" data-value="4 шт." >4 шт.</span>
+                                       <span class="custom-option" data-value="5 шт." >5 шт.</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <input type="text" name="documents_odessa_date" placeholder="Дата" form="vin_form36" class="field field--edit date" value="">
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper" >
+                                 <div class="custom-select">
+                                    <div class="custom-select__trigger">
+                                       <input type="text" readonly="" class="field field--edit select-input" name="sent_for_owner"  data-valuefield="0" value="Нет" form="container_form16">
+                                       <div class="arrow"></div>
+                                    </div>
+                                    <div class="custom-options">
+                                       <span class="custom-option" data-value="1">Да</span>
+                                       <span class="custom-option selected" data-value="0">Нет</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper" >
+                                 <div class="custom-select">
+                                    <div class="custom-select__trigger">
+                                       <input type="text" readonly="" class="field field--edit select-input" name="owner_got"  data-valuefield="0" value="Нет" form="container_form16">
+                                       <div class="arrow"></div>
+                                    </div>
+                                    <div class="custom-options">
+                                       <span class="custom-option" data-value="1">Да</span>
+                                       <span class="custom-option selected" data-value="0">Нет</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                              <input type="text" name="rate2" class="field field--edit tc" value="30" form="vin_form36">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit tc" value="$800">
+                           </td>
+                           <td>
+                              <textarea name="booker_comment" rows="5" class="field field--edit field--text" form="vin_form36" disabled="disabled"></textarea>
+                           </td>
+                           <td>
+                              <textarea placeholder="Введите" name="admin_comment" rows="5" class="field field--edit field--text" form="vin_form36"></textarea>
+                           </td>
+                           <td>
+                              <a href="#" class="btn btn--work work">
+                                 <svg viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0)">
+                                       <path d="M4.444 7.549a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478l1.364 1.364c.103.103.27.103.373 0l3.695-3.694a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
+                                    </g>
+                                    <defs>
+                                       <clipPath id="clip0">
+                                          <path fill="#fff" d="M.37 0h9v9h-9z"/>
+                                       </clipPath>
+                                    </defs>
+                                 </svg>
+                              </a>
+                              <a href="#" class="btn btn--rass rass">
+                                 <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.444 6.404a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478L5.518 4c.103.103.27.103.373 0L9.586.306a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
+                                    <path d="M3.612 10.612h0a1.545 1.545 0 002.185 0l4.62-4.62a1.545 1.545 0 00-2.185-2.185s0 0 0 0L4.705 7.336 3.507 6.138s0 0 0 0a1.545 1.545 0 00-2.185 0s0 0 0 0l2.29 4.474zm0 0l-2.29-2.29 2.29 2.29z" fill="#4E9734" stroke="#fff"/>
+                                 </svg>
+                              </a>
+                              <a href="#" class="btn btn--edit editing">
+                                 <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.983 2.107l2.073 2.07L3.807 9.42 1.735 7.349l5.248-5.242zm3.647-.5L9.705.684a.919.919 0 00-1.296 0l-.886.884L9.597 3.64l1.033-1.032a.705.705 0 000-1zM.65 10.26a.236.236 0 00.285.28l2.31-.56-2.072-2.07-.524 2.35z" fill="#676767"/>
+                                 </svg>
+                              </a>
+                              <a href="#" class="btn btn--save save">
+                                 <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.76 2.217h4.48a.243.243 0 00.243-.243V0H3.517v1.974c0 .134.108.243.243.243z" fill="#4E9734"/>
+                                    <path d="M11.813 3.018L9.285.478v1.496c0 .575-.468 1.043-1.043 1.043H3.76a1.044 1.044 0 01-1.042-1.043V0H1.102C.494 0 .001.493.001 1.1v9.8c0 .607.493 1.1 1.101 1.1H10.9c.608 0 1.1-.493 1.1-1.1V3.471a.642.642 0 00-.187-.454zm-1.679 6.457a.643.643 0 01-.643.643h-6.98a.643.643 0 01-.643-.643v-3.35c0-.355.287-.643.642-.643h6.981c.356 0 .643.288.643.643v3.35z" fill="#4E9734"/>
+                                    <path d="M8.758 6.514H3.242a.4.4 0 100 .8h5.516a.4.4 0 100-.8zM7.958 8.114H4.042a.4.4 0 100 .8h3.916a.4.4 0 000-.8z" fill="#4E9734"/>
+                                 </svg>
+                              </a>
+                           </td>
+                        </tr>
+                        
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </section>
+      <footer class="section section-footer">
+         <div class="wrapper">
+            <div class="footer">
+               <div class="footer-copy">
+                  <a href="/" class="link link--logo"><img src="img/logo.png" alt=""></a>
+                  <ul class="footer-menu">
+                     <li><a href="#" class="link link--menu">О КОМПАНИИ</a></li>
+                     <li><a href="#" class="link link--menu">НАШИ УСЛУГИ</a></li>
+                     <li><a href="#" class="link link--menu">КОНТАКТЫ</a></li>
+                  </ul>
+               </div>
+               <p class="paragraph paragraph--copy">
+                  2019 (C) All rights reserved
+               </p>
+            </div>
+         </div>
+      </footer>
+      <div id="check" style="display:none" class="popup popup-check">
+         <div class="popup-side">
+            <div class="popup-content">
+               <p class="paragraph paragraph--answer">
+                  Вы уверены что хотите выйти ? 
+               </p>
+               <div class="btn-row">
+                  <a href="#" class="btn btn--popup yes">Да</a>
+                  <a href="#" class="btn btn--popup no" data-fancybox-close>Нет</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="wrong" style="display:none" class="popup popup-wrong">
+         <div class="popup-side">
+            <div class="popup-content">
+               <p class="paragraph paragraph--answer">
+                  Вы не сохранили внесенные изменения. <br> Вы желаете?
+               </p>
+               <div class="btn-row">
+                  <a href="#" class="btn btn--popup save">СОХРАНИТЬ</a>
+                  <a href="#" class="btn btn--popup disable">НЕ СОХРАНЯТЬ</a>
+                  <a href="#" class="btn btn--popup resume" data-fancybox-close>ПРодолжить</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="noid" style="display:none" class="popup popup-wrong">
+         <div class="popup-side">
+            <div class="popup-content">
+               <p class="paragraph paragraph--answer">
+                  Такого номера не существует
+               </p>
+            </div>
+         </div>
+      </div>
+      <div id="carsadd" style="display:none" class="popup popup-carsadd">
+         <div class="popup-side">
+            <div class="popup-content">
+               <p class="paragraph paragraph--answer">
+                  Добавление контейнера
+               </p>
+               <form action="http://44.j2landing.com/admin/containers/create" class="form-add">
+                  <input type="text" required name="container_number_popup" class="field" placeholder="Введите номер контейнера">
+                  <input type="number" required name="auto_len" class="field" placeholder="Введите количество авто">
+                  <div class="btn-row">
+                     <button type="submit" class="btn btn--popup ">Добавить</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+      <div class="overlay-login">
+         <div class="wrapper">
+            <div class="overlay-block">
+               <div class="overlay-block__form">
+                  <form class="form">
+                     <div class="form-row">
+                        <input type="text" name="login" class="field field--login" placeholder="LOGIN" required="">
+                     </div>
+                     <div class="form-row">
+                        <input type="password" name="password" class="field field--login" placeholder="PASSWORD" required="">
+                        <a href="#" class="link link--showpass">
+                           <svg viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M6.82.679C4.34.679 2.091 2.035.433 4.238a.514.514 0 000 .613C2.092 7.057 4.34 8.413 6.819 8.413c2.48 0 4.727-1.356 6.386-3.56a.513.513 0 000-.612C11.546 2.035 9.298.679 6.82.679zm.177 6.59a2.73 2.73 0 01-2.9-2.901 2.735 2.735 0 012.545-2.545 2.73 2.73 0 012.9 2.9A2.744 2.744 0 016.997 7.27zM6.915 6.01a1.467 1.467 0 01-1.56-1.56 1.476 1.476 0 011.371-1.373 1.467 1.467 0 011.561 1.56 1.476 1.476 0 01-1.372 1.373z" fill="#929292"/>
+                           </svg>
+                        </a>
+                     </div>
+                     <div class="form-row">
+                        <input type="checkbox" class="checkbox" name="saveuser" id="saveuser">
+                        <label for="saveuser">Запомнить пользователя</label>
+                     </div>
+                     <div class="form-row">
+                        <button type="submit" class="btn btn--submit">ВОЙТИ</button>
+                     </div>
+                  </form>
+                  <a href="#" class="link link--forgot">Забыли пароль?</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src=js/libs.min.js></script>
+      <script src=js/main.js></script>
+   </body>
+</html>
