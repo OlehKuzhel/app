@@ -380,15 +380,6 @@ $('.select-input').each(function(index, el) {
     
 });
 
-// if ($('.select-input').val().length) {
-//     $thisVal = $('.select-input').val()
-//     $select = $('.select-input').parent().find('.custom-select-wrapper')
-//     console.log($thisVal)
-//     // $selected = $select.find('[data-value='+$thisVal+']')
-//     // $selected.addClass('selected')
-//     // $selectedText = $selected.text()
-//     // $('.custom-select__trigger span').text($selectedText)
-// }
 
 
 $('.form-add').submit(function(event) {
@@ -423,7 +414,7 @@ $('.content-top__container').submit(function(event) {
                 data: th,
                 success: function(data) {
                         _form.removeClass('filtered')
-                        th.trigger('reset')
+                        _form.trigger('reset')
                         // не знаю что тебе в data приходит, пропишешь свое
                         $('.table tbody').empty()
                         $('.table tbody').prepend(data);
@@ -445,7 +436,7 @@ $('.content-top__container').submit(function(event) {
                         type: 'inline',
                         opts: opnsFancy,
                     });
-                    th.trigger('reset')
+                    _form.trigger('reset')
                 } else {
                     _form.addClass('filtered')
                     // не знаю что тебе в data приходит, пропишешь свое
@@ -471,7 +462,7 @@ $('.content-top__vin').submit(function(event) {
                 data: th,
                 success: function(data) {
                         _form.removeClass('filtered')
-                        th.trigger('reset')
+                        _form.trigger('reset')
                         // не знаю что тебе в data приходит, пропишешь свое
                         $('.table tbody').empty()
                         $('.table tbody').prepend(data);
@@ -493,7 +484,7 @@ $('.content-top__vin').submit(function(event) {
                         type: 'inline',
                         opts: opnsFancy,
                     });
-                    th.trigger('reset')
+                    _form.trigger('reset')
                 } else {
                     _form.addClass('filtered')
                     // не знаю что тебе в data приходит, пропишешь свое
@@ -510,11 +501,9 @@ $('.content-top__vin').submit(function(event) {
     
     $('.filter-head').on('click', 'a', function(event) {
         event.preventDefault();
-        // $(this).parents('tr').find('.')
-        // $('.filter').not(this).parents().removeClass('open')
-        // $('.filter-content').not(this).toggle()
-        // $('.filter-head a').not(this).removeClass('active')
-        $(this).toggleClass('active').parents('.filter').toggleClass('open').find('.filter-content').toggle()
+        $('.filter').not($(this).parents('.filter')).removeClass('open')
+        $('.filter-head a').not(this).removeClass('active')
+        $(this).toggleClass('active').parents('.filter').toggleClass('open')
     });
 
 });
