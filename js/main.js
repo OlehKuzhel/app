@@ -276,7 +276,7 @@ $('body').on('click', '.btn--pick', function(event) {
     $('body').on('click', '.save', function(event) {
         event.preventDefault();
         var _this = $(this);
-        var url = $(this).parents('tr').find('form').data('url');
+        var url = $('tr.edit').find('form').data('url');
         $trSave = $('tr.edit')
         // $trBg.attr('data-savebg', $bgP)
         $datanSelect = $trSave.find('.field--edit:not(.select-input)').serialize()
@@ -419,7 +419,7 @@ $('.content-top__container').submit(function(event) {
             // убрать фильтр по номеру контейнера
             $.ajax({
                 type: "POST",
-                url: 'пропишешь путь для удаления',
+                url: 'containers/reset',
                 data: th,
                 success: function(data) {
                         _form.removeClass('filtered')
@@ -467,7 +467,7 @@ $('.content-top__vin').submit(function(event) {
             // убрать фильтр по вину
             $.ajax({
                 type: "POST",
-                url: 'пропишешь путь для удаления',
+                url: 'containers/reset',
                 data: th,
                 success: function(data) {
                         _form.removeClass('filtered')
