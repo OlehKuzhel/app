@@ -157,6 +157,15 @@ $(document).ready(function($) {
       // showOtherMonths: false,
   })
 
+  $('.datepicker-here').datepicker({
+      minDate: new Date(),
+      language: 'ru',
+      offset: 0,
+      minView: 'days',
+      view: 'days'
+      // showOtherMonths: false,
+  })
+
 
 $('body').on('click', '.link--open', function(event) {
     event.preventDefault();
@@ -414,6 +423,7 @@ $('.content-top__container').submit(function(event) {
                 data: th,
                 success: function(data) {
                         _form.removeClass('filtered')
+                        th.trigger('reset')
                         // не знаю что тебе в data приходит, пропишешь свое
                         $('.table tbody').empty()
                         $('.table tbody').prepend(data);
@@ -426,7 +436,7 @@ $('.content-top__container').submit(function(event) {
 
             $.ajax({
             type: "POST",
-            url: 'http://44.j2landing.com/admin/containers/find_container',
+            url: 'containers/find_container',
             data: th,
             success: function(data) {
                 if (data == 'значение если нет номера впишешь') {
@@ -435,6 +445,7 @@ $('.content-top__container').submit(function(event) {
                         type: 'inline',
                         opts: opnsFancy,
                     });
+                    th.trigger('reset')
                 } else {
                     _form.addClass('filtered')
                     // не знаю что тебе в data приходит, пропишешь свое
@@ -460,6 +471,7 @@ $('.content-top__vin').submit(function(event) {
                 data: th,
                 success: function(data) {
                         _form.removeClass('filtered')
+                        th.trigger('reset')
                         // не знаю что тебе в data приходит, пропишешь свое
                         $('.table tbody').empty()
                         $('.table tbody').prepend(data);
@@ -472,7 +484,7 @@ $('.content-top__vin').submit(function(event) {
 
             $.ajax({
             type: "POST",
-            url: 'http://44.j2landing.com/admin/containers/find_vin',
+            url: 'containers/find_vin',
             data: th,
             success: function(data) {
                 if (data == 'значение если нет номера впишешь') {
@@ -481,6 +493,7 @@ $('.content-top__vin').submit(function(event) {
                         type: 'inline',
                         opts: opnsFancy,
                     });
+                    th.trigger('reset')
                 } else {
                     _form.addClass('filtered')
                     // не знаю что тебе в data приходит, пропишешь свое
@@ -494,6 +507,14 @@ $('.content-top__vin').submit(function(event) {
         
         event.preventDefault();
     });
-
+    
+    $('.filter-head').on('click', 'a', function(event) {
+        event.preventDefault();
+        // $(this).parents('tr').find('.')
+        // $('.filter').not(this).parents().removeClass('open')
+        // $('.filter-content').not(this).toggle()
+        // $('.filter-head a').not(this).removeClass('active')
+        $(this).toggleClass('active').parents('.filter').toggleClass('open').find('.filter-content').toggle()
+    });
 
 });
