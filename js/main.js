@@ -287,6 +287,8 @@ $('body').on('click', '.btn--pick', function(event) {
             $selectArr.push(value)
         });
         $data =  $selectArr.join('') + $datanSelect
+
+        
         // console.log($data)
         $.ajax({
             type: "POST",
@@ -294,6 +296,13 @@ $('body').on('click', '.btn--pick', function(event) {
             data: $data,
             success: function(data) {
                 // console.log('ok');
+                summ($trSave)
+                summGive($trSave)
+                summPered($trSave)
+                summKiev($trSave)
+                summOdd($trSave)
+                changeContainer($trSave)
+                
                 $('tr').removeClass('close')
                 $trSave.removeClass('edit')
                 $.fancybox.close()
@@ -519,5 +528,101 @@ $('.content-top__vin').submit(function(event) {
         $thisTd.removeClass('one-check')
         $thisTd.toggleClass('two-check')
     });
+
+
+    
+    function summ(row) {
+        var summ = 0;
+        if ($(row).hasClass('view')) {
+            row = row;
+        } else {
+            row = parseInt($(row).attr('data-vin_id'))
+            row = '[data-container_id='+row+']'
+        }
+        $trFold = $(row).nextUntil('.view').find('td:nth-child(12)').find('input')
+        $.each($trFold, function(index, val) {
+             summ += parseInt($(val).val().replace(/\D+/g,""), 10);
+        });
+        // console.log(summ)
+        $(row).find('td:nth-child(12) input').val(summ)
+    }
+    // summPered
+    
+    function changeContainer(row) {
+        if ($(row).hasClass('view')) {
+            row = row;
+        } else {
+            row = parseInt($(row).attr('data-vin_id'))
+            row = '[data-container_id='+row+']'
+        }
+        // $trFold = $(row).nextUntil('.view').find('td:nth-child(1)').find('input.select-input')
+        // console.log($trFold)
+        $trFoldVal = $(row).find('td:nth-child(1) input.field--edit').val()
+        $trFold = $(row).nextUntil('.view').find('td:nth-child(1)').find('input.field--edit')
+        $.each($trFold, function(index, val) {
+             $(val).val($trFoldVal);
+        });
+    }
+    function summOdd(row) {
+        if ($(row).hasClass('view')) {
+            row = row;
+        } else {
+            row = parseInt($(row).attr('data-vin_id'))
+            row = '[data-container_id='+row+']'
+        }
+        $trFoldLenght = $(row).nextUntil('.view').length
+        $trFold = $(row).nextUntil('.view').find('td:nth-child(8)').find('input.select-input[data-valuefield!=""]').length
+        $(row).find('td:nth-child(8) input').val($trFold+'/'+$trFoldLenght)
+    }
+    function summKiev(row) {
+        var summ = 0;
+        if ($(row).hasClass('view')) {
+            row = row;
+        } else {
+            row = parseInt($(row).attr('data-vin_id'))
+            row = '[data-container_id='+row+']'
+        }
+        $trFoldLenght = $(row).nextUntil('.view').length
+        $trFold = $(row).nextUntil('.view').find('td:nth-child(7)').find('input')
+        $.each($trFold, function(index, val) {
+             summ += parseInt($(val).attr('data-valuefield').replace(/\D+/g,""), 10);
+        });
+        // console.log(summ+'/'+$trFoldLenght)
+        $(row).find('td:nth-child(7) input').val(summ+'/'+$trFoldLenght)
+    }
+    function summPered(row) {
+        var summ = 0;
+        if ($(row).hasClass('view')) {
+            row = row;
+        } else {
+            row = parseInt($(row).attr('data-vin_id'))
+            row = '[data-container_id='+row+']'
+        }
+        $trFoldLenght = $(row).nextUntil('.view').length
+        $trFold = $(row).nextUntil('.view').find('td:nth-child(9)').find('input')
+        $.each($trFold, function(index, val) {
+             summ += parseInt($(val).attr('data-valuefield').replace(/\D+/g,""), 10);
+        });
+        // console.log(summ+'/'+$trFoldLenght)
+        $(row).find('td:nth-child(9) input').val(summ+'/'+$trFoldLenght)
+    }
+    function summGive(row) {
+        var summ = 0;
+        if ($(row).hasClass('view')) {
+            row = row;
+        } else {
+            row = parseInt($(row).attr('data-vin_id'))
+            row = '[data-container_id='+row+']'
+        }
+        $trFoldLenght = $(row).nextUntil('.view').length
+        $trFold = $(row).nextUntil('.view').find('td:nth-child(10)').find('input')
+        $.each($trFold, function(index, val) {
+             summ += parseInt($(val).attr('data-valuefield').replace(/\D+/g,""), 10);
+        });
+        // console.log(summ+'/'+$trFoldLenght)
+        $(row).find('td:nth-child(10) input').val(summ+'/'+$trFoldLenght)
+    }
+    
+
 
 });
