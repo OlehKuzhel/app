@@ -2625,7 +2625,7 @@ p.bold { font-weight: 600; }
 
 .section-header .header-dropdown { position: absolute; top: 100%; left: 0; width: 100%; padding: 0; list-style: none; -webkit-transition: 0.15s ease-in-out; -o-transition: 0.15s ease-in-out; transition: 0.15s ease-in-out; margin: 0; background: #E7E7E7; border: .1rem solid #393B8F; border-top: none; z-index: -1; padding-bottom: .4rem; opacity: 0; visibility: hidden; -webkit-transform: translateY(-100%); -ms-transform: translateY(-100%); transform: translateY(-100%); }
 
-.section-header .header-menu { height: 5rem; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: start; -webkit-align-items: flex-start; -ms-flex-align: start; align-items: flex-start; -webkit-box-pack: start; -webkit-justify-content: flex-start; -ms-flex-pack: start; justify-content: flex-start; max-width: 54rem; width: 100%; }
+.section-header .header-menu { height: 5rem; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: start; -webkit-align-items: flex-start; -ms-flex-align: start; align-items: flex-start; -webkit-box-pack: end; -webkit-justify-content: flex-end; -ms-flex-pack: end; justify-content: flex-end; max-width: 54rem; width: 100%; }
 
 .section-header .header-menu__admin { -webkit-transform: translateY(-100%); -ms-transform: translateY(-100%); transform: translateY(-100%); opacity: 0; visibility: hidden; padding: 1.9rem 2rem 1rem 2rem; position: absolute; top: 0; right: 0; -webkit-transition: 0.15s ease-in-out; -o-transition: 0.15s ease-in-out; transition: 0.15s ease-in-out; min-width: 100%; width: auto; background: #E7E7E7; border: .1rem solid #393B8F; }
 
@@ -2806,6 +2806,8 @@ p.bold { font-weight: 600; }
 .section-content .content-table table tr td .bg-pick .btn:last-child { margin-bottom: 0; }
 
 .section-content .content-table table tr td .date { min-width: 6rem; width: 100%; }
+
+.section-content .content-table table tr td .date:disabled { min-width: auto; }
 
 .section-content .content-table table tr td .paragraph { font-size: .8rem; font-weight: 400; font-family: "Montserrat", sans-serif; line-height: 1rem; color: #000; padding: .3rem .5rem; border: 1px solid transparent; }
 

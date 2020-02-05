@@ -97,10 +97,10 @@
             <div class="content-top">
                <div class="content-top__field">
                   <form class="form form-filter content-top__container" method="post">
-                     <input type="hidden" value="cxTIqPBSwSIoG6WpJP889qAknH5skCjfp0a6Slwd" name="_token">
+                     <input type="hidden" value="FNF5H4sWh07aXSPCAUzGkHPttMjcGtxvKM7kxbwt" name="_token">
                      <input type="text" required class="field" placeholder="Container" name="container" value="">
                      <button class="btn btn--filter" type="submit">
-                        <svg class="search-svg" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                            <path d="M11.905 10.599L9.164 7.765a4.589 4.589 0 001.09-2.97c0-2.548-2.086-4.621-4.65-4.621-2.564 0-4.65 2.073-4.65 4.62 0 2.549 2.086 4.622 4.65 4.622.963 0 1.88-.289 2.664-.836l2.763 2.854a.605.605 0 00.857.017.6.6 0 00.017-.852zm-6.301-9.22c1.895 0 3.437 1.532 3.437 3.416 0 1.883-1.542 3.415-3.437 3.415-1.896 0-3.438-1.532-3.438-3.415 0-1.884 1.542-3.416 3.438-3.416z" fill="#929292"/>
                         </svg>
                         <svg class="close-svg" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -110,9 +110,9 @@
                   </form>
                   <form class="form form-filter content-top__vin" method="post">
                      <input type="text" required class="field" placeholder="VIN number" name="vin" value="">
-                     <input type="hidden" value="cxTIqPBSwSIoG6WpJP889qAknH5skCjfp0a6Slwd" name="_token">
+                     <input type="hidden" value="FNF5H4sWh07aXSPCAUzGkHPttMjcGtxvKM7kxbwt" name="_token">
                      <button class="btn btn--filter" type="submit">
-                        <svg class="search-svg" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                            <path d="M11.905 10.599L9.164 7.765a4.589 4.589 0 001.09-2.97c0-2.548-2.086-4.621-4.65-4.621-2.564 0-4.65 2.073-4.65 4.62 0 2.549 2.086 4.622 4.65 4.622.963 0 1.88-.289 2.664-.836l2.763 2.854a.605.605 0 00.857.017.6.6 0 00.017-.852zm-6.301-9.22c1.895 0 3.437 1.532 3.437 3.416 0 1.883-1.542 3.415-3.437 3.415-1.896 0-3.438-1.532-3.438-3.415 0-1.884 1.542-3.416 3.438-3.416z" fill="#929292"/>
                         </svg>
                         <svg class="close-svg" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -121,14 +121,6 @@
                      </button>
                   </form>
                </div>
-               <a href="#" class="link link--add fancybtn" data-popup="#carsadd">
-                  <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                     <path d="M10.929 4.929H7.286a.214.214 0 01-.215-.215V1.071a1.071 1.071 0 00-2.142 0v3.643a.214.214 0 01-.215.215H1.071a1.071 1.071 0 000 2.142h3.643c.119 0 .215.096.215.215v3.643a1.071 1.071 0 002.142 0V7.286c0-.119.096-.215.215-.215h3.643a1.071 1.071 0 000-2.142z" fill="#393B8F"/>
-                  </svg>
-                  <span>
-                  Добавить
-                  </span>
-               </a>
             </div>
             <div class="content-table">
                <div class="table table-main">
@@ -136,25 +128,48 @@
                      <thead>
                         <tr>
                            <th class="table-container">
-                              <p>Container #</p>
+                              <p>№ Контейнера</p>
                            </th>
                            <th class="table-date">
                               <p>Дата<br> прибытия</p>
+                              <div class="filter filter-dateex">
+                                 <div class="filter-head">
+                                    <a href="#" class="link link--openfilter">
+                                       <svg viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M2 3.18524L0.267949 0.185241L3.73205 0.185242L2 3.18524Z" fill="#393B8F"/>
+                                       </svg>
+                                    </a>
+                                 </div>
+                                 <div class="filter-content">
+                                    <div class="filter-block">
+                                       <a href="#" class="link link--filter" data-filter="asc">Сортировать по порядку</a>
+                                       <a href="#" class="link link--filter" data-filter="desc">Сортировать в обратно порядке</a>
+                                    </div>
+                                    <div class="filter-date">
+                                       <p class="paragraph">Выбрать даты</p>
+                                       <input type="text" readonly="readonly" class="field field--edit datefilter" placeholder="дд.мм.гг">
+                                       <!-- <div class="datepicker-here"></div> -->
+                                    </div>
+                                    <div class="filter-submit">
+                                       <a href="#" class="btn btn--filtered">Применить</a>
+                                    </div>
+                                 </div>
+                              </div>
                            </th>
                            <th class="table-vin">
-                              <p>VIN number</p>
+                              <p>ВИН номер</p>
                            </th>
                            <th class="table-expeditor">
-                              <p>Name of
-                                 expeditor 
+                              <p>
+                                 експедитор
                               </p>
-                              <div class="custom-select-wrapper"></div>
+                              <!-- <div class="custom-select-wrapper"></div> -->
                            </th>
                            <th class="table-rel">
                               <p>Релиз
                                  заказан
                               </p>
-                              <div class="custom-select-wrapper"></div>
+                              <!-- <div class="custom-select-wrapper"></div> -->
                            </th>
                            <th class="table-back">
                               <p>Релиз
@@ -167,7 +182,7 @@
                                  доставки
                                  в Киеве
                               </p>
-                              <div class="custom-select-wrapper"></div>
+                              <!-- <div class="custom-select-wrapper"></div> -->
                            </th>
                            <th class="table-pdd">
                               <p>Документы
@@ -176,27 +191,28 @@
                               </p>
                               <div class="custom-select-wrapper"></div>
                            </th>
-                           <th class="table-give">
-                              <p>Передача
-                                 машины
-                                 владельцу
-                              </p>
-                              <div class="custom-select-wrapper"></div>
-                           </th>
                            <th class="table-go">
                               <p>Машина
                                  выдана
                                  владельцу
                               </p>
+                              <!-- <div class="custom-select-wrapper"></div> -->
+                           </th>
+                           <th class="table-dill">
+                              <p>ФИО дилера</p>
                               <div class="custom-select-wrapper"></div>
+                           </th>
+                           <th class="table-expedirovanie">
+                              <p>Експедирование</p>
+                              <!-- <div class="custom-select-wrapper"></div> -->
                            </th>
                            <th class="table-brok">
                               <p>Expedirovanie + Brokerskie</p>
+                              <!-- <div class="custom-select-wrapper"></div> -->
                            </th>
-                           <th class="table-summa">
-                              <p>Остаток
-                                 баланса
-                              </p>
+                           <th class="table-brok">
+                              <p>ПД</p>
+                              <div class="custom-select-wrapper"></div>
                            </th>
                            <th class="table-combuh">
                               <p>Комментарий
@@ -218,7 +234,7 @@
                         </tr>
                      </thead>
                      <tbody>
-                        <tr class="view" data-savebg="green" data-container_id="16">
+                        <tr class="view " data-container_id="55">
                            <td>
                               <a href="#" class="link link--open">
                                  <svg viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -226,72 +242,162 @@
                                     <path d="M3.19092 1.02839L3.19092 2.98058L3.19092 4.74584L3.19092 6.69804C3.19092 7.17766 3.61389 7.57025 4.11768 7.57025C4.62146 7.57025 5.04443 7.17766 5.04443 6.69804L5.04443 4.74584L5.04443 2.98058L5.04443 1.02839C5.04443 0.548767 4.62146 0.156173 4.11768 0.156173C3.61389 0.156173 3.19092 0.548767 3.19092 1.02839Z" fill="#393B8F"/>
                                  </svg>
                               </a>
-                              <form method="POST" action="http://44.j2landing.com/admin/containers-update-subsection/16" accept-charset="UTF-8" data-url="http://44.j2landing.com/admin/containers-update-subsection/16" class="" enctype="multipart/form-data"><input name="_token" type="hidden" value="zwjzMfYBlu3I9Etb3CuODKZar9AVIKX8SoN5fMZ5">
-                                 <input type="text" class="field field--edit bl tc" value="WAUCFAFR8DA337661" name="container_number">
-                              </form>
+                              <input type="text" class="field field--edit bl tc" value="Test1231241" name="container_number" disabled="disabled">
                            </td>
                            <td>
-                              <input type="text" class="field field--edit date bl tc" value="26.06.2019" placeholder="Дата">
+                              <input type="text" class="field field--edit date bl tc" value="26.06.2019" disabled="disabled">
                            </td>
                            <td>
-                              <input type="text" name="vin_num" disabled="disabled" class="field field--edit tc" value="1 шт.">
+                              <input type="text" class="field field--edit tc" value="3 шт."  disabled="disabled">
                            </td>
                            <td>
-                              <div class="custom-select-wrapper">
+                              <input type="text" class="field field--edit date tc" value="" disabled="disabled">
+                           </td>
+                           <td style="">
+                           </td>
+                           <td style="">
+                           </td>
+                           <td>
+                              <input type="text" disabled="disabled" class="field field--edit  tc" value="0/3">
+                           </td>
+                           <td>
+                              <input type="text" disabled="disabled" class="field field--edit tc" value="0/3">
+                           </td>
+                           <td>
+                              <input type="text" disabled="disabled" class="field field--edit tc" value="0/3">
+                           </td>
+                           <td>
+                           </td>
+                           <td>
+                           </td>
+                           <td>
+                           </td>
+                           <td>
+                           </td>
+                           <td>
+                              <textarea name="booker_comment" class="field field--edit field--text" disabled="disabled"></textarea>
+                           </td>
+                           <td>
+                              <textarea name="admin_comment" class="field field--edit field--text" disabled="disabled"></textarea>
+                           </td>
+                           <td>
+                              <a href="#" data-url="http://44.j2landing.com/forwarder_admin/containers/in-work/55" class="btn btn--work work">
+                                 <svg viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0)">
+                                       <path d="M4.444 7.549a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478l1.364 1.364c.103.103.27.103.373 0l3.695-3.694a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
+                                    </g>
+                                    <defs>
+                                       <clipPath id="clip0">
+                                          <path fill="#fff" d="M.37 0h9v9h-9z"/>
+                                       </clipPath>
+                                    </defs>
+                                 </svg>
+                              </a>
+                              <a href="#"  data-url="http://44.j2landing.com/forwarder_admin/containers/decomposed/55" class="btn btn--rass rass">
+                                 <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.444 6.404a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478L5.518 4c.103.103.27.103.373 0L9.586.306a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
+                                    <path d="M3.612 10.612h0a1.545 1.545 0 002.185 0l4.62-4.62a1.545 1.545 0 00-2.185-2.185s0 0 0 0L4.705 7.336 3.507 6.138s0 0 0 0a1.545 1.545 0 00-2.185 0s0 0 0 0l2.29 4.474zm0 0l-2.29-2.29 2.29 2.29z" fill="#4E9734" stroke="#fff"/>
+                                 </svg>
+                              </a>
+                              <a href="#" class="btn btn--edit editing">
+                                 <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.983 2.107l2.073 2.07L3.807 9.42 1.735 7.349l5.248-5.242zm3.647-.5L9.705.684a.919.919 0 00-1.296 0l-.886.884L9.597 3.64l1.033-1.032a.705.705 0 000-1zM.65 10.26a.236.236 0 00.285.28l2.31-.56-2.072-2.07-.524 2.35z" fill="#676767"/>
+                                 </svg>
+                              </a>
+                              <a href="#" data-url="" class="btn btn--save save">
+                                 <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.76 2.217h4.48a.243.243 0 00.243-.243V0H3.517v1.974c0 .134.108.243.243.243z" fill="#4E9734"/>
+                                    <path d="M11.813 3.018L9.285.478v1.496c0 .575-.468 1.043-1.043 1.043H3.76a1.044 1.044 0 01-1.042-1.043V0H1.102C.494 0 .001.493.001 1.1v9.8c0 .607.493 1.1 1.101 1.1H10.9c.608 0 1.1-.493 1.1-1.1V3.471a.642.642 0 00-.187-.454zm-1.679 6.457a.643.643 0 01-.643.643h-6.98a.643.643 0 01-.643-.643v-3.35c0-.355.287-.643.642-.643h6.981c.356 0 .643.288.643.643v3.35z" fill="#4E9734"/>
+                                    <path d="M8.758 6.514H3.242a.4.4 0 100 .8h5.516a.4.4 0 100-.8zM7.958 8.114H4.042a.4.4 0 100 .8h3.916a.4.4 0 000-.8z" fill="#4E9734"/>
+                                 </svg>
+                              </a>
+                              <a href="#" class="link link--disable disable">
+                                 <svg viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.7972 4.81819L3.97923 3.00003L5.7972 1.18197C6.06761 0.911453 6.06761 0.473252 5.7972 0.202736C5.66209 0.0676246 5.48495 1.66893e-05 5.30789 1.66893e-05C5.13054 1.66893e-05 4.95338 0.0675211 4.81838 0.202736L3.00001 2.02101L1.18179 0.202754C1.04669 0.0676417 0.869534 3.43323e-05 0.692325 3.43323e-05C0.515167 3.43323e-05 0.338129 0.0675387 0.202914 0.202754C-0.0675001 0.473149 -0.0675001 0.911366 0.202914 1.18199L2.02083 3.00005L0.20281 4.81819C-0.0676034 5.0886 -0.0676034 5.5269 0.20281 5.79731C0.473172 6.06752 0.911219 6.06752 1.18168 5.79731L3 3.97916L4.81817 5.79731C5.08869 6.06752 5.52678 6.06752 5.79709 5.79731C6.06761 5.5269 6.06761 5.0886 5.7972 4.81819Z" fill="white"/>
+                                 </svg>
+                              </a>
+                           </td>
+                        </tr>
+                        <tr class="fold" data-vin_id="55-137">
+                           <td>
+                              <input type="input" class="field field--edit bl" value="Test1231241" name="container_number" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date tc" value="26.06.2019" disabled="disabled">
+                           </td>
+                           <td>
+                              <input class="field field--edit bl tc" value="1312e1we1we1e11e" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date tc" value="MK Logistic" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date" value="Да" disabled="disabled">
+                              <input type="text" class="field field--edit date" value="" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" name="release_received" form="vin_form137" placeholder="Дата" value="" class="field field--edit date tc">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date tc" value="Нет" disabled="disabled">
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper" >
                                  <div class="custom-select">
-                                    <div class="custom-select__trigger ">
-                                       <input type="text" readonly="" data-valuefield="51" class="field field--edit select-input" name="user_id" placeholder="Выберите экспедитора" value="Экспедитор" form="container_form16">
+                                    <div class="custom-select__trigger">
+                                       <input type="text" readonly="" class="field field--edit select-input" name="documents_odessa" placeholder="Количество"
+                                          data-valuefield="" value="" form="vin_form137">
                                        <div class="arrow"></div>
                                     </div>
                                     <div class="custom-options">
-                                       <span class="custom-option" data-value="56">Вася Пупкин</span>
-                                       <span class="custom-option" data-value="41">mailfortalk@gmail.com</span>
-                                       <span class="custom-option" data-value="45">forwarder</span>
-                                       <span class="custom-option" data-value="49">test</span>
-                                       <span class="custom-option" data-value="51">Экспедитор</span>
-                                       <span class="custom-option" data-value="52">Василий Петрович</span>
-                                       <span class="custom-option" data-value="55">Андрей</span>
-                                       <span class="custom-option" data-value="59">geerger</span>
-                                       <span class="custom-option" data-value="60">egrgeer</span>
-                                       <span class="custom-option" data-value="61">ffwefwe</span>
-                                       <span class="custom-option" data-value="68">forwarder_created_by_manager</span>
-                                       <span class="custom-option" data-value="72">test43</span>
-                                       <span class="custom-option" data-value="74">Test</span>
-                                       <span class="custom-option" data-value="75">test booker created by booker</span>
-                                       <span class="custom-option" data-value="76">tes booker 3</span>
+                                       <span class="custom-option " data-value="1 шт.">1 шт.</span>
+                                       <span class="custom-option " data-value="2 шт.">2 шт.</span>
+                                       <span class="custom-option " data-value="3 шт.">3 шт.</span>
+                                       <span class="custom-option " data-value="4 шт.">4 шт.</span>
+                                       <span class="custom-option " data-value="5 шт.">5 шт.</span>
+                                       <span class="custom-option " data-value="6 шт.">6 шт.</span>
                                     </div>
                                  </div>
                               </div>
+                              <input type="text" name="documents_odessa_date" form="vin_form137" placeholder="Дата" class="field field--edit date" value="">
                            </td>
                            <td>
+                              <form method="POST" action="http://44.j2landing.com/forwarder_admin/containers/update/137" accept-charset="UTF-8" data-url="http://44.j2landing.com/forwarder_admin/containers/update/137" class="" id="vin_form137" enctype="multipart/form-data">
+                                 <input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="FNF5H4sWh07aXSPCAUzGkHPttMjcGtxvKM7kxbwt">
+                                 <div class="custom-select-wrapper" >
+                                    <div class="custom-select">
+                                       <div class="custom-select__trigger">
+                                          <input type="text" readonly="" class="field field--edit select-input" name="owner_got"  data-valuefield="0" value="Нет" form="vin_form137">
+                                          <div class="arrow"></div>
+                                       </div>
+                                       <div class="custom-options">
+                                          <span class="custom-option " data-value="1">Да</span>
+                                          <span class="custom-option selected" data-value="0">Нет</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </form>
                            </td>
                            <td>
+                              <input type="text" class="field field--edit date tc" value="Davit Kharkov" disabled="disabled">
                            </td>
                            <td>
-                              <input type="text" disabled="disabled" class="field field--edit  tc" value="0/1">
+                              <input type="text" class="field field--edit tc" value="500" disabled="disabled">
                            </td>
                            <td>
-                              <input type="text" disabled="disabled" class="field field--edit tc" value="0/1">
+                              <input type="text" class="field field--edit tc" value="750" disabled="disabled">
                            </td>
                            <td>
-                              <input type="text" disabled="disabled" class="field field--edit tc" value="0/1">
+                              <input type="text" class="field field--edit tc" value="500" disabled="disabled">
                            </td>
                            <td>
-                              <input type="text" disabled="disabled" class="field field--edit tc" value="0/1">
+                              <textarea rows="5" class="field field--edit field--text" form="vin_form137" disabled="disabled"></textarea>
                            </td>
                            <td>
+                              <textarea rows="5" class="field field--edit field--text" form="vin_form137" disabled="disabled"></textarea>
                            </td>
                            <td>
-                              <input type="text" disabled="disabled" class="field field--edit tc" value="2400">
-                           </td>
-                           <td>
-                              <textarea name="booker_comment" class="field field--edit field--text">Оформили клиенту</textarea>
-                           </td>
-                           <td>
-                              <textarea placeholder="Введите" name="admin_comment" class="field field--edit field--text"></textarea>
-                           </td>
-                           <td>
-                              <a href="#" class="btn btn--work work">
+                              <a href="#" data-url="http://44.j2landing.com/forwarder_admin/vins/in-work/137" class="btn btn--work work">
                                  <svg viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0)">
                                        <path d="M4.444 7.549a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478l1.364 1.364c.103.103.27.103.373 0l3.695-3.694a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
@@ -314,251 +420,166 @@
                                     <path d="M6.983 2.107l2.073 2.07L3.807 9.42 1.735 7.349l5.248-5.242zm3.647-.5L9.705.684a.919.919 0 00-1.296 0l-.886.884L9.597 3.64l1.033-1.032a.705.705 0 000-1zM.65 10.26a.236.236 0 00.285.28l2.31-.56-2.072-2.07-.524 2.35z" fill="#676767"/>
                                  </svg>
                               </a>
-                              <a href="#" class="btn btn--save save">
+                              <a href="#" form="vin_form137"  class="btn btn--save save">
                                  <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3.76 2.217h4.48a.243.243 0 00.243-.243V0H3.517v1.974c0 .134.108.243.243.243z" fill="#4E9734"/>
                                     <path d="M11.813 3.018L9.285.478v1.496c0 .575-.468 1.043-1.043 1.043H3.76a1.044 1.044 0 01-1.042-1.043V0H1.102C.494 0 .001.493.001 1.1v9.8c0 .607.493 1.1 1.101 1.1H10.9c.608 0 1.1-.493 1.1-1.1V3.471a.642.642 0 00-.187-.454zm-1.679 6.457a.643.643 0 01-.643.643h-6.98a.643.643 0 01-.643-.643v-3.35c0-.355.287-.643.642-.643h6.981c.356 0 .643.288.643.643v3.35z" fill="#4E9734"/>
                                     <path d="M8.758 6.514H3.242a.4.4 0 100 .8h5.516a.4.4 0 100-.8zM7.958 8.114H4.042a.4.4 0 100 .8h3.916a.4.4 0 000-.8z" fill="#4E9734"/>
                                  </svg>
                               </a>
-                           </td>
-                        </tr>
-                        <tr class="fold" data-vin_id="16-36">
-                           <td>
-                              <form method="POST" action="http://44.j2landing.com/admin/containers/36" accept-charset="UTF-8" data-url="http://44.j2landing.com/admin/containers/36" class=""  enctype="multipart/form-data"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="zwjzMfYBlu3I9Etb3CuODKZar9AVIKX8SoN5fMZ5">
-                                 <input type="input" class="field field--edit bl" value="WAUCFAFR8DA337661" name="container_number" disabled>
-                              </form>
-                           </td>
-                           <td>
-                              <input type="text" form="vin_form36"  class="field field--edit date tc" value="26.06.2019" placeholder="Дата">
-                           </td>
-                           <td>
-                              <input name="vin_number" form="vin_form36" class="field field--edit bl tc" value="">
-                           </td>
-                           <td>
-                              <div class="custom-select-wrapper">
-                                 <div class="custom-select">
-                                    <div class="custom-select__trigger">
-                                       <input type="text" readonly="" class="field field--edit select-input" name="user_id" placeholder="Выберите экспедитора" data-valuefield="51" value="Экспедитор" form="container_form16">
-                                       <div class="arrow"></div>
-                                    </div>
-                                    <div class="custom-options">
-                                       <span class="custom-option" data-value="41">mailfortalk@gmail.com</span>
-                                       <span class="custom-option" data-value="45">forwarder</span>
-                                       <span class="custom-option" data-value="49">test</span>
-                                       <span class="custom-option" data-value="51">Экспедитор</span>
-                                       <span class="custom-option" data-value="52">Василий Петрович</span>
-                                       <span class="custom-option" data-value="55">Андрей</span>
-                                       <span class="custom-option" data-value="56">Вася Пупкин</span>
-                                       <span class="custom-option" data-value="59">geerger</span>
-                                       <span class="custom-option" data-value="60">egrgeer</span>
-                                       <span class="custom-option" data-value="61">ffwefwe</span>
-                                       <span class="custom-option" data-value="68">forwarder_created_by_manager</span>
-                                       <span class="custom-option" data-value="72">test43</span>
-                                       <span class="custom-option" data-value="74">Test</span>
-                                       <span class="custom-option" data-value="75">test booker created by booker</span>
-                                       <span class="custom-option" data-value="76">tes booker 3</span>
-                                    </div>
-                                 </div>
-                              </div>
-                           </td>
-                           <td>
-                              <div class="custom-select-wrapper" >
-                                 <div class="custom-select">
-                                    <div class="custom-select__trigger">
-                                       <input type="text" readonly="" class="field field--edit select-input" name="release_ordered"  data-valuefield="0" value="Нет" form="container_form16">
-                                       <div class="arrow"></div>
-                                    </div>
-                                    <div class="custom-options">
-                                       <span class="custom-option" data-value="1">Да</span>
-                                       <span class="custom-option selected" data-value="0">Нет</span>
-                                    </div>
-                                 </div>
-                              </div>
-                              <input type="text" name="release_ordered_date" form="vin_form36" class="field field--edit date" value="" placeholder="Дата">
-                           </td>
-                           <td>
-                              <input type="text" name="release_received" form="vin_form36" value="" placeholder="Дата" class="field field--edit date tc">
-                           </td>
-                           <td>
-                              <div class="custom-select-wrapper" >
-                                 <div class="custom-select">
-                                    <div class="custom-select__trigger">
-                                       <input type="text" readonly="" class="field field--edit select-input" name="documents_kiev"  data-valuefield="0" value="Нет" form="container_form16">
-                                       <div class="arrow"></div>
-                                    </div>
-                                    <div class="custom-options">
-                                       <span class="custom-option" data-value="1">Да</span>
-                                       <span class="custom-option selected" data-value="0">Нет</span>
-                                    </div>
-                                 </div>
-                              </div>
-                           </td>
-                           <td>
-                              <div class="custom-select-wrapper" >
-                                 <div class="custom-select">
-                                    <div class="custom-select__trigger">
-                                       <input type="text" readonly="" class="field field--edit select-input" name="documents_odessa"  data-valuefield="" placeholder="Количество" value="" form="container_form16">
-                                       <div class="arrow"></div>
-                                    </div>
-                                    <div class="custom-options">
-                                       <span class="custom-option" data-value="1 шт." >1 шт.</span>
-                                       <span class="custom-option" data-value="2 шт." >2 шт.</span>
-                                       <span class="custom-option" data-value="3 шт." >3 шт.</span>
-                                       <span class="custom-option" data-value="4 шт." >4 шт.</span>
-                                       <span class="custom-option" data-value="5 шт." >5 шт.</span>
-                                    </div>
-                                 </div>
-                              </div>
-                              <input type="text" name="documents_odessa_date" placeholder="Дата" form="vin_form36" class="field field--edit date" value="">
-                           </td>
-                           <td>
-                              <div class="custom-select-wrapper" >
-                                 <div class="custom-select">
-                                    <div class="custom-select__trigger">
-                                       <input type="text" readonly="" class="field field--edit select-input" name="sent_for_owner"  data-valuefield="0" value="Нет" form="container_form16">
-                                       <div class="arrow"></div>
-                                    </div>
-                                    <div class="custom-options">
-                                       <span class="custom-option" data-value="1">Да</span>
-                                       <span class="custom-option selected" data-value="0">Нет</span>
-                                    </div>
-                                 </div>
-                              </div>
-                           </td>
-                           <td>
-                              <div class="custom-select-wrapper" >
-                                 <div class="custom-select">
-                                    <div class="custom-select__trigger">
-                                       <input type="text" readonly="" class="field field--edit select-input" name="owner_got"  data-valuefield="0" value="Нет" form="container_form16">
-                                       <div class="arrow"></div>
-                                    </div>
-                                    <div class="custom-options">
-                                       <span class="custom-option" data-value="1">Да</span>
-                                       <span class="custom-option selected" data-value="0">Нет</span>
-                                    </div>
-                                 </div>
-                              </div>
-                           </td>
-                           <td>
-                              <input type="text" name="rate2" class="field field--edit tc" value="30" form="vin_form36">
-                           </td>
-                           <td>
-                              <input type="text" class="field field--edit tc" value="$800">
-                           </td>
-                           <td>
-                              <textarea name="booker_comment" rows="5" class="field field--edit field--text" form="vin_form36" disabled="disabled"></textarea>
-                           </td>
-                           <td>
-                              <textarea placeholder="Введите" name="admin_comment" rows="5" class="field field--edit field--text" form="vin_form36"></textarea>
-                           </td>
-                           <td>
-                              <a href="#" class="btn btn--work work">
-                                 <svg viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0)">
-                                       <path d="M4.444 7.549a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478l1.364 1.364c.103.103.27.103.373 0l3.695-3.694a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
-                                    </g>
-                                    <defs>
-                                       <clipPath id="clip0">
-                                          <path fill="#fff" d="M.37 0h9v9h-9z"/>
-                                       </clipPath>
-                                    </defs>
-                                 </svg>
-                              </a>
-                              <a href="#" class="btn btn--rass rass">
-                                 <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6.444 6.404a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478L5.518 4c.103.103.27.103.373 0L9.586.306a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
-                                    <path d="M3.612 10.612h0a1.545 1.545 0 002.185 0l4.62-4.62a1.545 1.545 0 00-2.185-2.185s0 0 0 0L4.705 7.336 3.507 6.138s0 0 0 0a1.545 1.545 0 00-2.185 0s0 0 0 0l2.29 4.474zm0 0l-2.29-2.29 2.29 2.29z" fill="#4E9734" stroke="#fff"/>
-                                 </svg>
-                              </a>
-                              <a href="#" class="btn btn--edit editing">
-                                 <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6.983 2.107l2.073 2.07L3.807 9.42 1.735 7.349l5.248-5.242zm3.647-.5L9.705.684a.919.919 0 00-1.296 0l-.886.884L9.597 3.64l1.033-1.032a.705.705 0 000-1zM.65 10.26a.236.236 0 00.285.28l2.31-.56-2.072-2.07-.524 2.35z" fill="#676767"/>
-                                 </svg>
-                              </a>
-                              <a href="#" class="btn btn--save save">
-                                 <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M3.76 2.217h4.48a.243.243 0 00.243-.243V0H3.517v1.974c0 .134.108.243.243.243z" fill="#4E9734"/>
-                                    <path d="M11.813 3.018L9.285.478v1.496c0 .575-.468 1.043-1.043 1.043H3.76a1.044 1.044 0 01-1.042-1.043V0H1.102C.494 0 .001.493.001 1.1v9.8c0 .607.493 1.1 1.101 1.1H10.9c.608 0 1.1-.493 1.1-1.1V3.471a.642.642 0 00-.187-.454zm-1.679 6.457a.643.643 0 01-.643.643h-6.98a.643.643 0 01-.643-.643v-3.35c0-.355.287-.643.642-.643h6.981c.356 0 .643.288.643.643v3.35z" fill="#4E9734"/>
-                                    <path d="M8.758 6.514H3.242a.4.4 0 100 .8h5.516a.4.4 0 100-.8zM7.958 8.114H4.042a.4.4 0 100 .8h3.916a.4.4 0 000-.8z" fill="#4E9734"/>
+                              <a href="#" class="link link--disable disable">
+                                 <svg viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.7972 4.81819L3.97923 3.00003L5.7972 1.18197C6.06761 0.911453 6.06761 0.473252 5.7972 0.202736C5.66209 0.0676246 5.48495 1.66893e-05 5.30789 1.66893e-05C5.13054 1.66893e-05 4.95338 0.0675211 4.81838 0.202736L3.00001 2.02101L1.18179 0.202754C1.04669 0.0676417 0.869534 3.43323e-05 0.692325 3.43323e-05C0.515167 3.43323e-05 0.338129 0.0675387 0.202914 0.202754C-0.0675001 0.473149 -0.0675001 0.911366 0.202914 1.18199L2.02083 3.00005L0.20281 4.81819C-0.0676034 5.0886 -0.0676034 5.5269 0.20281 5.79731C0.473172 6.06752 0.911219 6.06752 1.18168 5.79731L3 3.97916L4.81817 5.79731C5.08869 6.06752 5.52678 6.06752 5.79709 5.79731C6.06761 5.5269 6.06761 5.0886 5.7972 4.81819Z" fill="white"/>
                                  </svg>
                               </a>
                            </td>
                         </tr>
-                        <tr class="view gray" data-savebg="green" data-container_id="16">
-                           <td>
+                        <tr class="view gray" data-container_id="48">
+                           <td class="two-check">
                               <a href="#" class="link link--open">
                                  <svg viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M6.95251 2.93646H5.00031H3.23506H1.28286C0.803238 2.93646 0.410645 3.35943 0.410645 3.86322C0.410645 4.36701 0.803238 4.78998 1.28286 4.78998H3.23506H5.00031H6.95251C7.43213 4.78998 7.82472 4.36701 7.82472 3.86322C7.82472 3.35943 7.43213 2.93646 6.95251 2.93646Z" fill="#393B8F"/>
                                     <path d="M3.19092 1.02839L3.19092 2.98058L3.19092 4.74584L3.19092 6.69804C3.19092 7.17766 3.61389 7.57025 4.11768 7.57025C4.62146 7.57025 5.04443 7.17766 5.04443 6.69804L5.04443 4.74584L5.04443 2.98058L5.04443 1.02839C5.04443 0.548767 4.62146 0.156173 4.11768 0.156173C3.61389 0.156173 3.19092 0.548767 3.19092 1.02839Z" fill="#393B8F"/>
                                  </svg>
                               </a>
-                              <form method="POST" action="http://44.j2landing.com/admin/containers-update-subsection/16" accept-charset="UTF-8" data-url="http://44.j2landing.com/admin/containers-update-subsection/16" class="" enctype="multipart/form-data"><input name="_token" type="hidden" value="zwjzMfYBlu3I9Etb3CuODKZar9AVIKX8SoN5fMZ5">
-                                 <input type="text" class="field field--edit bl tc" value="WAUCFAFR8DA337661" name="container_number">
-                              </form>
+                              <input type="text" class="field field--edit bl tc" value="UACU5443966" name="container_number" disabled="disabled">
                            </td>
                            <td>
-                              <input type="text" class="field field--edit date bl tc" value="26.06.2019" placeholder="Дата">
+                              <input type="text" class="field field--edit date bl tc" value="26.06.2019" disabled="disabled">
                            </td>
                            <td>
-                              <input type="text" name="vin_num" disabled="disabled" class="field field--edit tc" value="1 шт.">
+                              <input type="text" class="field field--edit tc" value="4 шт."  disabled="disabled">
                            </td>
                            <td>
-                              <div class="custom-select-wrapper">
+                              <input type="text" class="field field--edit date tc" value="MK Logistic" disabled="disabled">
+                           </td>
+                           <td style="">
+                           </td>
+                           <td style="">
+                           </td>
+                           <td>
+                              <input type="text" disabled="disabled" class="field field--edit  tc" value="2/4">
+                           </td>
+                           <td>
+                              <input type="text" disabled="disabled" class="field field--edit tc" value="1/4">
+                           </td>
+                           <td>
+                              <input type="text" disabled="disabled" class="field field--edit tc" value="0/4">
+                           </td>
+                           <td>
+                           </td>
+                           <td>
+                           </td>
+                           <td>
+                           </td>
+                           <td>
+                           </td>
+                           <td>
+                              <textarea name="booker_comment" class="field field--edit field--text" disabled="disabled"></textarea>
+                           </td>
+                           <td>
+                              <textarea name="admin_comment" class="field field--edit field--text" disabled="disabled"></textarea>
+                           </td>
+                           <td>
+                              <a href="#" class="btn btn--edit editing">
+                                 <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.983 2.107l2.073 2.07L3.807 9.42 1.735 7.349l5.248-5.242zm3.647-.5L9.705.684a.919.919 0 00-1.296 0l-.886.884L9.597 3.64l1.033-1.032a.705.705 0 000-1zM.65 10.26a.236.236 0 00.285.28l2.31-.56-2.072-2.07-.524 2.35z" fill="#676767"/>
+                                 </svg>
+                              </a>
+                              <a href="#" data-url="" class="btn btn--save save">
+                                 <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.76 2.217h4.48a.243.243 0 00.243-.243V0H3.517v1.974c0 .134.108.243.243.243z" fill="#4E9734"/>
+                                    <path d="M11.813 3.018L9.285.478v1.496c0 .575-.468 1.043-1.043 1.043H3.76a1.044 1.044 0 01-1.042-1.043V0H1.102C.494 0 .001.493.001 1.1v9.8c0 .607.493 1.1 1.101 1.1H10.9c.608 0 1.1-.493 1.1-1.1V3.471a.642.642 0 00-.187-.454zm-1.679 6.457a.643.643 0 01-.643.643h-6.98a.643.643 0 01-.643-.643v-3.35c0-.355.287-.643.642-.643h6.981c.356 0 .643.288.643.643v3.35z" fill="#4E9734"/>
+                                    <path d="M8.758 6.514H3.242a.4.4 0 100 .8h5.516a.4.4 0 100-.8zM7.958 8.114H4.042a.4.4 0 100 .8h3.916a.4.4 0 000-.8z" fill="#4E9734"/>
+                                 </svg>
+                              </a>
+                              <a href="#" class="link link--disable disable">
+                                 <svg viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.7972 4.81819L3.97923 3.00003L5.7972 1.18197C6.06761 0.911453 6.06761 0.473252 5.7972 0.202736C5.66209 0.0676246 5.48495 1.66893e-05 5.30789 1.66893e-05C5.13054 1.66893e-05 4.95338 0.0675211 4.81838 0.202736L3.00001 2.02101L1.18179 0.202754C1.04669 0.0676417 0.869534 3.43323e-05 0.692325 3.43323e-05C0.515167 3.43323e-05 0.338129 0.0675387 0.202914 0.202754C-0.0675001 0.473149 -0.0675001 0.911366 0.202914 1.18199L2.02083 3.00005L0.20281 4.81819C-0.0676034 5.0886 -0.0676034 5.5269 0.20281 5.79731C0.473172 6.06752 0.911219 6.06752 1.18168 5.79731L3 3.97916L4.81817 5.79731C5.08869 6.06752 5.52678 6.06752 5.79709 5.79731C6.06761 5.5269 6.06761 5.0886 5.7972 4.81819Z" fill="white"/>
+                                 </svg>
+                              </a>
+                           </td>
+                        </tr>
+                        <tr class="fold" data-vin_id="48-124">
+                           <td>
+                              <input type="input" class="field field--edit bl" value="UACU5443966" name="container_number" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date tc" value="26.06.2019" disabled="disabled">
+                           </td>
+                           <td>
+                              <input class="field field--edit bl tc" value="5LMCJ1C99JUL33259" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date tc" value="MK Logistic" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date" value="Да" disabled="disabled">
+                              <input type="text" class="field field--edit date" value="13.02.2020" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" name="release_received" form="vin_form124" placeholder="Дата" value="14.02.2020" class="field field--edit date tc">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date tc" value="Да" disabled="disabled">
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper" >
                                  <div class="custom-select">
-                                    <div class="custom-select__trigger ">
-                                       <input type="text" readonly="" data-valuefield="51" class="field field--edit select-input" name="user_id" placeholder="Выберите экспедитора" value="Экспедитор" form="container_form16">
+                                    <div class="custom-select__trigger">
+                                       <input type="text" readonly="" class="field field--edit select-input" name="documents_odessa" placeholder="Количество"
+                                          data-valuefield="5 шт." value="5 шт." form="vin_form124">
                                        <div class="arrow"></div>
                                     </div>
                                     <div class="custom-options">
-                                       <span class="custom-option" data-value="56">Вася Пупкин</span>
-                                       <span class="custom-option" data-value="41">mailfortalk@gmail.com</span>
-                                       <span class="custom-option" data-value="45">forwarder</span>
-                                       <span class="custom-option" data-value="49">test</span>
-                                       <span class="custom-option" data-value="51">Экспедитор</span>
-                                       <span class="custom-option" data-value="52">Василий Петрович</span>
-                                       <span class="custom-option" data-value="55">Андрей</span>
-                                       <span class="custom-option" data-value="59">geerger</span>
-                                       <span class="custom-option" data-value="60">egrgeer</span>
-                                       <span class="custom-option" data-value="61">ffwefwe</span>
-                                       <span class="custom-option" data-value="68">forwarder_created_by_manager</span>
-                                       <span class="custom-option" data-value="72">test43</span>
-                                       <span class="custom-option" data-value="74">Test</span>
-                                       <span class="custom-option" data-value="75">test booker created by booker</span>
-                                       <span class="custom-option" data-value="76">tes booker 3</span>
+                                       <span class="custom-option " data-value="1 шт.">1 шт.</span>
+                                       <span class="custom-option " data-value="2 шт.">2 шт.</span>
+                                       <span class="custom-option " data-value="3 шт.">3 шт.</span>
+                                       <span class="custom-option " data-value="4 шт.">4 шт.</span>
+                                       <span class="custom-option selected" data-value="5 шт.">5 шт.</span>
+                                       <span class="custom-option " data-value="6 шт.">6 шт.</span>
                                     </div>
                                  </div>
                               </div>
+                              <input type="text" name="documents_odessa_date" form="vin_form124" placeholder="Дата" class="field field--edit date" value="15.02.2020">
                            </td>
                            <td>
+                              <form method="POST" action="http://44.j2landing.com/forwarder_admin/containers/update/124" accept-charset="UTF-8" data-url="http://44.j2landing.com/forwarder_admin/containers/update/124" class="" id="vin_form124" enctype="multipart/form-data">
+                                 <input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="FNF5H4sWh07aXSPCAUzGkHPttMjcGtxvKM7kxbwt">
+                                 <div class="custom-select-wrapper" >
+                                    <div class="custom-select">
+                                       <div class="custom-select__trigger">
+                                          <input type="text" readonly="" class="field field--edit select-input" name="owner_got"  data-valuefield="0" value="Нет" form="vin_form124">
+                                          <div class="arrow"></div>
+                                       </div>
+                                       <div class="custom-options">
+                                          <span class="custom-option " data-value="1">Да</span>
+                                          <span class="custom-option selected" data-value="0">Нет</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </form>
                            </td>
                            <td>
+                              <input type="text" class="field field--edit date tc" value="Yurii Tsiupa" disabled="disabled">
                            </td>
                            <td>
-                              <input type="text" disabled="disabled" class="field field--edit  tc" value="0/1">
+                              <input type="text" class="field field--edit tc" value="500" disabled="disabled">
                            </td>
                            <td>
-                              <input type="text" disabled="disabled" class="field field--edit tc" value="0/1">
+                              <input type="text" class="field field--edit tc" value="800" disabled="disabled">
                            </td>
                            <td>
-                              <input type="text" disabled="disabled" class="field field--edit tc" value="0/1">
+                              <input type="text" class="field field--edit tc" value="550" disabled="disabled">
                            </td>
                            <td>
-                              <input type="text" disabled="disabled" class="field field--edit tc" value="0/1">
+                              <textarea rows="5" class="field field--edit field--text" form="vin_form124" disabled="disabled"></textarea>
                            </td>
                            <td>
+                              <textarea rows="5" class="field field--edit field--text" form="vin_form124" disabled="disabled"></textarea>
                            </td>
                            <td>
-                              <input type="text" disabled="disabled" class="field field--edit tc" value="2400">
-                           </td>
-                           <td>
-                              <textarea name="booker_comment" class="field field--edit field--text">Оформили клиенту</textarea>
-                           </td>
-                           <td>
-                              <textarea placeholder="Введите" name="admin_comment" class="field field--edit field--text"></textarea>
-                           </td>
-                           <td>
-                              <a href="#" class="btn btn--work work">
+                              <a href="#" data-url="http://44.j2landing.com/forwarder_admin/vins/in-work/124" class="btn btn--work work">
                                  <svg viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0)">
                                        <path d="M4.444 7.549a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478l1.364 1.364c.103.103.27.103.373 0l3.695-3.694a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
@@ -581,146 +602,100 @@
                                     <path d="M6.983 2.107l2.073 2.07L3.807 9.42 1.735 7.349l5.248-5.242zm3.647-.5L9.705.684a.919.919 0 00-1.296 0l-.886.884L9.597 3.64l1.033-1.032a.705.705 0 000-1zM.65 10.26a.236.236 0 00.285.28l2.31-.56-2.072-2.07-.524 2.35z" fill="#676767"/>
                                  </svg>
                               </a>
-                              <a href="#" class="btn btn--save save">
+                              <a href="#" form="vin_form124"  class="btn btn--save save">
                                  <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3.76 2.217h4.48a.243.243 0 00.243-.243V0H3.517v1.974c0 .134.108.243.243.243z" fill="#4E9734"/>
                                     <path d="M11.813 3.018L9.285.478v1.496c0 .575-.468 1.043-1.043 1.043H3.76a1.044 1.044 0 01-1.042-1.043V0H1.102C.494 0 .001.493.001 1.1v9.8c0 .607.493 1.1 1.101 1.1H10.9c.608 0 1.1-.493 1.1-1.1V3.471a.642.642 0 00-.187-.454zm-1.679 6.457a.643.643 0 01-.643.643h-6.98a.643.643 0 01-.643-.643v-3.35c0-.355.287-.643.642-.643h6.981c.356 0 .643.288.643.643v3.35z" fill="#4E9734"/>
                                     <path d="M8.758 6.514H3.242a.4.4 0 100 .8h5.516a.4.4 0 100-.8zM7.958 8.114H4.042a.4.4 0 100 .8h3.916a.4.4 0 000-.8z" fill="#4E9734"/>
                                  </svg>
                               </a>
+                              <a href="#" class="link link--disable disable">
+                                 <svg viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.7972 4.81819L3.97923 3.00003L5.7972 1.18197C6.06761 0.911453 6.06761 0.473252 5.7972 0.202736C5.66209 0.0676246 5.48495 1.66893e-05 5.30789 1.66893e-05C5.13054 1.66893e-05 4.95338 0.0675211 4.81838 0.202736L3.00001 2.02101L1.18179 0.202754C1.04669 0.0676417 0.869534 3.43323e-05 0.692325 3.43323e-05C0.515167 3.43323e-05 0.338129 0.0675387 0.202914 0.202754C-0.0675001 0.473149 -0.0675001 0.911366 0.202914 1.18199L2.02083 3.00005L0.20281 4.81819C-0.0676034 5.0886 -0.0676034 5.5269 0.20281 5.79731C0.473172 6.06752 0.911219 6.06752 1.18168 5.79731L3 3.97916L4.81817 5.79731C5.08869 6.06752 5.52678 6.06752 5.79709 5.79731C6.06761 5.5269 6.06761 5.0886 5.7972 4.81819Z" fill="white"/>
+                                 </svg>
+                              </a>
                            </td>
                         </tr>
-                        <tr class="fold" data-vin_id="16-36">
+                        <tr class="fold" data-vin_id="48-125">
                            <td>
-                              <form method="POST" action="http://44.j2landing.com/admin/containers/36" accept-charset="UTF-8" data-url="http://44.j2landing.com/admin/containers/36" class=""  enctype="multipart/form-data"><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="zwjzMfYBlu3I9Etb3CuODKZar9AVIKX8SoN5fMZ5">
-                                 <input type="input" class="field field--edit bl" value="WAUCFAFR8DA337661" name="container_number" disabled>
+                              <input type="input" class="field field--edit bl" value="UACU5443966" name="container_number" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date tc" value="26.06.2019" disabled="disabled">
+                           </td>
+                           <td>
+                              <input class="field field--edit bl tc" value="1C4NJPBBXED512441" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date tc" value="MK Logistic" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date" value="Да" disabled="disabled">
+                              <input type="text" class="field field--edit date" value="" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" name="release_received" form="vin_form125" placeholder="Дата" value="08.02.2020" class="field field--edit date tc">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date tc" value="Да" disabled="disabled">
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper" >
+                                 <div class="custom-select">
+                                    <div class="custom-select__trigger">
+                                       <input type="text" readonly="" class="field field--edit select-input" name="documents_odessa" placeholder="Количество"
+                                          data-valuefield="" value="" form="vin_form125">
+                                       <div class="arrow"></div>
+                                    </div>
+                                    <div class="custom-options">
+                                       <span class="custom-option " data-value="1 шт.">1 шт.</span>
+                                       <span class="custom-option " data-value="2 шт.">2 шт.</span>
+                                       <span class="custom-option " data-value="3 шт.">3 шт.</span>
+                                       <span class="custom-option " data-value="4 шт.">4 шт.</span>
+                                       <span class="custom-option " data-value="5 шт.">5 шт.</span>
+                                       <span class="custom-option " data-value="6 шт.">6 шт.</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <input type="text" name="documents_odessa_date" form="vin_form125" placeholder="Дата" class="field field--edit date" value="">
+                           </td>
+                           <td>
+                              <form method="POST" action="http://44.j2landing.com/forwarder_admin/containers/update/125" accept-charset="UTF-8" data-url="http://44.j2landing.com/forwarder_admin/containers/update/125" class="" id="vin_form125" enctype="multipart/form-data">
+                                 <input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="FNF5H4sWh07aXSPCAUzGkHPttMjcGtxvKM7kxbwt">
+                                 <div class="custom-select-wrapper" >
+                                    <div class="custom-select">
+                                       <div class="custom-select__trigger">
+                                          <input type="text" readonly="" class="field field--edit select-input" name="owner_got"  data-valuefield="0" value="Нет" form="vin_form125">
+                                          <div class="arrow"></div>
+                                       </div>
+                                       <div class="custom-options">
+                                          <span class="custom-option " data-value="1">Да</span>
+                                          <span class="custom-option selected" data-value="0">Нет</span>
+                                       </div>
+                                    </div>
+                                 </div>
                               </form>
                            </td>
                            <td>
-                              <input type="text" form="vin_form36"  class="field field--edit date tc" value="26.06.2019" placeholder="Дата">
+                              <input type="text" class="field field--edit date tc" value="Yurii Tsiupa" disabled="disabled">
                            </td>
                            <td>
-                              <input name="vin_number" form="vin_form36" class="field field--edit bl tc" value="">
+                              <input type="text" class="field field--edit tc" value="500" disabled="disabled">
                            </td>
                            <td>
-                              <div class="custom-select-wrapper">
-                                 <div class="custom-select">
-                                    <div class="custom-select__trigger">
-                                       <input type="text" readonly="" class="field field--edit select-input" name="user_id" placeholder="Выберите экспедитора" data-valuefield="51" value="Экспедитор" form="container_form16">
-                                       <div class="arrow"></div>
-                                    </div>
-                                    <div class="custom-options">
-                                       <span class="custom-option" data-value="41">mailfortalk@gmail.com</span>
-                                       <span class="custom-option" data-value="45">forwarder</span>
-                                       <span class="custom-option" data-value="49">test</span>
-                                       <span class="custom-option" data-value="51">Экспедитор</span>
-                                       <span class="custom-option" data-value="52">Василий Петрович</span>
-                                       <span class="custom-option" data-value="55">Андрей</span>
-                                       <span class="custom-option" data-value="56">Вася Пупкин</span>
-                                       <span class="custom-option" data-value="59">geerger</span>
-                                       <span class="custom-option" data-value="60">egrgeer</span>
-                                       <span class="custom-option" data-value="61">ffwefwe</span>
-                                       <span class="custom-option" data-value="68">forwarder_created_by_manager</span>
-                                       <span class="custom-option" data-value="72">test43</span>
-                                       <span class="custom-option" data-value="74">Test</span>
-                                       <span class="custom-option" data-value="75">test booker created by booker</span>
-                                       <span class="custom-option" data-value="76">tes booker 3</span>
-                                    </div>
-                                 </div>
-                              </div>
+                              <input type="text" class="field field--edit tc" value="800" disabled="disabled">
                            </td>
                            <td>
-                              <div class="custom-select-wrapper" >
-                                 <div class="custom-select">
-                                    <div class="custom-select__trigger">
-                                       <input type="text" readonly="" class="field field--edit select-input" name="release_ordered"  data-valuefield="0" value="Нет" form="container_form16">
-                                       <div class="arrow"></div>
-                                    </div>
-                                    <div class="custom-options">
-                                       <span class="custom-option" data-value="1">Да</span>
-                                       <span class="custom-option selected" data-value="0">Нет</span>
-                                    </div>
-                                 </div>
-                              </div>
-                              <input type="text" name="release_ordered_date" form="vin_form36" class="field field--edit date" value="" placeholder="Дата">
+                              <input type="text" class="field field--edit tc" value="550" disabled="disabled">
                            </td>
                            <td>
-                              <input type="text" name="release_received" form="vin_form36" value="" placeholder="Дата" class="field field--edit date tc">
+                              <textarea rows="5" class="field field--edit field--text" form="vin_form125" disabled="disabled"></textarea>
                            </td>
                            <td>
-                              <div class="custom-select-wrapper" >
-                                 <div class="custom-select">
-                                    <div class="custom-select__trigger">
-                                       <input type="text" readonly="" class="field field--edit select-input" name="documents_kiev"  data-valuefield="0" value="Нет" form="container_form16">
-                                       <div class="arrow"></div>
-                                    </div>
-                                    <div class="custom-options">
-                                       <span class="custom-option" data-value="1">Да</span>
-                                       <span class="custom-option selected" data-value="0">Нет</span>
-                                    </div>
-                                 </div>
-                              </div>
+                              <textarea rows="5" class="field field--edit field--text" form="vin_form125" disabled="disabled"></textarea>
                            </td>
                            <td>
-                              <div class="custom-select-wrapper" >
-                                 <div class="custom-select">
-                                    <div class="custom-select__trigger">
-                                       <input type="text" readonly="" class="field field--edit select-input" name="documents_odessa"  data-valuefield="" placeholder="Количество" value="" form="container_form16">
-                                       <div class="arrow"></div>
-                                    </div>
-                                    <div class="custom-options">
-                                       <span class="custom-option" data-value="1 шт." >1 шт.</span>
-                                       <span class="custom-option" data-value="2 шт." >2 шт.</span>
-                                       <span class="custom-option" data-value="3 шт." >3 шт.</span>
-                                       <span class="custom-option" data-value="4 шт." >4 шт.</span>
-                                       <span class="custom-option" data-value="5 шт." >5 шт.</span>
-                                    </div>
-                                 </div>
-                              </div>
-                              <input type="text" name="documents_odessa_date" placeholder="Дата" form="vin_form36" class="field field--edit date" value="">
-                           </td>
-                           <td>
-                              <div class="custom-select-wrapper" >
-                                 <div class="custom-select">
-                                    <div class="custom-select__trigger">
-                                       <input type="text" readonly="" class="field field--edit select-input" name="sent_for_owner"  data-valuefield="0" value="Нет" form="container_form16">
-                                       <div class="arrow"></div>
-                                    </div>
-                                    <div class="custom-options">
-                                       <span class="custom-option" data-value="1">Да</span>
-                                       <span class="custom-option selected" data-value="0">Нет</span>
-                                    </div>
-                                 </div>
-                              </div>
-                           </td>
-                           <td>
-                              <div class="custom-select-wrapper" >
-                                 <div class="custom-select">
-                                    <div class="custom-select__trigger">
-                                       <input type="text" readonly="" class="field field--edit select-input" name="owner_got"  data-valuefield="0" value="Нет" form="container_form16">
-                                       <div class="arrow"></div>
-                                    </div>
-                                    <div class="custom-options">
-                                       <span class="custom-option" data-value="1">Да</span>
-                                       <span class="custom-option selected" data-value="0">Нет</span>
-                                    </div>
-                                 </div>
-                              </div>
-                           </td>
-                           <td>
-                              <input type="text" name="rate2" class="field field--edit tc" value="30" form="vin_form36">
-                           </td>
-                           <td>
-                              <input type="text" class="field field--edit tc" value="$800">
-                           </td>
-                           <td>
-                              <textarea name="booker_comment" rows="5" class="field field--edit field--text" form="vin_form36" disabled="disabled"></textarea>
-                           </td>
-                           <td>
-                              <textarea placeholder="Введите" name="admin_comment" rows="5" class="field field--edit field--text" form="vin_form36"></textarea>
-                           </td>
-                           <td>
-                              <a href="#" class="btn btn--work work">
+                              <a href="#" data-url="http://44.j2landing.com/forwarder_admin/vins/in-work/125" class="btn btn--work work">
                                  <svg viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0)">
                                        <path d="M4.444 7.549a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478l1.364 1.364c.103.103.27.103.373 0l3.695-3.694a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
@@ -743,16 +718,252 @@
                                     <path d="M6.983 2.107l2.073 2.07L3.807 9.42 1.735 7.349l5.248-5.242zm3.647-.5L9.705.684a.919.919 0 00-1.296 0l-.886.884L9.597 3.64l1.033-1.032a.705.705 0 000-1zM.65 10.26a.236.236 0 00.285.28l2.31-.56-2.072-2.07-.524 2.35z" fill="#676767"/>
                                  </svg>
                               </a>
-                              <a href="#" class="btn btn--save save">
+                              <a href="#" form="vin_form125"  class="btn btn--save save">
                                  <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3.76 2.217h4.48a.243.243 0 00.243-.243V0H3.517v1.974c0 .134.108.243.243.243z" fill="#4E9734"/>
                                     <path d="M11.813 3.018L9.285.478v1.496c0 .575-.468 1.043-1.043 1.043H3.76a1.044 1.044 0 01-1.042-1.043V0H1.102C.494 0 .001.493.001 1.1v9.8c0 .607.493 1.1 1.101 1.1H10.9c.608 0 1.1-.493 1.1-1.1V3.471a.642.642 0 00-.187-.454zm-1.679 6.457a.643.643 0 01-.643.643h-6.98a.643.643 0 01-.643-.643v-3.35c0-.355.287-.643.642-.643h6.981c.356 0 .643.288.643.643v3.35z" fill="#4E9734"/>
                                     <path d="M8.758 6.514H3.242a.4.4 0 100 .8h5.516a.4.4 0 100-.8zM7.958 8.114H4.042a.4.4 0 100 .8h3.916a.4.4 0 000-.8z" fill="#4E9734"/>
                                  </svg>
                               </a>
+                              <a href="#" class="link link--disable disable">
+                                 <svg viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.7972 4.81819L3.97923 3.00003L5.7972 1.18197C6.06761 0.911453 6.06761 0.473252 5.7972 0.202736C5.66209 0.0676246 5.48495 1.66893e-05 5.30789 1.66893e-05C5.13054 1.66893e-05 4.95338 0.0675211 4.81838 0.202736L3.00001 2.02101L1.18179 0.202754C1.04669 0.0676417 0.869534 3.43323e-05 0.692325 3.43323e-05C0.515167 3.43323e-05 0.338129 0.0675387 0.202914 0.202754C-0.0675001 0.473149 -0.0675001 0.911366 0.202914 1.18199L2.02083 3.00005L0.20281 4.81819C-0.0676034 5.0886 -0.0676034 5.5269 0.20281 5.79731C0.473172 6.06752 0.911219 6.06752 1.18168 5.79731L3 3.97916L4.81817 5.79731C5.08869 6.06752 5.52678 6.06752 5.79709 5.79731C6.06761 5.5269 6.06761 5.0886 5.7972 4.81819Z" fill="white"/>
+                                 </svg>
+                              </a>
                            </td>
                         </tr>
-                        
+                        <tr class="fold" data-vin_id="48-126">
+                           <td>
+                              <input type="input" class="field field--edit bl" value="UACU5443966" name="container_number" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date tc" value="26.06.2019" disabled="disabled">
+                           </td>
+                           <td>
+                              <input class="field field--edit bl tc" value="3FADP4EJ7HM119166" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date tc" value="MK Logistic" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date" value="Нет" disabled="disabled">
+                              <input type="text" class="field field--edit date" value="" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" name="release_received" form="vin_form126" placeholder="Дата" value="" class="field field--edit date tc">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date tc" value="Нет" disabled="disabled">
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper" >
+                                 <div class="custom-select">
+                                    <div class="custom-select__trigger">
+                                       <input type="text" readonly="" class="field field--edit select-input" name="documents_odessa" placeholder="Количество"
+                                          data-valuefield="" value="" form="vin_form126">
+                                       <div class="arrow"></div>
+                                    </div>
+                                    <div class="custom-options">
+                                       <span class="custom-option " data-value="1 шт.">1 шт.</span>
+                                       <span class="custom-option " data-value="2 шт.">2 шт.</span>
+                                       <span class="custom-option " data-value="3 шт.">3 шт.</span>
+                                       <span class="custom-option " data-value="4 шт.">4 шт.</span>
+                                       <span class="custom-option " data-value="5 шт.">5 шт.</span>
+                                       <span class="custom-option " data-value="6 шт.">6 шт.</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <input type="text" name="documents_odessa_date" form="vin_form126" placeholder="Дата" class="field field--edit date" value="">
+                           </td>
+                           <td>
+                              <form method="POST" action="http://44.j2landing.com/forwarder_admin/containers/update/126" accept-charset="UTF-8" data-url="http://44.j2landing.com/forwarder_admin/containers/update/126" class="" id="vin_form126" enctype="multipart/form-data">
+                                 <input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="FNF5H4sWh07aXSPCAUzGkHPttMjcGtxvKM7kxbwt">
+                                 <div class="custom-select-wrapper" >
+                                    <div class="custom-select">
+                                       <div class="custom-select__trigger">
+                                          <input type="text" readonly="" class="field field--edit select-input" name="owner_got"  data-valuefield="0" value="Нет" form="vin_form126">
+                                          <div class="arrow"></div>
+                                       </div>
+                                       <div class="custom-options">
+                                          <span class="custom-option " data-value="1">Да</span>
+                                          <span class="custom-option selected" data-value="0">Нет</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </form>
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date tc" value="Yurii Tsiupa" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit tc" value="500" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit tc" value="800" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit tc" value="550" disabled="disabled">
+                           </td>
+                           <td>
+                              <textarea rows="5" class="field field--edit field--text" form="vin_form126" disabled="disabled"></textarea>
+                           </td>
+                           <td>
+                              <textarea rows="5" class="field field--edit field--text" form="vin_form126" disabled="disabled"></textarea>
+                           </td>
+                           <td>
+                              <a href="#" data-url="http://44.j2landing.com/forwarder_admin/vins/in-work/126" class="btn btn--work work">
+                                 <svg viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0)">
+                                       <path d="M4.444 7.549a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478l1.364 1.364c.103.103.27.103.373 0l3.695-3.694a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
+                                    </g>
+                                    <defs>
+                                       <clipPath id="clip0">
+                                          <path fill="#fff" d="M.37 0h9v9h-9z"/>
+                                       </clipPath>
+                                    </defs>
+                                 </svg>
+                              </a>
+                              <a href="#" class="btn btn--rass rass">
+                                 <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.444 6.404a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478L5.518 4c.103.103.27.103.373 0L9.586.306a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
+                                    <path d="M3.612 10.612h0a1.545 1.545 0 002.185 0l4.62-4.62a1.545 1.545 0 00-2.185-2.185s0 0 0 0L4.705 7.336 3.507 6.138s0 0 0 0a1.545 1.545 0 00-2.185 0s0 0 0 0l2.29 4.474zm0 0l-2.29-2.29 2.29 2.29z" fill="#4E9734" stroke="#fff"/>
+                                 </svg>
+                              </a>
+                              <a href="#" class="btn btn--edit editing">
+                                 <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.983 2.107l2.073 2.07L3.807 9.42 1.735 7.349l5.248-5.242zm3.647-.5L9.705.684a.919.919 0 00-1.296 0l-.886.884L9.597 3.64l1.033-1.032a.705.705 0 000-1zM.65 10.26a.236.236 0 00.285.28l2.31-.56-2.072-2.07-.524 2.35z" fill="#676767"/>
+                                 </svg>
+                              </a>
+                              <a href="#" form="vin_form126"  class="btn btn--save save">
+                                 <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.76 2.217h4.48a.243.243 0 00.243-.243V0H3.517v1.974c0 .134.108.243.243.243z" fill="#4E9734"/>
+                                    <path d="M11.813 3.018L9.285.478v1.496c0 .575-.468 1.043-1.043 1.043H3.76a1.044 1.044 0 01-1.042-1.043V0H1.102C.494 0 .001.493.001 1.1v9.8c0 .607.493 1.1 1.101 1.1H10.9c.608 0 1.1-.493 1.1-1.1V3.471a.642.642 0 00-.187-.454zm-1.679 6.457a.643.643 0 01-.643.643h-6.98a.643.643 0 01-.643-.643v-3.35c0-.355.287-.643.642-.643h6.981c.356 0 .643.288.643.643v3.35z" fill="#4E9734"/>
+                                    <path d="M8.758 6.514H3.242a.4.4 0 100 .8h5.516a.4.4 0 100-.8zM7.958 8.114H4.042a.4.4 0 100 .8h3.916a.4.4 0 000-.8z" fill="#4E9734"/>
+                                 </svg>
+                              </a>
+                              <a href="#" class="link link--disable disable">
+                                 <svg viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.7972 4.81819L3.97923 3.00003L5.7972 1.18197C6.06761 0.911453 6.06761 0.473252 5.7972 0.202736C5.66209 0.0676246 5.48495 1.66893e-05 5.30789 1.66893e-05C5.13054 1.66893e-05 4.95338 0.0675211 4.81838 0.202736L3.00001 2.02101L1.18179 0.202754C1.04669 0.0676417 0.869534 3.43323e-05 0.692325 3.43323e-05C0.515167 3.43323e-05 0.338129 0.0675387 0.202914 0.202754C-0.0675001 0.473149 -0.0675001 0.911366 0.202914 1.18199L2.02083 3.00005L0.20281 4.81819C-0.0676034 5.0886 -0.0676034 5.5269 0.20281 5.79731C0.473172 6.06752 0.911219 6.06752 1.18168 5.79731L3 3.97916L4.81817 5.79731C5.08869 6.06752 5.52678 6.06752 5.79709 5.79731C6.06761 5.5269 6.06761 5.0886 5.7972 4.81819Z" fill="white"/>
+                                 </svg>
+                              </a>
+                           </td>
+                        </tr>
+                        <tr class="fold" data-vin_id="48-127">
+                           <td>
+                              <input type="input" class="field field--edit bl" value="UACU5443966" name="container_number" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date tc" value="26.06.2019" disabled="disabled">
+                           </td>
+                           <td>
+                              <input class="field field--edit bl tc" value="WBASN2C58DC202812" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date tc" value="MK Logistic" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date" value="Нет" disabled="disabled">
+                              <input type="text" class="field field--edit date" value="" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" name="release_received" form="vin_form127" placeholder="Дата" value="" class="field field--edit date tc">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date tc" value="Нет" disabled="disabled">
+                           </td>
+                           <td>
+                              <div class="custom-select-wrapper" >
+                                 <div class="custom-select">
+                                    <div class="custom-select__trigger">
+                                       <input type="text" readonly="" class="field field--edit select-input" name="documents_odessa" placeholder="Количество"
+                                          data-valuefield="" value="" form="vin_form127">
+                                       <div class="arrow"></div>
+                                    </div>
+                                    <div class="custom-options">
+                                       <span class="custom-option " data-value="1 шт.">1 шт.</span>
+                                       <span class="custom-option " data-value="2 шт.">2 шт.</span>
+                                       <span class="custom-option " data-value="3 шт.">3 шт.</span>
+                                       <span class="custom-option " data-value="4 шт.">4 шт.</span>
+                                       <span class="custom-option " data-value="5 шт.">5 шт.</span>
+                                       <span class="custom-option " data-value="6 шт.">6 шт.</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <input type="text" name="documents_odessa_date" form="vin_form127" placeholder="Дата" class="field field--edit date" value="">
+                           </td>
+                           <td>
+                              <form method="POST" action="http://44.j2landing.com/forwarder_admin/containers/update/127" accept-charset="UTF-8" data-url="http://44.j2landing.com/forwarder_admin/containers/update/127" class="" id="vin_form127" enctype="multipart/form-data">
+                                 <input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="FNF5H4sWh07aXSPCAUzGkHPttMjcGtxvKM7kxbwt">
+                                 <div class="custom-select-wrapper" >
+                                    <div class="custom-select">
+                                       <div class="custom-select__trigger">
+                                          <input type="text" readonly="" class="field field--edit select-input" name="owner_got"  data-valuefield="0" value="Нет" form="vin_form127">
+                                          <div class="arrow"></div>
+                                       </div>
+                                       <div class="custom-options">
+                                          <span class="custom-option " data-value="1">Да</span>
+                                          <span class="custom-option selected" data-value="0">Нет</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </form>
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit date tc" value="ITG Exspress" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit tc" value="500" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit tc" value="850" disabled="disabled">
+                           </td>
+                           <td>
+                              <input type="text" class="field field--edit tc" value="500" disabled="disabled">
+                           </td>
+                           <td>
+                              <textarea rows="5" class="field field--edit field--text" form="vin_form127" disabled="disabled"></textarea>
+                           </td>
+                           <td>
+                              <textarea rows="5" class="field field--edit field--text" form="vin_form127" disabled="disabled"></textarea>
+                           </td>
+                           <td>
+                              <a href="#" data-url="http://44.j2landing.com/forwarder_admin/vins/in-work/127" class="btn btn--work work">
+                                 <svg viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0)">
+                                       <path d="M4.444 7.549a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478l1.364 1.364c.103.103.27.103.373 0l3.695-3.694a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
+                                    </g>
+                                    <defs>
+                                       <clipPath id="clip0">
+                                          <path fill="#fff" d="M.37 0h9v9h-9z"/>
+                                       </clipPath>
+                                    </defs>
+                                 </svg>
+                              </a>
+                              <a href="#" class="btn btn--rass rass">
+                                 <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.444 6.404a1.045 1.045 0 01-1.478 0l-2.29-2.29a1.045 1.045 0 011.478-1.478L5.518 4c.103.103.27.103.373 0L9.586.306a1.045 1.045 0 011.478 1.478l-4.62 4.62z" fill="#4E9734"/>
+                                    <path d="M3.612 10.612h0a1.545 1.545 0 002.185 0l4.62-4.62a1.545 1.545 0 00-2.185-2.185s0 0 0 0L4.705 7.336 3.507 6.138s0 0 0 0a1.545 1.545 0 00-2.185 0s0 0 0 0l2.29 4.474zm0 0l-2.29-2.29 2.29 2.29z" fill="#4E9734" stroke="#fff"/>
+                                 </svg>
+                              </a>
+                              <a href="#" class="btn btn--edit editing">
+                                 <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.983 2.107l2.073 2.07L3.807 9.42 1.735 7.349l5.248-5.242zm3.647-.5L9.705.684a.919.919 0 00-1.296 0l-.886.884L9.597 3.64l1.033-1.032a.705.705 0 000-1zM.65 10.26a.236.236 0 00.285.28l2.31-.56-2.072-2.07-.524 2.35z" fill="#676767"/>
+                                 </svg>
+                              </a>
+                              <a href="#" form="vin_form127"  class="btn btn--save save">
+                                 <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.76 2.217h4.48a.243.243 0 00.243-.243V0H3.517v1.974c0 .134.108.243.243.243z" fill="#4E9734"/>
+                                    <path d="M11.813 3.018L9.285.478v1.496c0 .575-.468 1.043-1.043 1.043H3.76a1.044 1.044 0 01-1.042-1.043V0H1.102C.494 0 .001.493.001 1.1v9.8c0 .607.493 1.1 1.101 1.1H10.9c.608 0 1.1-.493 1.1-1.1V3.471a.642.642 0 00-.187-.454zm-1.679 6.457a.643.643 0 01-.643.643h-6.98a.643.643 0 01-.643-.643v-3.35c0-.355.287-.643.642-.643h6.981c.356 0 .643.288.643.643v3.35z" fill="#4E9734"/>
+                                    <path d="M8.758 6.514H3.242a.4.4 0 100 .8h5.516a.4.4 0 100-.8zM7.958 8.114H4.042a.4.4 0 100 .8h3.916a.4.4 0 000-.8z" fill="#4E9734"/>
+                                 </svg>
+                              </a>
+                              <a href="#" class="link link--disable disable">
+                                 <svg viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.7972 4.81819L3.97923 3.00003L5.7972 1.18197C6.06761 0.911453 6.06761 0.473252 5.7972 0.202736C5.66209 0.0676246 5.48495 1.66893e-05 5.30789 1.66893e-05C5.13054 1.66893e-05 4.95338 0.0675211 4.81838 0.202736L3.00001 2.02101L1.18179 0.202754C1.04669 0.0676417 0.869534 3.43323e-05 0.692325 3.43323e-05C0.515167 3.43323e-05 0.338129 0.0675387 0.202914 0.202754C-0.0675001 0.473149 -0.0675001 0.911366 0.202914 1.18199L2.02083 3.00005L0.20281 4.81819C-0.0676034 5.0886 -0.0676034 5.5269 0.20281 5.79731C0.473172 6.06752 0.911219 6.06752 1.18168 5.79731L3 3.97916L4.81817 5.79731C5.08869 6.06752 5.52678 6.06752 5.79709 5.79731C6.06761 5.5269 6.06761 5.0886 5.7972 4.81819Z" fill="white"/>
+                                 </svg>
+                              </a>
+                           </td>
+                        </tr>
                      </tbody>
                   </table>
                </div>
