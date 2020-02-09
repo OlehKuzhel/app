@@ -54,6 +54,9 @@ $(document).ready(function($) {
                 "</button>",
 
         },
+        afterClose: function() {
+            flag = false
+        }
     }
     $('body').on('click', '.fancybtn', function(event) {
         popup = $(this).data('popup')
@@ -123,9 +126,129 @@ $(document).ready(function($) {
         language: 'ru',
         offset: 0,
         minView: 'days',
-        view: 'days'
+        view: 'days',
+        onSelect(formattedDate, date, inst) {
+            
+            if ($(inst.el).attr('name') == 'release_ordered_date') {
+                // console.log(inst.el)
+                $inputs = $(inst.el).parents('tr').nextUntil('.view').find('[name=release_ordered]')
+                $.each($inputs, function(index, el) {
+                    console.log(el)
+                    $(el).attr('data-valuefield', '1')
+                    $(el).val('Да')
+                    $customoption = $(el).parents('.custom-select-wrapper').find('.custom-option')
+                    $customoption.removeClass('selected')
+                    $customoption.eq(0).addClass('selected')
+                });
+            }
+        }
             // showOtherMonths: false,
     })
+
+    $('body').on('change', '.doc_kiev', function(event) {
+        event.preventDefault();
+        $val = parseInt($(this).val())
+        
+        $inputs = $(this).parents('tr').nextUntil('.view').find('[name=documents_kiev]')
+        
+        if ($val == $inputs.length) {
+                $.each($inputs, function(index, el) {
+                    $(el).attr('data-valuefield', '1')
+                    $(el).val('Да')
+                    $customoption = $(el).parents('.custom-select-wrapper').find('.custom-option')
+                    $customoption.removeClass('selected')
+                    $customoption.eq(0).addClass('selected')
+                });
+             } else {
+                $.each($inputs, function(index, el) {
+                    $(el).attr('data-valuefield', '0')
+                    $(el).val('Нет')
+                    $customoption = $(el).parents('.custom-select-wrapper').find('.custom-option')
+                    $customoption.removeClass('selected')
+                    $customoption.eq(1).addClass('selected')
+                });
+             }
+       
+
+        /* Act on the event */
+    });
+
+    $('body').on('change', '.userid', function(event) {
+        event.preventDefault();
+        $valueField = $(this).attr('data-valuefield')
+        $valueThis = $(this).val()
+        
+        $inputs = $(this).parents('tr').nextUntil('.view').find('[name=user_id]')
+        $(this).parents('td').find('.useridtop').val($valueThis)
+        $.each($inputs, function(index, el) {
+            $(el).attr('data-valuefield', $valueField)
+            $(el).attr('value', $valueThis)
+            $customoption = $(el).parents('.custom-select-wrapper').find('.custom-option')
+            $customoption.removeClass('selected')
+            $(el).parents('.custom-select-wrapper').find('[data-value='+$valueField+']').addClass('selected')
+        });
+    });
+
+    $('body').on('change', '[name=user_id]:not(.userid)', function(event) {
+        event.preventDefault();
+        $inputTop = $(this).parents('tr').prevAll('.view').eq(0)
+        $inputs = $inputTop.nextUntil('.view').find('[name=user_id]');
+        $oldVal = $inputTop.find('.useridtop')
+        values = []
+        $.each($inputs, function(index, el) {
+            values.push($(el).val())
+        })
+        test = values.filter(function (elem, pos, arr) {
+            return pos !== arr.indexOf(elem) || pos !== arr.lastIndexOf(elem);
+        });
+        if (test.length <= 2) {
+            $oldVal.val('Разные')
+        } else {
+            $oldVal.val(Unique(values).join(' / '))
+        }
+    });
+
+    function Unique(A)
+{
+    var n = A.length, k = 0, B = [];
+    for (var i = 0; i < n; i++) 
+     { var j = 0;
+       while (j < k && B[j] !== A[ i ]) j++;
+       if (j == k) B[k++] = A[ i ];
+     }
+    return B;
+}
+
+
+
+
+    $('body').on('change', '.doc_odessa', function(event) {
+        event.preventDefault();
+        $val = parseInt($(this).val())
+        
+        $inputs = $(this).parents('tr').nextUntil('.view').find('[name=documents_odessa]')
+        
+        if ($val == $inputs.length) {
+                $.each($inputs, function(index, el) {
+                    $(el).attr('data-valuefield', '1')
+                    $(el).val('Да')
+                    $customoption = $(el).parents('.custom-select-wrapper').find('.custom-option')
+                    $customoption.removeClass('selected')
+                    $customoption.eq(0).addClass('selected')
+                });
+             } else {
+                $.each($inputs, function(index, el) {
+                    $(el).attr('data-valuefield', '0')
+                    $(el).val('Нет')
+                    $customoption = $(el).parents('.custom-select-wrapper').find('.custom-option')
+                    $customoption.removeClass('selected')
+                    $customoption.eq(1).addClass('selected')
+                });
+             }
+       
+
+        /* Act on the event */
+    });
 
     var datepicker = $('.datefilter').datepicker({
         minDate: "",
@@ -572,6 +695,25 @@ $(document).ready(function($) {
             // $trEdit.find('.field--edit:not(:disabled, .readonly)').eq(0).focus()
     });
 
+    $('body').on('keypress', function(event) {
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if(keycode == '13') {
+            $('input').blur()
+            if ($('tr').hasClass('edit')) {
+                var $trCheck = $("body tr.edit, .modal, .filter, .link--open");
+                // if ($trCheck.has(event.target).length === 0) {
+                    popup = '#wrong'
+                    $.fancybox.open({
+                        src: popup,
+                        type: 'inline',
+                        opts: opnsFancy,
+                    });
+                // }
+            }
+        }
+        event.stopPropagation();
+    });
+
     $( 'body' ).on( "dblclick", 'tbody tr', function(event) {
         // console.log(event)
         $('tr').removeClass('edit')
@@ -580,32 +722,55 @@ $(document).ready(function($) {
         $trEdit.addClass('edit')
     })
 
+    var flag = false;
+
     $('table').click(function(e) {
-        if ($('tr').hasClass('edit')) {
+       
+        // e.preventDefault()
+        if ($('tr:not(.newblock)').hasClass('edit')) {
             var $trCheck = $("body tr.edit, .modal, .filter, .link--open");
             if ($trCheck.has(e.target).length === 0) {
+                 if (flag) return false;
+                flag = true;
                 popup = '#wrong'
-                $.fancybox.open({
-                    src: popup,
-                    type: 'inline',
-                    opts: opnsFancy,
-                });
+                    $.fancybox.open({
+                        src: popup,
+                        type: 'inline',
+                        opts: opnsFancy,
+                    });
             }
+        } else {
+            $('tr').removeClass('newblock')
         }
+        // console.log(flag)
 
     });
+
+    
+    // $('body').on('change', '[name=documents_kiev_date]', function(){
+    //     console.log('asdsdaads')
+    // })
 
 
 
     $('body').on('click', '.disable', function(event) {
         event.preventDefault();
-        $.fancybox.close()
+        flag = false;
+        console.log('asdasdds')
         $('tr').removeClass('close')
         $trEdit = $('tr.edit')
+        $trEdit.removeClass('newblock')
         $('.btn--pick').removeClass('active')
         $trEdit.removeClass('edit red green forestgreen')
         $trEdit.find('.field--edit:focus').blur()
+        $.fancybox.close()
     });
+
+    $('body').on('click', '.resume', function(event) {
+        event.preventDefault();
+        $.fancybox.close();
+        flag = false;
+    })
 
     $('body').on('click', '.btn--pick', function(event) {
         event.preventDefault();
@@ -622,9 +787,11 @@ $(document).ready(function($) {
 
     $('body').on('click', '.save', function(event) {
         event.preventDefault();
+        flag = false;
         var _this = $(this);
         var url = $('tr.edit').find('form').data('url');
         $trSave = $('tr.edit')
+        $trSave.removeClass('newblock')
             // $trBg.attr('data-savebg', $bgP)
         $fieldReq = $trSave.find('.field--edit[required]')
         $.each($fieldReq, function(index, el) {
@@ -665,14 +832,16 @@ $(document).ready(function($) {
 
                     $('tr').removeClass('close')
                     $trSave.removeClass('edit')
-                    $.fancybox.close()
+                    
                     if (_this.parents('tr').find('form').data('table_name') == "users_table") {
                         var _this_table = $(_this).parents('table');
                         $(_this).parents('tr').remove();
 
                         $(_this_table).find('tbody').prepend(data);
                     }
+                    $.fancybox.close()
                 }
+
             });
         }
 
@@ -728,7 +897,8 @@ $(document).ready(function($) {
         if (!$(this).hasClass('selected')) {
             $(this).parent().find('.selected').removeClass('selected')
             $(this).addClass('selected')
-            $(this).closest('.custom-select').find('.custom-select__trigger input').val($(this).text()).attr('data-valuefield', $(this).data('value'))
+            $(this).closest('.custom-select').find('.custom-select__trigger input').val($(this).text()).attr('data-valuefield', $(this).data('value')).trigger('change')
+
             $(this).parents('.form-add').find('input[name=dealer_id]').val($(this).data('value'))
         }
     });
@@ -775,10 +945,17 @@ $(document).ready(function($) {
             success: function(data) {
                 _form.trigger("reset");
                 // $('select').styler('destroy');
-                $('.table tbody').prepend(data);
+                // $data = data
+                $('.table tbody').prepend(data)
+                // console.log()
+                linkOpen = $('.table tbody').find('.link--open').eq(0)
+                // .trigger('click')
+                
                 $(".date").datepicker("refresh");
+
                 // $('select').styler();
                 $.fancybox.close();
+                linkOpen.click();
             }
         });
         event.preventDefault();
