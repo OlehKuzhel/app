@@ -1035,6 +1035,7 @@ $(document).ready(function($) {
         next: '<svg viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 1.08716L9 8.08716L2 15.0872" stroke="#1B65B9" stroke-width="3"/></svg>',
         onPageClick: function(event, page) {
             $('table').removeClass('load')
+            $('.loader').fadeIn('slow')
             $.ajax({
                 type: "GET",
                 cache: false,
