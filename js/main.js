@@ -541,6 +541,7 @@ $(document).ready(function($) {
         }
         event.stopPropagation();
     });
+    
     body.on("dblclick", 'tbody tr', function(event) {
         $('tr').not($(this)).removeClass('edit')
         $('tr').not($(this)).addClass('close')
@@ -654,6 +655,19 @@ $(document).ready(function($) {
                         $(_this_table).find('tbody').prepend(data);
                     }
                     $.fancybox.close()
+                },
+                error: function (jqXHR, exception) {
+                    $.each(jqXHR.responseJSON.errors, function(index, el) {
+                        $('#noid').find('.paragraph--answer').text(el)
+                    });
+                    $.fancybox.open({
+                        src: '#noid',
+                        type: 'inline',
+                        opts: opnsFancy,
+                    });
+                    setTimeout(function(){
+                        $.fancybox.close()
+                    }, 5000)
                 }
             });
         }
@@ -677,7 +691,20 @@ $(document).ready(function($) {
             success: function(data) {
                 $trSave.remove()
                 $childTr.remove()
-            }
+            },
+                error: function (jqXHR, exception) {
+                    $.each(jqXHR.responseJSON.errors, function(index, el) {
+                        $('#noid').find('.paragraph--answer').text(el)
+                    });
+                    $.fancybox.open({
+                        src: '#noid',
+                        type: 'inline',
+                        opts: opnsFancy,
+                    });
+                    setTimeout(function(){
+                        $.fancybox.close()
+                    }, 5000)
+                }
         });
     });
     body.on('click', '.btn--backarсhive', function(event) {
@@ -700,7 +727,20 @@ $(document).ready(function($) {
                 $trSave.remove()
                 $childTr.remove()
                 console.log('разархивировано')
-            }
+            },
+                error: function (jqXHR, exception) {
+                    $.each(jqXHR.responseJSON.errors, function(index, el) {
+                        $('#noid').find('.paragraph--answer').text(el)
+                    });
+                    $.fancybox.open({
+                        src: '#noid',
+                        type: 'inline',
+                        opts: opnsFancy,
+                    });
+                    setTimeout(function(){
+                        $.fancybox.close()
+                    }, 5000)
+                }
         });
     });
     body.on('click', '.custom-select-wrapper', function(event) {
@@ -767,6 +807,19 @@ $(document).ready(function($) {
                         $.fancybox.close();
                     }
                     linkOpen.click();
+                },
+                error: function (jqXHR, exception) {
+                    $.each(jqXHR.responseJSON.errors, function(index, el) {
+                        $('#noid').find('.paragraph--answer').text(el)
+                    });
+                    $.fancybox.open({
+                        src: '#noid',
+                        type: 'inline',
+                        opts: opnsFancy,
+                    });
+                    setTimeout(function(){
+                        $.fancybox.close()
+                    }, 5000)
                 }
             });
             
@@ -787,6 +840,19 @@ $(document).ready(function($) {
                     _form.trigger('reset')
                     $('.table tbody').empty()
                     $('.table tbody').prepend(data);
+                },
+                error: function (jqXHR, exception) {
+                    $.each(jqXHR.responseJSON.errors, function(index, el) {
+                        $('#noid').find('.paragraph--answer').text(el)
+                    });
+                    $.fancybox.open({
+                        src: '#noid',
+                        type: 'inline',
+                        opts: opnsFancy,
+                    });
+                    setTimeout(function(){
+                        $.fancybox.close()
+                    }, 5000)
                 }
             });
         } else {
@@ -808,6 +874,19 @@ $(document).ready(function($) {
                         $('.table tbody').empty()
                         $('.table tbody').prepend(data);
                     }
+                },
+                error: function (jqXHR, exception) {
+                    $.each(jqXHR.responseJSON.errors, function(index, el) {
+                        $('#noid').find('.paragraph--answer').text(el)
+                    });
+                    $.fancybox.open({
+                        src: '#noid',
+                        type: 'inline',
+                        opts: opnsFancy,
+                    });
+                    setTimeout(function(){
+                        $.fancybox.close()
+                    }, 5000)
                 }
             });
         }
@@ -828,6 +907,19 @@ $(document).ready(function($) {
                     _form.trigger('reset')
                     $('.table tbody').empty()
                     $('.table tbody').prepend(data);
+                },
+                error: function (jqXHR, exception) {
+                    $.each(jqXHR.responseJSON.errors, function(index, el) {
+                        $('#noid').find('.paragraph--answer').text(el)
+                    });
+                    $.fancybox.open({
+                        src: '#noid',
+                        type: 'inline',
+                        opts: opnsFancy,
+                    });
+                    setTimeout(function(){
+                        $.fancybox.close()
+                    }, 5000)
                 }
             });
         } else {
@@ -849,6 +941,19 @@ $(document).ready(function($) {
                         $('.table tbody').empty()
                         $('.table tbody').prepend(data);
                     }
+                },
+                error: function (jqXHR, exception) {
+                    $.each(jqXHR.responseJSON.errors, function(index, el) {
+                        $('#noid').find('.paragraph--answer').text(el)
+                    });
+                    $.fancybox.open({
+                        src: '#noid',
+                        type: 'inline',
+                        opts: opnsFancy,
+                    });
+                    setTimeout(function(){
+                        $.fancybox.close()
+                    }, 5000)
                 }
             });
         }
@@ -918,6 +1023,8 @@ $(document).ready(function($) {
         return B;
     }
     $pages = $('.pagination-list').attr('data-all')
+    $('table').addClass('load');
+    $('.loader').fadeOut('fast');
     $('.pagination-list').twbsPagination({
         totalPages: $pages,
         visiblePages: 3,
@@ -927,6 +1034,7 @@ $(document).ready(function($) {
         prev: '<svg viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 1.08716L3 8.08716L10 15.0872" stroke="#5B636A" stroke-width="3"/></svg>',
         next: '<svg viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 1.08716L9 8.08716L2 15.0872" stroke="#1B65B9" stroke-width="3"/></svg>',
         onPageClick: function(event, page) {
+            $('table').removeClass('load')
             $.ajax({
                 type: "GET",
                 cache: false,
@@ -935,6 +1043,8 @@ $(document).ready(function($) {
                     $('.table tbody').html('')
                     $('.table tbody').append(data);
                     $('tbody').removeClass('load')
+                    $('table').addClass('load')
+                    $('.loader').fadeOut('slow');
                 }
             });
         }
@@ -950,5 +1060,8 @@ $(document).ready(function($) {
             $(this).val('')
         }
     });
+
+
+    
     
 });
