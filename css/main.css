@@ -1132,7 +1132,7 @@ p.bold { font-weight: 600; }
 
 .section-content .content-table table tr { -webkit-box-shadow: 0px 7.41406px 18.5352px rgba(0, 0, 0, 0.05); box-shadow: 0px 7.41406px 18.5352px rgba(0, 0, 0, 0.05); position: relative; }
 
-.section-content .content-table table tr > td:not(:last-child):not(:first-child) textarea { pointer-events: none; }
+.section-content .content-table table tr > td:not(:last-child):not(:first-child) textarea:not(:disabled) { pointer-events: none; }
 
 .section-content .content-table table tr > td:not(:last-child):not(:first-child) input { pointer-events: none; }
 
@@ -1141,6 +1141,8 @@ p.bold { font-weight: 600; }
 .section-content .content-table table tr > td:not(:last-child):not(:first-child) .custom-select__trigger .arrow { opacity: 0; }
 
 .section-content .content-table table tr > td:not(:last-child):not(:first-child) .custom-select-wrapper { pointer-events: none; }
+
+.section-content .content-table table tr > td:nth-last-child(2):hover > .chat-block:not(.not-comment) { display: block; }
 
 .section-content .content-table table tr > td:first-child input { pointer-events: none; }
 
@@ -1171,6 +1173,8 @@ p.bold { font-weight: 600; }
 .section-content .content-table table tr.edit.view [name="user_id"] { opacity: 1; }
 
 .section-content .content-table table tr.edit > td:not(:last-child):not(:first-child) textarea { pointer-events: auto; }
+
+.section-content .content-table table tr.edit > td:not(:last-child):not(:first-child) textarea:disabled { pointer-events: auto; }
 
 .section-content .content-table table tr.edit > td:not(:last-child):not(:first-child) input { pointer-events: auto; opacity: 1; }
 
@@ -1250,7 +1254,9 @@ p.bold { font-weight: 600; }
 
 .section-content .content-table table tr td textarea::-webkit-scrollbar { width: 2px; }
 
-.section-content .content-table table tr td textarea:focus + .chat-block:not(.not-comment), .section-content .content-table table tr td textarea:hover + .chat-block:not(.not-comment) { display: block; }
+.section-content .content-table table tr td textarea:hover + .chat-block:not(.not-comment) { display: block; }
+
+.section-content .content-table table tr td textarea:disabled { pointer-events: auto; }
 
 .section-content .content-table table tr td:last-child { border-right: none; }
 
@@ -1284,7 +1290,7 @@ p.bold { font-weight: 600; }
 
 .section-footer .footer-menu li { margin-right: 7rem; }
 
-.chat-block { position: absolute; top: .5rem; right: 100%; background: #fff; z-index: 15; width: 20rem; border: 1px solid #E7E7E7; display: none; -webkit-box-shadow: 0px 7.41406px 18.5352px rgba(0, 0, 0, 0.05); box-shadow: 0px 7.41406px 18.5352px rgba(0, 0, 0, 0.05); }
+.chat-block { position: absolute; top: .5rem; right: 100%; background: #fff; z-index: 15; width: 20rem; border: 1px solid #E7E7E7; display: none; -webkit-box-shadow: 0px 7.41406px 18.5352px rgba(0, 0, 0, 0.5); box-shadow: 0px 7.41406px 18.5352px rgba(0, 0, 0, 0.5); }
 
 .chat-block .paragraph { border: none !important; }
 

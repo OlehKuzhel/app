@@ -61,10 +61,12 @@ $(document).ready(function($) {
         multipleDatesSeparator: '-',
         range: true,
         onSelect: function(formattedDate, date, inst) {
+            // console.log(moment(Date.parse(date[0])).valueOf())
+            // console.log()
             $(inst.el).attr('data-startdate', '')
             $(inst.el).attr('data-enddate', '')
-            $(inst.el).attr('data-startdate', date[0])
-            $(inst.el).attr('data-enddate', date[1])
+            $(inst.el).attr('data-startdate', Date.parse(date[0]))
+            $(inst.el).attr('data-enddate', Date.parse(date[1]))
         }
     })
     var body = $('body'),
@@ -328,7 +330,7 @@ $(document).ready(function($) {
             $('.link--empty').addClass('active')
             $('.link--open').removeClass('active')
             $.each($expeditors, function(index, val) {
-                if ($(val).val() == $activeValue) {
+                if ($(val).attr('data-valuefield') == $activeValue) {
                     $(val).parents('.view').show()
                 } else {
                     $(val).parents('.view').nextUntil('.view').remove()
@@ -435,7 +437,7 @@ $(document).ready(function($) {
     $('.filter-expeditor').on('click', '.btn--filtered', function(event) {
         event.preventDefault();
         $activeLink = $(this).parents('.filter').find('.filter-content .link.active')
-        $activeValue = $activeLink.attr('data-filter')
+        $activeValue = $activeLink.attr('data-exid')
         if ($activeLink.length) {
             $('.link--empty').addClass('active')
             $('.link--open').removeClass('active')
