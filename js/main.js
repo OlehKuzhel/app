@@ -1023,8 +1023,10 @@ $(document).ready(function($) {
         return B;
     }
     $pages = $('.pagination-list').attr('data-all')
-    $('table').addClass('load');
-    $('.loader').fadeOut('fast');
+    $('.section-header').addClass('load');
+    $('.section-content').addClass('load');
+    $('.section-footer').addClass('load');
+    $('.loader').animate({opacity: '0'}, 800, "linear", function(){$( this ).hide()});
     $('.pagination-list').twbsPagination({
         totalPages: $pages,
         visiblePages: 3,
@@ -1034,8 +1036,10 @@ $(document).ready(function($) {
         prev: '<svg viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 1.08716L3 8.08716L10 15.0872" stroke="#5B636A" stroke-width="3"/></svg>',
         next: '<svg viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 1.08716L9 8.08716L2 15.0872" stroke="#1B65B9" stroke-width="3"/></svg>',
         onPageClick: function(event, page) {
-            $('table').removeClass('load')
-            $('.loader').fadeIn('slow')
+            $('.section-header').removeClass('load');
+            $('.section-content').removeClass('load');
+            $('.section-footer').removeClass('load');
+            $('.loader').fadeIn('slow').css('opacity', '1')
             $.ajax({
                 type: "GET",
                 cache: false,
@@ -1044,8 +1048,10 @@ $(document).ready(function($) {
                     $('.table tbody').html('')
                     $('.table tbody').append(data);
                     $('tbody').removeClass('load')
-                    $('table').addClass('load')
-                    $('.loader').fadeOut('slow');
+                    $('.section-header').addClass('load');
+                    $('.section-content').addClass('load');
+                    $('.section-footer').addClass('load');
+                    $('.loader').animate({opacity: '0'}, 800, "linear", function(){$( this ).hide()});
                 }
             });
         }
