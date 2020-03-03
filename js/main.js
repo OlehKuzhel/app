@@ -636,6 +636,20 @@ $(document).ready(function($) {
             value = $(el).attr('name') + '=' + $(el).attr('data-valuefield') + '&'
             $selectArr.push(value)
         });
+
+        $textComment = $trSave.find('.field--comment')
+        $textCommentVal = $textComment.val()
+        $commentBlock = $trSave.find('.chat-block')
+        console.log($commentBlock)
+        if ($textCommentVal.length) {
+            $commentBlock.removeClass('not-comment')
+            if ($textComment.attr('name') == 'admin_comment') {
+                $commentBlock.find('.chat-admin').html('<b>Админ: </b>' + $textCommentVal)
+            } else {
+                $commentBlock.find('.chat-buh').html('<b>Бухгалтер: </b>' + $textCommentVal)
+            }
+        }
+
         if ($('.empty').length) {
             $fieldReq.eq(0).focus()
         } else {
