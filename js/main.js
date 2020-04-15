@@ -1,4 +1,11 @@
+
+
 $(document).ready(function($) {
+    $('.loader').delay(400).fadeOut(800);
+    $('.section-header').delay(600).addClass('load');
+    $('.section-content').delay(600).addClass('load');
+    $('.section-footer').delay(600).addClass('load');
+
     var isMobile = false;
     if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0, 4))) isMobile = true;
     if (isMobile == true) {
@@ -35,6 +42,7 @@ $(document).ready(function($) {
         minView: 'days',
         view: 'days',
         onSelect: function(formattedDate, date, inst) {
+            // console.log('asdads')
             if ($(inst.el).hasClass('relz_date')) {
                 $inputs = $(inst.el).parents('tr').nextUntil('.view').find('[name=release_ordered_date]')
                 $.each($inputs, function(index, el) {
@@ -47,8 +55,29 @@ $(document).ready(function($) {
                     $(el).val(formattedDate)
                 });
             }
+            if ($(inst.el).hasClass('shipping_date')) {
+                
+                $(inst.el).trigger('change')
+                // $inputs = $(inst.el).parents('tr').nextUntil('.view').find('.shipping_date_fold')
+                // $.each($inputs, function(index, el) {
+                //     $(el).val(formattedDate)
+                // });
+            }
         }
     }
+
+     $('.shipping_date').on('change', function(event) {
+        event.preventDefault();
+        $thisVal = $(this).val()
+        /* Act on the event */
+        $inputs = $(this).parents('tr').nextUntil('.view').find('.shipping_date_fold')
+
+                $.each($inputs, function(index, el) {
+                    $(el).val($thisVal)
+                    // console.log($(el))
+                });
+    });
+
     var datepicker = $('.datefilter').datepicker({
         minDate: "",
         language: 'ru',
@@ -243,152 +272,80 @@ $(document).ready(function($) {
         window.history.replaceState({}, "", baseUrl + params);
     };
 
-    function resetforFilter() {
-        $('tbody').addClass('load')
-        $.ajax({
-            type: "POST",
-            cache: false,
-            url: 'containers/reset',
-            success: function(data) {
-                $('.table tbody').empty()
-                $('.table tbody').prepend(data);
-                filterTable()
-                $('tbody').removeClass('load')
-            }
-        });
-    }
 
-    function filterTable() {
-        if (!paramsurl('sort') == '') {
-            $activeLink = paramsurl('sort')
-            $datesFormat = []
-            $dates = $('.view').find('td:nth-child(' + $indexDate + ') input.date')
-            if (!$activeLink == '') {
-                $('.link--empty').addClass('active')
-                $.each($dates, function(index, val) {
-                    $str = {
-                        'view': $('.view').eq(index),
-                        'fold': $('.view').eq(index).nextUntil('.view'),
-                        'date': reverseR($(val).val())
-                    }
-                    $datesFormat.push($str)
-                });
-                if (paramsurl('sort') == 'asc') {
-                    $datesFormat.sort(function(a, b) {
-                        return new Date(b.date) - new Date(a.date);
-                    });
-                } else {
-                    $datesFormat.sort(function(a, b) {
-                        return new Date(a.date) - new Date(b.date);
-                    });
+
+    
+    function resetforFilter() {
+        $('.section-header').removeClass('load');
+                            $('.section-content').removeClass('load');
+                            $('.section-footer').removeClass('load');
+                            $('.loader').fadeIn('slow').css('opacity', '1')
+        $('tbody').addClass('load')
+            $urlFilter = location.href;
+            $('.table tbody').empty()
+            $.ajax({
+                type: "GET",
+                cache: false,
+                url: $urlFilter,
+            success: function(data) {
+                $tbody = $(data).find('tbody').children()
+                $totalPages = $(data).find('.pagination-list').attr('data-all');
+                // console.log($totalPages)
+                $('.table tbody').prepend($tbody);
+                $('tbody').removeClass('load');
+                if ($totalPages >= 1) {
+                    var currentPage = $pagin.twbsPagination('getCurrentPage');
+                    $pagin.twbsPagination('destroy');
+                    $pagin.twbsPagination($.extend({}, defaultOpts, {
+                      totalPages: $totalPages,
+                }));
                 }
-                $.each($datesFormat, function(index, val) {
-                    $('tbody').append(val.view)
-                    $('tbody').append(val.fold)
-                });
+                // if($('.pagination').data("twbs-pagination")){
+                    
+
+                    $('.loader').delay(400).fadeOut(800);
+                    $('.section-header').delay(600).addClass('load');
+                    $('.section-content').delay(600).addClass('load');
+                    $('.section-footer').delay(600).addClass('load');
+
+                    // }
             }
+            });
+    }
+    $urlFilterCheck = location.href
+    // if ($urlFilterCheck.slice('?')[1] != '') {
+    //     $urlFilter = location.href;
+    //         $('.table tbody').empty()
+    //             $.ajax({
+    //                 type: "GET",
+    //                 cache: false,
+    //                 url: $urlFilter,
+    //             success: function(data) {
+    //                 $('.table tbody').prepend(data.view);
+    //                 $('tbody').removeClass('load')
+    //             }
+    //         });
+    // }
+    // function filterTable() {
+        if (!paramsurl('sort') == '') {
+            $('.link--empty').addClass('active')
         }
         if (!paramsurl('startdate') == '') {
-            $activeInput = paramsurl('startdate')
-            $endInput = paramsurl('enddate')
-            $datesFormat = []
-            $dates = $('.view').find('td:nth-child(' + $indexDate + ') input.date')
-            if ($activeInput != '') {
-                $('.link--empty').addClass('active')
-                startDate = Date.parse($activeInput)
-                $('.link--open').removeClass('active')
-                if (!paramsurl('enddate') == '') {
-                    endDate = Date.parse($endInput)
-                    for (i = startDate; i <= endDate; i = i + 24 * 60 * 60 * 1000) {
-                        $.each($dates, function(index, val) {
-                            if ($(val).val() == moment(i).format('DD.MM.YYYY')) {
-                                $(val).parents('.view').addClass('ed1').show()
-                            } else {
-                                $(val).parents('.view').nextUntil('.view').remove()
-                            }
-                        });
-                    }
-                    $('tbody').find('.view').not('.ed1').remove()
-                } else {
-                    $.each($dates, function(index, val) {
-                        if ($(val).val() == moment(startDate).format('DD.MM.YYYY')) {
-                            $(val).parents('.view').addClass('sd1').show()
-                        } else {
-                            $(val).parents('.view').nextUntil('.view').remove()
-                        }
-                    });
-                    $('tbody').find('.view').not('.sd1').remove()
-                }
-            }
+            $('.link--empty').addClass('active')
         }
         if (!paramsurl('expeditorname') == '') {
-            console.log(paramsurl('expeditorname'))
-            $expName = paramsurl('expeditorname');
-            $activeLink = $('.table-expeditor').find('.filter').find('.filter-content .link.active')
-            $expeditors = $('tbody').find('.view').find('td:nth-child(' + $indexExpeditor + ') input[name=user_id]')
-            $activeValue = paramsurl('expeditorname');
             $('.link--empty').addClass('active')
-            $('.link--open').removeClass('active')
-            $.each($expeditors, function(index, val) {
-                if ($(val).attr('data-valuefield') == $activeValue) {
-                    $(val).parents('.view').show()
-                } else {
-                    $(val).parents('.view').nextUntil('.view').remove()
-                    $(val).parents('.view').remove()
-                }
-            });
         }
         if (!paramsurl('relz') == '') {
-            $activeLink = $(this).parents('.filter').find('.filter-content .link.active')
-            $activeValue = paramsurl('relz')
             $('.link--empty').addClass('active')
-            $releaseOrdered = $('tbody').find('td:nth-child(' + $indexRelZ + ') input[name=release_ordered]')
-            console.log($releaseOrdered)
-            $('.link--open').removeClass('active')
-            $.each($releaseOrdered, function(index, val) {
-                console.log()
-                if ($(val).attr('data-valuefield') == $activeValue) {
-                    $(val).parents('tr').children('td').show()
-                    $(val).parents('tr').prevAll(".view").first().addClass('z1').find('.link--open').addClass('active')
-                } else {
-                    $(val).parents('tr').remove()
-                }
-            });
-            $('tbody').find('.view').not('.z1').remove()
         }
         if (!paramsurl('relp') == '') {
-            $activeLink = $(this).parents('.filter').find('.filter-content .link.active')
-            $activeValue = paramsurl('relp')
             $('.link--empty').addClass('active')
-            $releaseReceived = $('tbody').find('td:nth-child(' + $indexBack + ') input[name=release_received]')
-            $('.link--open').removeClass('active')
-            $.each($releaseReceived, function(index, val) {
-                if ($(val).val() == '') {
-                    $(val).parents('tr').children('td').show()
-                    $(val).parents('tr').prevAll(".view").first().addClass('p1').find('.link--open').addClass('active')
-                } else {
-                    $(val).parents('tr').remove()
-                }
-            });
-            $('tbody').find('.view').not('.p1').remove()
         }
         if (!paramsurl('dock') == '') {
-            $activeLink = $(this).parents('.filter').find('.filter-content .link.active')
-            $activeValue = paramsurl('dock')
             $('.link--empty').addClass('active')
-            $docinKiev = $('tbody').find('td:nth-child(' + $indexKiev + ') input[name=documents_kiev]')
-            $('.link--open').removeClass('active')
-            $.each($docinKiev, function(index, val) {
-                if ($(val).attr('data-valuefield') == $activeValue) {
-                    $(val).parents('tr').children('td').show()
-                    $(val).parents('tr').prevAll(".view").first().addClass('k1').find('.link--open').addClass('active')
-                } else {
-                    $(val).parents('tr').remove()
-                }
-            });
-            $('tbody').find('.view').not('.k1').remove()
         }
-    }
+    // }
     $('.filter-relz').on('click', '.btn--filtered', function(event) {
         event.preventDefault();
         $activeLink = $(this).parents('.filter').find('.filter-content .link.active')
@@ -399,7 +356,7 @@ $(document).ready(function($) {
             updateQueryStringParam('relp', $activeValue)
             resetforFilter()
         } else {
-            updateQueryStringParam('relp', '')
+            updateQueryStringParam('relp', false)
         }
         $(this).parents('.filter').removeClass('open')
         $(this).parents('.filter').find('.link--openfilter').removeClass('active')
@@ -474,19 +431,23 @@ $(document).ready(function($) {
         $(this).parents('.filter').removeClass('open')
         $(this).parents('.filter').find('.link--openfilter').removeClass('active')
     });
-    updateQueryStringParam('relz', '')
-    updateQueryStringParam('expeditorname', '')
-    updateQueryStringParam('relp', '')
-    updateQueryStringParam('dock', '')
-    updateQueryStringParam('sort', '')
-    updateQueryStringParam('startdate', '')
-    updateQueryStringParam('enddate', '')
+    // updateQueryStringParam('relz', '')
+    // updateQueryStringParam('expeditorname', '')
+    // updateQueryStringParam('relp', '')
+    // updateQueryStringParam('dock', '')
+    // updateQueryStringParam('sort', '')
+    // updateQueryStringParam('startdate', '')
+    // updateQueryStringParam('enddate', '')
     $('.link--empty').on('click', function(event) {
         event.preventDefault();
+        $('.section-header').removeClass('load');
+                            $('.section-content').removeClass('load');
+                            $('.section-footer').removeClass('load');
+                            $('.loader').fadeIn('slow').css('opacity', '1')
         $('tbody').addClass('load')
         $(this).removeClass('active')
         $('.link--filter').removeClass('active')
-        $('.view').show();
+        // $('.view').show();
         updateQueryStringParam('relz', '')
         updateQueryStringParam('expeditorname', '')
         updateQueryStringParam('relp', '')
@@ -500,8 +461,22 @@ $(document).ready(function($) {
             url: 'containers/reset',
             success: function(data) {
                 $('.table tbody').empty()
-                $('.table tbody').prepend(data);
-                $('tbody').removeClass('load')
+                $tbody = $(data).find('tbody').children()
+                $totalPages = $(data).find('.pagination-list').attr('data-all');
+                // console.log($totalPages)
+                $('.table tbody').prepend($tbody);
+                $('tbody').removeClass('load');
+                if ($totalPages >= 1) {
+                    var currentPage = $pagin.twbsPagination('getCurrentPage');
+                    $pagin.twbsPagination('destroy');
+                    $pagin.twbsPagination($.extend({}, defaultOpts, {
+                      totalPages: $totalPages,
+                }));
+                }
+              $('.loader').delay(400).fadeOut(800);
+    $('.section-header').delay(600).addClass('load');
+    $('.section-content').delay(600).addClass('load');
+    $('.section-footer').delay(600).addClass('load');
             }
         });
     });
@@ -513,8 +488,35 @@ $(document).ready(function($) {
         event.preventDefault();
         $(this).toggleClass('active');
         $tr = $(this).parents('tr')
+        if ( window.location.href.indexOf('forwarder_admin') > -1) {
+            $trUrl = 'forwarder_admin/container/get-clients-balances/' + $tr.attr('data-container_id')
+        } else {
+            $trUrl = 'container/get-clients-balances/' + $tr.attr('data-container_id')
+        }
+        
+        
+        console.log()
         if ($(this).hasClass('active')) {
             $tr.nextUntil('.view').children('td').show();
+            $.ajax({
+                type: "GET",
+                cache: false,
+                url: $trUrl,
+                success: function(data) {
+                    $dataJson = JSON.parse(data)
+
+                    $.each($dataJson, function(index, el) {
+                        $balanceInp = $('[data-only_vin_id='+el.id+']').find('td.td-balance')
+                        $balanceInp.addClass('load')
+                        $balanceInp.find('input').val(el.balance)
+                        if (el.balance == 0) {
+                            $('[data-only_vin_id='+el.id+']').addClass('forestgreen')
+                        }
+                    });
+                    
+                },
+            });
+
         } else {
             $tr.nextUntil('.view').children('td').hide();
         }
@@ -545,13 +547,17 @@ $(document).ready(function($) {
     });
     
     body.on("dblclick", 'tbody tr', function(event) {
-        $('tr').not($(this)).removeClass('edit')
-        $('tr').not($(this)).addClass('close')
-        $trEdit = $(this)
-        if (!$trEdit.hasClass('edit')) {
-            $trEdit.find('.date').datepicker($datepickerOpt)
+        $lastTd = $(this).find('td:last-child')
+        if (!$lastTd.is(event.target) && $lastTd.has(event.target).length === 0) {
+            $('tr').not($(this)).removeClass('edit')
+            $('tr').not($(this)).addClass('close')
+            $trEdit = $(this)
+            if (!$trEdit.hasClass('edit')) {
+                $trEdit.find('.date').datepicker($datepickerOpt)
+            }
+            $trEdit.addClass('edit')
         }
-        $trEdit.addClass('edit')
+            
     })
     var flag = false;
     var opnsFancy = {
@@ -563,6 +569,11 @@ $(document).ready(function($) {
         },
         afterClose: function() {
             flag = false
+        },
+        afterShow: function() {
+            if (popup == '#carsadd' || popup == '#changedate') {
+                $(popup).find('.field.date').datepicker($datepickerOpt)
+            }
         }
     }
     $('.fancybtn').on('click', function(event) {
@@ -643,7 +654,8 @@ $(document).ready(function($) {
         $textCommentVal = $textComment.val()
         $commentBlock = $trSave.find('.chat-block')
         console.log($commentBlock)
-        if ($textCommentVal.length) {
+        if ($textComment.length) {
+            if ($textCommentVal.length) {
             $commentBlock.removeClass('not-comment')
             if ($textComment.attr('name') == 'admin_comment') {
                 $commentBlock.find('.chat-admin').html('<b>Админ: </b>' + $textCommentVal)
@@ -651,6 +663,8 @@ $(document).ready(function($) {
                 $commentBlock.find('.chat-buh').html('<b>Бухгалтер: </b>' + $textCommentVal)
             }
         }
+        }
+        
 
         if ($('.empty').length) {
             $fieldReq.eq(0).focus()
@@ -682,7 +696,8 @@ $(document).ready(function($) {
                         opts: opnsFancy,
                     });
                     setTimeout(function(){
-                        $.fancybox.close()
+                        // $.fancybox.close()
+                        $('#noid').find('.fancybox-close-small').click()
                     }, 5000)
                 }
             });
@@ -718,7 +733,8 @@ $(document).ready(function($) {
                         opts: opnsFancy,
                     });
                     setTimeout(function(){
-                        $.fancybox.close()
+                        // $.fancybox.close()
+                        $('#noid').find('.fancybox-close-small').click()
                     }, 5000)
                 }
         });
@@ -754,7 +770,8 @@ $(document).ready(function($) {
                         opts: opnsFancy,
                     });
                     setTimeout(function(){
-                        $.fancybox.close()
+                        // $.fancybox.close()
+                        $('#noid').find('.fancybox-close-small').click()
                     }, 5000)
                 }
         });
@@ -793,15 +810,25 @@ $(document).ready(function($) {
     });
     var $btnClick;
     $('.btn--addcontainer').on('click', function(event) {
+        event.preventDefault()
         if ($(this).hasClass('btn--ok')) {
             $btnClick = 'ok';
-            $(this).parents('.form-add').submit();
+            // console.log('asddasasd')
+            $checkInput = $(this).parents('.form-add').find('[name=container_number]')
+            if ($checkInput.val() != '') {
+                $(this).parents('.form-add').submit();
+            } else {
+                $.fancybox.close();
+            }
+            
        } else {
             $btnClick = 'next';
             $(this).parents('.form-add').submit();
        }
         
     });
+
+
 
     $('.form-add').submit(function(event) {
             event.preventDefault();
@@ -815,16 +842,18 @@ $(document).ready(function($) {
                 url: form_url,
                 data: th,
                 success: function(data) {
-                    _form.trigger("reset");
+                    // console.log(data)
+                    _form.find('input[type=text]:not(.date)').val('');
                     $('.table tbody').prepend(data)
                     linkOpen = $('.table tbody').find('.link--open').eq(0)
                     $('.edit .date').datepicker($datepickerOpt)
                     if ($btnClick == 'ok') {
                         $.fancybox.close();
+                        linkOpen.click();
                     }
-                    linkOpen.click();
                 },
                 error: function (jqXHR, exception) {
+                    // console.log(jqXHR)
                     $.each(jqXHR.responseJSON.errors, function(index, el) {
                         $('#noid').find('.paragraph--answer').text(el)
                     });
@@ -834,7 +863,7 @@ $(document).ready(function($) {
                         opts: opnsFancy,
                     });
                     setTimeout(function(){
-                        $.fancybox.close()
+                        $('#noid').find('.fancybox-close-small').click()
                     }, 5000)
                 }
             });
@@ -846,6 +875,11 @@ $(document).ready(function($) {
         var th = _form.serialize();
         var form_url = _form.attr('action');
         if (_form.hasClass('filtered')) {
+            $('.section-header').removeClass('load');
+                            $('.section-content').removeClass('load');
+                            $('.section-footer').removeClass('load');
+                            $('.loader').fadeIn('slow').css('opacity', '1')
+            
             $.ajax({
                 type: "POST",
                 cache: false,
@@ -855,7 +889,22 @@ $(document).ready(function($) {
                     _form.removeClass('filtered')
                     _form.trigger('reset')
                     $('.table tbody').empty()
-                    $('.table tbody').prepend(data);
+                $tbody = $(data).find('tbody').children()
+                $totalPages = $(data).find('.pagination-list').attr('data-all');
+                // console.log($totalPages)
+                $('.table tbody').prepend($tbody);
+                $('tbody').removeClass('load');
+                if ($totalPages >= 1) {
+                    var currentPage = $pagin.twbsPagination('getCurrentPage');
+                    $pagin.twbsPagination('destroy');
+                    $pagin.twbsPagination($.extend({}, defaultOpts, {
+                      totalPages: $totalPages,
+                }));
+                }
+                    $('.loader').delay(400).fadeOut(800);
+    $('.section-header').delay(600).addClass('load');
+    $('.section-content').delay(600).addClass('load');
+    $('.section-footer').delay(600).addClass('load');
                 },
                 error: function (jqXHR, exception) {
                     $.each(jqXHR.responseJSON.errors, function(index, el) {
@@ -867,7 +916,7 @@ $(document).ready(function($) {
                         opts: opnsFancy,
                     });
                     setTimeout(function(){
-                        $.fancybox.close()
+                        $('#noid').find('.fancybox-close-small').click()
                     }, 5000)
                 }
             });
@@ -901,7 +950,7 @@ $(document).ready(function($) {
                         opts: opnsFancy,
                     });
                     setTimeout(function(){
-                        $.fancybox.close()
+                        $('#noid').find('.fancybox-close-small').click()
                     }, 5000)
                 }
             });
@@ -913,6 +962,10 @@ $(document).ready(function($) {
         var th = _form.serialize();
         var form_url = _form.attr('action');
         if (_form.hasClass('filtered')) {
+             $('.section-header').removeClass('load');
+                            $('.section-content').removeClass('load');
+                            $('.section-footer').removeClass('load');
+                            $('.loader').fadeIn('slow').css('opacity', '1')
             $.ajax({
                 type: "POST",
                 cache: false,
@@ -922,7 +975,22 @@ $(document).ready(function($) {
                     _form.removeClass('filtered')
                     _form.trigger('reset')
                     $('.table tbody').empty()
-                    $('.table tbody').prepend(data);
+                $tbody = $(data).find('tbody').children()
+                $totalPages = $(data).find('.pagination-list').attr('data-all');
+                // console.log($totalPages)
+                $('.table tbody').prepend($tbody);
+                $('tbody').removeClass('load');
+                if ($totalPages >= 1) {
+                    var currentPage = $pagin.twbsPagination('getCurrentPage');
+                    $pagin.twbsPagination('destroy');
+                    $pagin.twbsPagination($.extend({}, defaultOpts, {
+                      totalPages: $totalPages,
+                }));
+                }
+                    $('.loader').delay(400).fadeOut(800);
+    $('.section-header').delay(600).addClass('load');
+    $('.section-content').delay(600).addClass('load');
+    $('.section-footer').delay(600).addClass('load');
                 },
                 error: function (jqXHR, exception) {
                     $.each(jqXHR.responseJSON.errors, function(index, el) {
@@ -934,7 +1002,8 @@ $(document).ready(function($) {
                         opts: opnsFancy,
                     });
                     setTimeout(function(){
-                        $.fancybox.close()
+                        // $.fancybox.close()
+                        $('#noid').find('.fancybox-close-small').click()
                     }, 5000)
                 }
             });
@@ -968,7 +1037,8 @@ $(document).ready(function($) {
                         opts: opnsFancy,
                     });
                     setTimeout(function(){
-                        $.fancybox.close()
+                        // $.fancybox.close()
+                        $('#noid').find('.fancybox-close-small').click()
                     }, 5000)
                 }
             });
@@ -1038,53 +1108,161 @@ $(document).ready(function($) {
         }
         return B;
     }
-    $pages = $('.pagination-list').attr('data-all')
-    $('.section-header').addClass('load');
-    $('.section-content').addClass('load');
-    $('.section-footer').addClass('load');
-    $('.loader').animate({opacity: '0'}, 800, "linear", function(){$( this ).hide()});
-    $('.pagination-list').twbsPagination({
+    $pages = $('.pagination-list').attr('data-all');
+    $pagin = $('.pagination-list');
+
+
+
+
+    var defaultOpts = {
         totalPages: $pages,
         visiblePages: 3,
-        first: false,
-        last: false,
-        initiateStartPageClick: false,
-        prev: '<svg viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 1.08716L3 8.08716L10 15.0872" stroke="#5B636A" stroke-width="3"/></svg>',
-        next: '<svg viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 1.08716L9 8.08716L2 15.0872" stroke="#1B65B9" stroke-width="3"/></svg>',
-        onPageClick: function(event, page) {
-            $('.section-header').removeClass('load');
-            $('.section-content').removeClass('load');
-            $('.section-footer').removeClass('load');
-            $('.loader').fadeIn('slow').css('opacity', '1')
-            $.ajax({
-                type: "GET",
-                cache: false,
-                url: '?page=' + page,
-                success: function(data) {
-                    $('.table tbody').html('')
-                    $('.table tbody').append(data);
-                    $('tbody').removeClass('load')
-                    $('.section-header').addClass('load');
-                    $('.section-content').addClass('load');
-                    $('.section-footer').addClass('load');
-                    $('.loader').animate({opacity: '0'}, 800, "linear", function(){$( this ).hide()});
+        hideOnlyOnePage: true,
+                        first: false,
+                        last: false,
+                        initiateStartPageClick: false,
+                        prev: '<svg viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 1.08716L3 8.08716L10 15.0872" stroke="#5B636A" stroke-width="3"/></svg>',
+                        next: '<svg viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 1.08716L9 8.08716L2 15.0872" stroke="#1B65B9" stroke-width="3"/></svg>',
+                        onPageClick: function(event, page) {
+                            $urlStr = window.location.search
+                            var checkContainer = [];
+                            $('[name=date_shipping]').val('');
+                            $('.link--changedate').removeClass('active');
+                            $locQue = $urlStr.slice(1)
+
+                            if ($locQue == '') {
+                                $locQue = ''
+                            } else {
+                                $locQue = '&' + $urlStr.slice(1)
+                            }
+                            $('.section-header').removeClass('load');
+                            $('.section-content').removeClass('load');
+                            $('.section-footer').removeClass('load');
+                            $('.loader').fadeIn('slow').css('opacity', '1')
+                            $.ajax({
+                                type: "GET",
+                                cache: false,
+                                url: '?page='+page + $locQue,
+                                success: function(data) {
+                                    $('.table tbody').html('')
+                                    $('.table tbody').append(data);
+                                    $('tbody').removeClass('load')
+                                    $('.loader').delay(400).fadeOut(800);
+    $('.section-header').delay(600).addClass('load');
+    $('.section-content').delay(600).addClass('load');
+    $('.section-footer').delay(600).addClass('load');
+                                }
+                            });
+                        }
+                        };
+    
+    $pagin.twbsPagination(defaultOpts);
+
+    // function callPhone() {
+        // $('.phonenumber').mask('+38 (000) 000-00-00').focus(function(event) {
+        // if ($(this).val() == '') {
+        //     $(this).val('+38 (0')
+        // }
+        // }).blur(function(event) {
+        //     if ($(this).val() == '+38 (0') {
+        //         $(this).val('')
+        //     }
+        // });
+
+        body.on('focus', '.phonenumber', function(event) {
+            event.preventDefault();
+            /* Act on the event */
+            $(this).mask('+38 (000) 000-00-00').focus(function(event) {
+            if ($(this).val() == '') {
+                $(this).val('+38 (0')
+            }
+            }).blur(function(event) {
+                if ($(this).val() == '+38 (0') {
+                    $(this).val('')
                 }
             });
+        });
+        // }
+
+var checkContainer = [];
+
+
+    
+
+$('body').on('change', '[name=datecheck]',  function(event) {
+    event.preventDefault();
+    var tag = $(this).val();
+    var i = checkContainer.indexOf(tag);
+    if ($(this).prop("checked"))  {
+        $(this).parents('tr').addClass('selected')
+        if (i==-1) {
+            checkContainer.push(tag)
         }
-    });
+
+    } else {
+        $(this).parents('tr').removeClass('selected')
+        if (i>-1) { checkContainer.splice(i, 1) }
+    }
+
+    if (checkContainer.length > 0) {
+        $('.link--changedate').addClass('active')
+    } else {
+        $('.link--changedate').removeClass('active')
+    }
+
+// console.log(checkContainer.length)
+
+    $('[name=container_ids]').val(checkContainer.join(", "))
+
+// console.log(checkContainer)
+});
 
 
-    $('.phonenumber').mask('+38 (000) 000-00-00').focus(function(event) {
-        if ($(this).val() == '') {
-            $(this).val('+38 (0')
-        }
-    }).blur(function(event) {
-        if ($(this).val() == '+38 (0') {
-            $(this).val('')
-        }
-    });
+    $('.form-change').submit(function(event) {
+            event.preventDefault();
+            var _form = $(this);
+            var th = _form.serialize();
+            var form_url = _form.attr('action');
+                $newDate = _form.find('[name=date_shipping]').val()
+            $.ajax({
+                type: "POST",
+                cache: false,
+                url: form_url,
+                data: th,
+                success: function(data) {
+                    $.each(checkContainer, function(index, el) {
+                        $('[data-container_id='+el+']').find('.shipping_date').val($newDate).trigger('change')
+                    });
+                    $.fancybox.close();
+                },
+                error: function (jqXHR, exception) {
+                    // console.log(jqXHR)
+                    $.each(jqXHR.responseJSON.errors, function(index, el) {
+                        $('#noid').find('.paragraph--answer').text(el)
+                    });
+                    $.fancybox.open({
+                        src: '#noid',
+                        type: 'inline',
+                        opts: opnsFancy,
+                    });
+                    setTimeout(function(){
+                        $('#noid').find('.fancybox-close-small').click()
+                    }, 5000)
+                }
+            });
+            
+        });
 
-
+// $(window).scroll(function() {
+// var height = $(window).scrollTop();
+//  /*Если сделали скролл на 100px задаём новый класс для header*/
+// if(height > 100){
+// $('header').addClass('header-fixed');
+// } else{
+// /*Если меньше 100px удаляем класс для header*/
+// $('header').removeClass('header-fixed');
+// }
+// });
     
     
 });
