@@ -906,6 +906,8 @@ p.bold { font-weight: 600; }
 
 .form-filter { max-width: 21rem; width: 100%; position: relative; }
 
+.form-filter .custom-select.open input { -webkit-border-bottom-left-radius: 0; border-bottom-left-radius: 0; -webkit-border-bottom-right-radius: 0; border-bottom-right-radius: 0; }
+
 .form-filter .btn { padding: 0; position: absolute; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); right: 1.3rem; width: 1.3rem; height: 1.2rem; }
 
 .form-filter .btn svg { display: block; width: 100%; height: 100%; -webkit-transition: 0.15s ease-in-out; -o-transition: 0.15s ease-in-out; transition: 0.15s ease-in-out; }
@@ -1176,6 +1178,8 @@ p.bold { font-weight: 600; }
 
 .section-content .content-table table tr > td:first-child input { pointer-events: none; }
 
+.section-content .content-table table tr > td:first-child .paragraph--new { right: initial; left: 0; }
+
 .section-content .content-table table tr.view { z-index: 2; }
 
 .section-content .content-table table tr.view.selected td { background: rgba(51, 102, 176, 0.1); }
@@ -1312,7 +1316,7 @@ p.bold { font-weight: 600; }
 
 .section-content .content-table table tr td .paragraph { font-size: .8rem; font-weight: 400; font-family: "Montserrat", sans-serif; line-height: 1rem; color: #000; padding: .3rem .5rem; border: 1px solid transparent; }
 
-.section-content .content-table table tr td .paragraph--new { font-weight: 400; position: absolute; top: 0; left: 0; -webkit-animation: flow 1.5s ease-in-out infinite; animation: flow 1.5s ease-in-out infinite; background: -webkit-gradient(linear, left top, right top, from(#808080), to(#3366b0)); background: -webkit-linear-gradient(left, #808080, #3366b0); background: -o-linear-gradient(left, #808080, #3366b0); background: linear-gradient(to right, #808080, #3366b0); -webkit-background-size: 300% 300%; background-size: 300%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-fill-color: transparent; }
+.section-content .content-table table tr td .paragraph--new { font-weight: 400; position: absolute; top: 0; right: 0; -webkit-animation: flow 1.5s ease-in-out infinite; animation: flow 1.5s ease-in-out infinite; background: -webkit-gradient(linear, left top, right top, from(#808080), to(#3366b0)); background: -webkit-linear-gradient(left, #808080, #3366b0); background: -o-linear-gradient(left, #808080, #3366b0); background: linear-gradient(to right, #808080, #3366b0); -webkit-background-size: 300% 300%; background-size: 300%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-fill-color: transparent; }
 
 .section-content .content-table table tr td .paragraph:focus { background: #fff; border-color: #FF891D; }
 

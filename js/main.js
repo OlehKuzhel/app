@@ -35,7 +35,7 @@ $(document).ready(function($) {
         firstDay: 1
     };
     var $datepickerOpt = {
-        minDate: new Date(),
+        startDate: new Date(),
         language: 'ru',
         autoClose: true,
         offset: 0,
@@ -66,7 +66,7 @@ $(document).ready(function($) {
         }
     }
 
-     $('.shipping_date').on('change', function(event) {
+     $('body').on('change', '.shipping_date', function(event) {
         event.preventDefault();
         $thisVal = $(this).val()
         /* Act on the event */
@@ -156,6 +156,21 @@ $(document).ready(function($) {
                 $customoption.eq(1).addClass('selected')
             });
         }
+    });
+    body.on('change', '.sealine', function(event) {
+        event.preventDefault();
+        $valueField = $(this).attr('data-valuefield')
+        $valueThis = $(this).val()
+        $inputs = $(this).parents('tr').nextUntil('.view').find('[name=morlin]')
+        $(this).val($valueThis)
+        $(this).attr('title', $valueThis)
+        $.each($inputs, function(index, el) {
+            $(el).attr('data-valuefield', $valueField)
+            $(el).val($valueThis)
+            $customoption = $(el).parents('.custom-select-wrapper').find('.custom-option')
+            $customoption.removeClass('selected')
+            $(el).parents('.custom-select-wrapper').find('[data-value=' + $valueField + ']').addClass('selected')
+        });
     });
     body.on('change', '.relz_yn', function(event) {
         event.preventDefault();
@@ -495,7 +510,7 @@ $(document).ready(function($) {
         }
         
         
-        console.log()
+        // console.log()
         if ($(this).hasClass('active')) {
             $tr.nextUntil('.view').children('td').show();
             $.ajax({
@@ -504,15 +519,13 @@ $(document).ready(function($) {
                 url: $trUrl,
                 success: function(data) {
                     $dataJson = JSON.parse(data)
-
                     $.each($dataJson, function(index, el) {
                         $balanceInp = $('[data-only_vin_id='+el.id+']').find('td.td-balance')
+                        $('[data-only_vin_id='+el.id+']').addClass(el.color)
                         $balanceInp.addClass('load')
                         $balanceInp.find('input').val(el.balance)
-                        if (el.balance == 0) {
-                            $('[data-only_vin_id='+el.id+']').addClass('forestgreen')
-                        }
                     });
+
                     
                 },
             });
@@ -870,16 +883,15 @@ $(document).ready(function($) {
             
         });
     
-    $('.content-top__container').submit(function(event) {
+    $('.form-filter').submit(function(event) {
         var _form = $(this);
         var th = _form.serialize();
-        var form_url = _form.attr('action');
+        var form_url = _form.attr('data-url');
         if (_form.hasClass('filtered')) {
             $('.section-header').removeClass('load');
-                            $('.section-content').removeClass('load');
-                            $('.section-footer').removeClass('load');
-                            $('.loader').fadeIn('slow').css('opacity', '1')
-            
+            $('.section-content').removeClass('load');
+            $('.section-footer').removeClass('load');
+            $('.loader').fadeIn('slow').css('opacity', '1')
             $.ajax({
                 type: "POST",
                 cache: false,
@@ -924,7 +936,7 @@ $(document).ready(function($) {
             $.ajax({
                 type: "POST",
                 cache: false,
-                url: 'containers/find_container',
+                url: form_url,
                 data: th,
                 success: function(data) {
                     if (data == '0') {
@@ -957,94 +969,94 @@ $(document).ready(function($) {
         }
         event.preventDefault();
     });
-    $('.content-top__vin').submit(function(event) {
-        var _form = $(this);
-        var th = _form.serialize();
-        var form_url = _form.attr('action');
-        if (_form.hasClass('filtered')) {
-             $('.section-header').removeClass('load');
-                            $('.section-content').removeClass('load');
-                            $('.section-footer').removeClass('load');
-                            $('.loader').fadeIn('slow').css('opacity', '1')
-            $.ajax({
-                type: "POST",
-                cache: false,
-                url: 'containers/reset',
-                data: th,
-                success: function(data) {
-                    _form.removeClass('filtered')
-                    _form.trigger('reset')
-                    $('.table tbody').empty()
-                $tbody = $(data).find('tbody').children()
-                $totalPages = $(data).find('.pagination-list').attr('data-all');
-                // console.log($totalPages)
-                $('.table tbody').prepend($tbody);
-                $('tbody').removeClass('load');
-                if ($totalPages >= 1) {
-                    var currentPage = $pagin.twbsPagination('getCurrentPage');
-                    $pagin.twbsPagination('destroy');
-                    $pagin.twbsPagination($.extend({}, defaultOpts, {
-                      totalPages: $totalPages,
-                }));
-                }
-                    $('.loader').delay(400).fadeOut(800);
-    $('.section-header').delay(600).addClass('load');
-    $('.section-content').delay(600).addClass('load');
-    $('.section-footer').delay(600).addClass('load');
-                },
-                error: function (jqXHR, exception) {
-                    $.each(jqXHR.responseJSON.errors, function(index, el) {
-                        $('#noid').find('.paragraph--answer').text(el)
-                    });
-                    $.fancybox.open({
-                        src: '#noid',
-                        type: 'inline',
-                        opts: opnsFancy,
-                    });
-                    setTimeout(function(){
-                        // $.fancybox.close()
-                        $('#noid').find('.fancybox-close-small').click()
-                    }, 5000)
-                }
-            });
-        } else {
-            $.ajax({
-                type: "POST",
-                cache: false,
-                url: 'containers/find_vin',
-                data: th,
-                success: function(data) {
-                    if (data == '0') {
-                        $.fancybox.open({
-                            src: '#noid',
-                            type: 'inline',
-                            opts: opnsFancy,
-                        });
-                        _form.trigger('reset')
-                    } else {
-                        _form.addClass('filtered')
-                        $('.table tbody').empty()
-                        $('.table tbody').prepend(data);
-                    }
-                },
-                error: function (jqXHR, exception) {
-                    $.each(jqXHR.responseJSON.errors, function(index, el) {
-                        $('#noid').find('.paragraph--answer').text(el)
-                    });
-                    $.fancybox.open({
-                        src: '#noid',
-                        type: 'inline',
-                        opts: opnsFancy,
-                    });
-                    setTimeout(function(){
-                        // $.fancybox.close()
-                        $('#noid').find('.fancybox-close-small').click()
-                    }, 5000)
-                }
-            });
-        }
-        event.preventDefault();
-    });
+    // $('.content-top__vin').submit(function(event) {
+    //     var _form = $(this);
+    //     var th = _form.serialize();
+    //     var form_url = _form.attr('action');
+    //     if (_form.hasClass('filtered')) {
+    //          $('.section-header').removeClass('load');
+    //                         $('.section-content').removeClass('load');
+    //                         $('.section-footer').removeClass('load');
+    //                         $('.loader').fadeIn('slow').css('opacity', '1')
+    //         $.ajax({
+    //             type: "POST",
+    //             cache: false,
+    //             url: 'containers/reset',
+    //             data: th,
+    //             success: function(data) {
+    //                 _form.removeClass('filtered')
+    //                 _form.trigger('reset')
+    //                 $('.table tbody').empty()
+    //             $tbody = $(data).find('tbody').children()
+    //             $totalPages = $(data).find('.pagination-list').attr('data-all');
+    //             // console.log($totalPages)
+    //             $('.table tbody').prepend($tbody);
+    //             $('tbody').removeClass('load');
+    //             if ($totalPages >= 1) {
+    //                 var currentPage = $pagin.twbsPagination('getCurrentPage');
+    //                 $pagin.twbsPagination('destroy');
+    //                 $pagin.twbsPagination($.extend({}, defaultOpts, {
+    //                   totalPages: $totalPages,
+    //             }));
+    //             }
+    //                 $('.loader').delay(400).fadeOut(800);
+    // $('.section-header').delay(600).addClass('load');
+    // $('.section-content').delay(600).addClass('load');
+    // $('.section-footer').delay(600).addClass('load');
+    //             },
+    //             error: function (jqXHR, exception) {
+    //                 $.each(jqXHR.responseJSON.errors, function(index, el) {
+    //                     $('#noid').find('.paragraph--answer').text(el)
+    //                 });
+    //                 $.fancybox.open({
+    //                     src: '#noid',
+    //                     type: 'inline',
+    //                     opts: opnsFancy,
+    //                 });
+    //                 setTimeout(function(){
+    //                     // $.fancybox.close()
+    //                     $('#noid').find('.fancybox-close-small').click()
+    //                 }, 5000)
+    //             }
+    //         });
+    //     } else {
+    //         $.ajax({
+    //             type: "POST",
+    //             cache: false,
+    //             url: 'containers/find_vin',
+    //             data: th,
+    //             success: function(data) {
+    //                 if (data == '0') {
+    //                     $.fancybox.open({
+    //                         src: '#noid',
+    //                         type: 'inline',
+    //                         opts: opnsFancy,
+    //                     });
+    //                     _form.trigger('reset')
+    //                 } else {
+    //                     _form.addClass('filtered')
+    //                     $('.table tbody').empty()
+    //                     $('.table tbody').prepend(data);
+    //                 }
+    //             },
+    //             error: function (jqXHR, exception) {
+    //                 $.each(jqXHR.responseJSON.errors, function(index, el) {
+    //                     $('#noid').find('.paragraph--answer').text(el)
+    //                 });
+    //                 $.fancybox.open({
+    //                     src: '#noid',
+    //                     type: 'inline',
+    //                     opts: opnsFancy,
+    //                 });
+    //                 setTimeout(function(){
+    //                     // $.fancybox.close()
+    //                     $('#noid').find('.fancybox-close-small').click()
+    //                 }, 5000)
+    //             }
+    //         });
+    //     }
+    //     event.preventDefault();
+    // });
     $('.filter-head').on('click', 'a', function(event) {
         event.preventDefault();
         $('.filter').not($(this).parents('.filter')).removeClass('open')
@@ -1090,8 +1102,8 @@ $(document).ready(function($) {
             row = parseInt($(row).attr('data-vin_id'))
             row = '[data-container_id=' + row + ']'
         }
-        $trFoldVal = $(row).find('td:nth-child(1) input.field--edit').val()
-        $trFold = $(row).nextUntil('.view').find('td:nth-child(1)').find('input.field--edit')
+        $trFoldVal = $(row).find('td:nth-child(1) input[name=container_number]').val()
+        $trFold = $(row).nextUntil('.view').find('td:nth-child(1)').find('input[name=container_number]')
         $.each($trFold, function(index, val) {
             $(val).val($trFoldVal);
         });
